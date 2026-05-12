@@ -1,0 +1,26 @@
+Contest ID,Bug ID,Bug Label,Difficulty,Bug Description,S5 Type,Vulnerability Pattern,Contract/Function,Report Link
+5,H-10,S5-3,1,Anyone can list anchors / curate tokens,S5-3 - Privileged callable,Missing access control,Router.listAnchor(),https://github.com/code-423n4/2021-04-vader-findings/issues/211
+5,H-14,S5-3,1,Missing access restriction on lockUnits/unlockUnits,S5-3 - Privileged callable,Missing access control,Multiple functions,https://code4rena.com/reports/2021-04-vader
+5,H-21,S5-3,1,Anyone Can Avoid All Vether Transfer Fees,S5-3 - Privileged callable,Missing access control,Vether.addExcluded(),https://github.com/code-423n4/2021-04-vader-findings/issues/189
+5,H-23,S5-3,1,Anyone can curate pools and steal rewards,S5-3 - Privileged callable,Missing access control + Flash loan,Router.curatePool(),https://github.com/code-423n4/2021-04-vader-findings/issues/210
+13,H-03,S5-3,4,anyone can call function sponsor,S5-3 - Privileged callable,Missing access control,RCTreasury.sponsor(),https://code4rena.com/reports/2021-06-realitycards
+13,H-04,S5-1,1,Anyone can affect deposits of any user and turn owner,S5-1 - State variable update,Parameter abuse,RCTreasury.collectRentUser(),https://code4rena.com/reports/2021-06-realitycards
+17,H-03,S5-3,3,Incorrect use of operator leads to arbitrary minting,S5-3 - Privileged callable,Missing access control,GVT minting,https://code4rena.com/reports/2021-06-gro
+42,H-08,S5-1,2,Anyone can extend withdraw wait period,S5-1 - State variable update,Time-based abuse,Deposit function,https://code4rena.com/reports/2021-10-mochi
+52,H-13,S5-3,1,Anyone Can Arbitrarily Mint Synthetic Assets,S5-3 - Privileged callable,Missing access control,VaderPoolV2.mintSynth(),https://code4rena.com/reports/2021-11-vader
+52,H-14,S5-3,1,Anyone Can Arbitrarily Mint Fungible Tokens,S5-3 - Privileged callable,Missing access control,VaderPoolV2.mintFungible(),https://code4rena.com/reports/2021-11-vader
+55,H-01,S5-3,1,makePayment() Lack of access control,S5-3 - Privileged callable,Missing access control,Maple.makePayment(),https://code4rena.com/reports/2021-12-maple
+61,H-06,S5-3,1,Anyone can liquidate credit line,S5-3 - Privileged callable,Missing access control,Liquidation function,https://code4rena.com/reports/2021-12-sublime
+64,H-03,S5-2,6,Continue claiming rewards after numberOfEpochs,S5-2 - Timing violation,Temporal access issue,PoolTogether claim function,https://code4rena.com/reports/2021-12-pooltogether
+66,H-01,S5-3,3,receiveCollateral() can be called by anyone,S5-3 - Privileged callable,Missing access control,YetiFinance.receiveCollateral(),https://code4rena.com/reports/2021-12-yetifinance
+71,H-12,S5-2,2,Wrong implementation allows LP pool resumption,S5-2 - Timing violation,Function callable at wrong time,IndexTemplate.sol,https://code4rena.com/reports/2022-01-insure
+74,H-01,S5-1,1,borrow() allows pool.state.z manipulation,S5-1 - State variable update,State corruption,TimeswapPair.borrow(),https://code4rena.com/reports/2022-01-timeswap
+74,H-02,S5-1,1,borrowGivenDebt() state.y manipulation,S5-1 - State variable update,State corruption,TimeswapConvenience.borrowGivenDebt(),https://code4rena.com/reports/2022-01-timeswap
+74,H-03,S5-1,4,Manipulation of Y State manipulation,S5-1 - State variable update,Interest rate manipulation,Timeswap state,https://code4rena.com/reports/2022-01-timeswap
+78,H-01,S5-1,3,Lack of access control assertGovernanceApproved,S5-1 - State variable update,Missing access control,Behodler.assertGovernanceApproved(),https://code4rena.com/reports/2022-01-behodler
+83,H-03,S5-2,19,Repeated Shelter.withdraw Can Drain Funds,S5-2 - Timing violation,Reentrancy-like issue,Concur.Shelter.withdraw(),https://code4rena.com/reports/2022-02-concur
+104,H-02,S5-3,10,Splitter incrementWindow steal tokens,S5-3 - Privileged callable,Missing access control,JOYN.Splitter.incrementWindow(),https://code4rena.com/reports/2022-03-joyn
+104,H-04,S5-3,12,CoreCollection can be reinitialized,S5-3 - Privileged callable,Missing initialization guard,JOYN.CoreCollection,https://code4rena.com/reports/2022-03-joyn
+113,H-04,S5-2,7,Lender seize collateral by changing parameters,S5-2 - Timing violation,Parameter abuse at wrong time,AbraNFT loan,https://code4rena.com/reports/2022-04-abranft
+123,H-01,S5-1,1,User can forfeit other user rewards,S5-1 - State variable update,Missing access check,Aura reward function,https://code4rena.com/reports/2022-05-aura
+192,H-05,S5-1,6,Malicious user steal BondNFT assets,S5-1 - State variable update,Missing access control,Tigris.BondNFT,https://code4rena.com/reports/2022-12-tigris
