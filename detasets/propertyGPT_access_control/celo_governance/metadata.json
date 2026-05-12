@@ -1,0 +1,461 @@
+{
+  "project": "celo_governance",
+  "generated_at": "2026-05-12T16:36:54.855775Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "onlyGuardian": [
+      "onlyGuardian"
+    ],
+    "auth_modifier": [
+      "owner",
+      "Owner",
+      "Guard"
+    ]
+  },
+  "ac_contracts_count": 34,
+  "ac_specs_count": 7,
+  "other_specs_count": 3,
+  "total_sol_files_in_project": 174,
+  "total_spec_files_in_project": 10,
+  "contracts": [
+    {
+      "file": "contracts\\common\\Accounts.sol",
+      "size_bytes": 45311,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\FeeCurrencyWhitelist.sol",
+      "size_bytes": 2530,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\FeeHandler.sol",
+      "size_bytes": 20348,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\FeeHandlerSeller.sol",
+      "size_bytes": 3717,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\Freezer.sol",
+      "size_bytes": 1065,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\GoldToken.sol",
+      "size_bytes": 10238,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\MentoFeeHandlerSeller.sol",
+      "size_bytes": 3137,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\MetaTransactionWallet.sol",
+      "size_bytes": 12008,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "onlyGuardian": [
+          "onlyGuardian"
+        ],
+        "auth_modifier": [
+          "Guard"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\MultiSig.sol",
+      "size_bytes": 13972,
+      "patterns": {
+        "auth_modifier": [
+          "owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\Proxy.sol",
+      "size_bytes": 5523,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\ProxyCloneFactory.sol",
+      "size_bytes": 2941,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\Registry.sol",
+      "size_bytes": 3765,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\UniswapFeeHandlerSeller.sol",
+      "size_bytes": 7738,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\UsingRegistry.sol",
+      "size_bytes": 5609,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\common\\UsingRegistryV2.sol",
+      "size_bytes": 7229,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts-0.8\\common\\GasPriceMinimum.sol",
+      "size_bytes": 8912,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts-0.8\\common\\UsingRegistry.sol",
+      "size_bytes": 3116,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\BlockchainParameters.sol",
+      "size_bytes": 4420,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\DowntimeSlasher.sol",
+      "size_bytes": 12737,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\Election.sol",
+      "size_bytes": 48381,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\EpochRewards.sol",
+      "size_bytes": 23692,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\Governance.sol",
+      "size_bytes": 63587,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\GovernanceSlasher.sol",
+      "size_bytes": 2774,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\LockedGold.sol",
+      "size_bytes": 35771,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\ReleaseGold.sol",
+      "size_bytes": 32762,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\SlasherUtil.sol",
+      "size_bytes": 3394,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\Validators.sol",
+      "size_bytes": 59556,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\identity\\Attestations.sol",
+      "size_bytes": 20968,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\identity\\Escrow.sol",
+      "size_bytes": 22824,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\identity\\FederatedAttestations.sol",
+      "size_bytes": 19827,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\identity\\OdisPayments.sol",
+      "size_bytes": 2540,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\identity\\Random.sol",
+      "size_bytes": 7640,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\identity\\interfaces\\IEscrow.sol",
+      "size_bytes": 1317,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\stability\\SortedOracles.sol",
+      "size_bytes": 14274,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\accounts.spec",
+      "size_bytes": 17980
+    },
+    {
+      "file": "specs\\accountsPrivileged.spec",
+      "size_bytes": 2592
+    },
+    {
+      "file": "specs\\goverance_with_dequeue.spec",
+      "size_bytes": 3234
+    },
+    {
+      "file": "specs\\governance-referendumVotes.spec",
+      "size_bytes": 1150
+    },
+    {
+      "file": "specs\\governance.spec",
+      "size_bytes": 14115
+    },
+    {
+      "file": "specs\\governancePrivileged.spec",
+      "size_bytes": 1605
+    },
+    {
+      "file": "specs\\governance_old_rules.spec",
+      "size_bytes": 4431
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\lockedGold.spec",
+      "size_bytes": 7642
+    },
+    {
+      "file": "specs\\locked_gold_linked.spec",
+      "size_bytes": 1493
+    },
+    {
+      "file": "specs\\reserve.spec",
+      "size_bytes": 731
+    }
+  ]
+}

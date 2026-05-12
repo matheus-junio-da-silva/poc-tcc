@@ -1,0 +1,107 @@
+{
+  "project": "gho-core",
+  "generated_at": "2026-05-12T16:36:55.177552Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Admin"
+    ],
+    "AccessControl_OZ": [
+      "AccessControl"
+    ],
+    "onlyRole": [
+      "onlyRole"
+    ],
+    "ROLE_constant": [
+      "DEFAULT_ADMIN_ROLE"
+    ]
+  },
+  "ac_contracts_count": 3,
+  "ac_specs_count": 3,
+  "other_specs_count": 6,
+  "total_sol_files_in_project": 22,
+  "total_spec_files_in_project": 9,
+  "contracts": [
+    {
+      "file": "facilitators\\aave\\misc\\GhoManager.sol",
+      "size_bytes": 1652,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "facilitators\\flashMinter\\GhoFlashMinter.sol",
+      "size_bytes": 5736,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "gho\\GhoToken.sol",
+      "size_bytes": 4889,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "flashMinter.spec",
+      "size_bytes": 6120
+    },
+    {
+      "file": "ghoAToken.spec",
+      "size_bytes": 4359
+    },
+    {
+      "file": "ghoVariableDebtToken.spec",
+      "size_bytes": 24604
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "erc20.spec",
+      "size_bytes": 761
+    },
+    {
+      "file": "ghoDiscountRateStrategy.spec",
+      "size_bytes": 697
+    },
+    {
+      "file": "ghoToken.spec",
+      "size_bytes": 15453
+    },
+    {
+      "file": "set.spec",
+      "size_bytes": 12064
+    },
+    {
+      "file": "summarizations.spec",
+      "size_bytes": 807
+    },
+    {
+      "file": "VariableDebtToken.spec",
+      "size_bytes": 15410
+    }
+  ]
+}

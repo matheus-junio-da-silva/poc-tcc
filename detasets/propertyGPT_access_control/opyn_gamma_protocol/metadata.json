@@ -1,0 +1,171 @@
+{
+  "project": "opyn_gamma_protocol",
+  "generated_at": "2026-05-12T16:36:56.121021Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Auth",
+      "Owner"
+    ]
+  },
+  "ac_contracts_count": 10,
+  "ac_specs_count": 5,
+  "other_specs_count": 1,
+  "total_sol_files_in_project": 102,
+  "total_spec_files_in_project": 6,
+  "contracts": [
+    {
+      "file": "contracts\\core\\AddressBook.sol",
+      "size_bytes": 7187,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\core\\BorrowableMarginPool.sol",
+      "size_bytes": 15816,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\core\\Controller.sol",
+      "size_bytes": 47227,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Auth"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\core\\MarginCalculator.sol",
+      "size_bytes": 54416,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\core\\MarginPool.sol",
+      "size_bytes": 6902,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\core\\Oracle.sol",
+      "size_bytes": 13697,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\core\\Whitelist.sol",
+      "size_bytes": 9306,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\packages\\oz\\Ownable.sol",
+      "size_bytes": 2324,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\packages\\oz\\upgradeability\\OwnableUpgradeSafe.sol",
+      "size_bytes": 2616,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\packages\\oz\\upgradeability\\OwnedUpgradeabilityProxy.sol",
+      "size_bytes": 3287,
+      "patterns": {
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\controller.spec",
+      "size_bytes": 8442
+    },
+    {
+      "file": "specs\\ControllerOrderOfOperations.spec",
+      "size_bytes": 1063
+    },
+    {
+      "file": "specs\\NoBankruptcy.spec",
+      "size_bytes": 30957
+    },
+    {
+      "file": "specs\\Privileged.spec",
+      "size_bytes": 1189
+    },
+    {
+      "file": "specs\\ValidBalances.spec",
+      "size_bytes": 17609
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\MarginVault.spec",
+      "size_bytes": 10928
+    }
+  ]
+}

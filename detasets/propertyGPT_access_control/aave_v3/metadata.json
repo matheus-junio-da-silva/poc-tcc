@@ -1,0 +1,324 @@
+{
+  "project": "aave_v3",
+  "generated_at": "2026-05-12T16:36:54.518724Z",
+  "access_control_patterns_found": {
+    "AccessControl_OZ": [
+      "AccessControl"
+    ],
+    "onlyRole": [
+      "onlyRole"
+    ],
+    "hasRole": [
+      "hasRole"
+    ],
+    "grantRole": [
+      "grantRole"
+    ],
+    "revokeRole": [
+      "revokeRole"
+    ],
+    "ROLE_constant": [
+      "EMERGENCY_ADMIN_ROLE",
+      "BRIDGE_ROLE",
+      "FLASH_BORROWER_ROLE",
+      "ASSET_LISTING_ADMIN_ROLE",
+      "RISK_ADMIN_ROLE",
+      "DEFAULT_ADMIN_ROLE",
+      "MY_ROLE",
+      "ISOLATED_COLLATERAL_SUPPLIER_ROLE",
+      "POOL_ADMIN_ROLE"
+    ],
+    "AccessControlEnumerable": [
+      "AccessControlEnumerable"
+    ],
+    "Managed_contract": [
+      "managed"
+    ],
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Owner",
+      "Admin"
+    ]
+  },
+  "ac_contracts_count": 17,
+  "ac_specs_count": 2,
+  "other_specs_count": 4,
+  "total_sol_files_in_project": 124,
+  "total_spec_files_in_project": 6,
+  "contracts": [
+    {
+      "file": "contracts\\dependencies\\openzeppelin\\contracts\\AccessControl.sol",
+      "size_bytes": 6809,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "MY_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\dependencies\\openzeppelin\\contracts\\IAccessControl.sol",
+      "size_bytes": 2824,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\dependencies\\openzeppelin\\contracts\\Ownable.sol",
+      "size_bytes": 2173,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\dependencies\\openzeppelin\\upgradeability\\BaseAdminUpgradeabilityProxy.sol",
+      "size_bytes": 3972,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\deployments\\ReservesSetupHelper.sol",
+      "size_bytes": 2323,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\interfaces\\IACLManager.sol",
+      "size_bytes": 5638,
+      "patterns": {
+        "ROLE_constant": [
+          "EMERGENCY_ADMIN_ROLE",
+          "BRIDGE_ROLE",
+          "FLASH_BORROWER_ROLE",
+          "ASSET_LISTING_ADMIN_ROLE",
+          "RISK_ADMIN_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "POOL_ADMIN_ROLE"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\misc\\AaveOracle.sol",
+      "size_bytes": 5213,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\oracle\\SequencerOracle.sol",
+      "size_bytes": 1233,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\configuration\\ACLManager.sol",
+      "size_bytes": 4524,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "EMERGENCY_ADMIN_ROLE",
+          "BRIDGE_ROLE",
+          "FLASH_BORROWER_ROLE",
+          "ASSET_LISTING_ADMIN_ROLE",
+          "RISK_ADMIN_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "POOL_ADMIN_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\configuration\\PoolAddressesProvider.sol",
+      "size_bytes": 8507,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\configuration\\PoolAddressesProviderRegistry.sol",
+      "size_bytes": 4200,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\configuration\\PriceOracleSentinel.sol",
+      "size_bytes": 3598,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\libraries\\aave-upgradeability\\BaseImmutableAdminUpgradeabilityProxy.sol",
+      "size_bytes": 2855,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\libraries\\logic\\ValidationLogic.sol",
+      "size_bytes": 30145,
+      "patterns": {
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "ISOLATED_COLLATERAL_SUPPLIER_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\pool\\Pool.sol",
+      "size_bytes": 22019,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\pool\\PoolConfigurator.sol",
+      "size_bytes": 19951,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\tokenization\\base\\IncentivizedERC20.sol",
+      "size_bytes": 8245,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\AToken.spec",
+      "size_bytes": 12287
+    },
+    {
+      "file": "specs\\pool.spec",
+      "size_bytes": 8467
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\ReserveConfiguration.spec",
+      "size_bytes": 8166
+    },
+    {
+      "file": "specs\\StableDebtToken.spec",
+      "size_bytes": 11351
+    },
+    {
+      "file": "specs\\UserConfiguration.spec",
+      "size_bytes": 8002
+    },
+    {
+      "file": "specs\\VariableDebtToken.spec",
+      "size_bytes": 9460
+    }
+  ]
+}

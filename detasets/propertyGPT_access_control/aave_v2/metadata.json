@@ -1,0 +1,221 @@
+{
+  "project": "aave_v2",
+  "generated_at": "2026-05-12T16:36:54.265955Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Owner",
+      "Admin"
+    ],
+    "Managed_contract": [
+      "managed"
+    ]
+  },
+  "ac_contracts_count": 16,
+  "ac_specs_count": 0,
+  "other_specs_count": 3,
+  "total_sol_files_in_project": 124,
+  "total_spec_files_in_project": 3,
+  "contracts": [
+    {
+      "file": "contracts\\adapters\\BaseParaSwapAdapter.sol",
+      "size_bytes": 4219,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\adapters\\BaseUniswapAdapter.sol",
+      "size_bytes": 19842,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\dependencies\\openzeppelin\\contracts\\Ownable.sol",
+      "size_bytes": 2182,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\dependencies\\openzeppelin\\upgradeability\\BaseAdminUpgradeabilityProxy.sol",
+      "size_bytes": 3975,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\deployments\\ATokensAndRatesHelper.sol",
+      "size_bytes": 2828,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\deployments\\StableAndVariableTokensHelper.sol",
+      "size_bytes": 1915,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\misc\\AaveOracle.sol",
+      "size_bytes": 5279,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\misc\\WETHGateway.sol",
+      "size_bytes": 6993,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\oracle\\LendingRateOracle.sol",
+      "size_bytes": 903,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\swap\\MockParaSwapTokenTransferProxy.sol",
+      "size_bytes": 501,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\configuration\\LendingPoolAddressesProvider.sol",
+      "size_bytes": 8312,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\configuration\\LendingPoolAddressesProviderRegistry.sol",
+      "size_bytes": 3308,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\lendingpool\\LendingPoolConfigurator.sol",
+      "size_bytes": 16777,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\libraries\\aave-upgradeability\\BaseImmutableAdminUpgradeabilityProxy.sol",
+      "size_bytes": 2616,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\tokenization\\AToken.sol",
+      "size_bytes": 13620,
+      "patterns": {
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\protocol\\tokenization\\DelegationAwareAToken.sol",
+      "size_bytes": 1057,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [],
+  "other_specs": [
+    {
+      "file": "specs\\StableDebtToken.spec",
+      "size_bytes": 5667
+    },
+    {
+      "file": "specs\\UserConfiguration.spec",
+      "size_bytes": 2464
+    },
+    {
+      "file": "specs\\VariableDebtToken.spec",
+      "size_bytes": 5865
+    }
+  ]
+}

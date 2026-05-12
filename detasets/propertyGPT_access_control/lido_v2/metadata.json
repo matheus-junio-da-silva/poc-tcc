@@ -1,0 +1,373 @@
+{
+  "project": "lido_v2",
+  "generated_at": "2026-05-12T16:36:55.384947Z",
+  "access_control_patterns_found": {
+    "onlyRole": [
+      "onlyRole"
+    ],
+    "ROLE_constant": [
+      "REQUEST_BURN_SHARES_ROLE",
+      "SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE",
+      "MY_ROLE",
+      "MANAGE_CONSENSUS_VERSION_ROLE",
+      "ORACLE_ROLE",
+      "STAKING_MODULE_MANAGE_ROLE",
+      "MANAGE_MEMBERS_AND_QUORUM_ROLE",
+      "MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE",
+      "REQUEST_BURN_MY_STETH_ROLE",
+      "ALL_LIMITS_MANAGER_ROLE",
+      "STAKING_MODULE_RESUME_ROLE",
+      "MANAGE_FAST_LANE_CONFIG_ROLE",
+      "MANAGE_WITHDRAWAL_CREDENTIALS_ROLE",
+      "RESUME_ROLE",
+      "MANAGE_CONSENSUS_CONTRACT_ROLE",
+      "REPORT_REWARDS_MINTED_ROLE",
+      "MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE",
+      "STAKING_MODULE_PAUSE_ROLE",
+      "ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE",
+      "MANAGE_TOKEN_URI_ROLE",
+      "MANAGE_FRAME_CONFIG_ROLE",
+      "MANAGE_REPORT_PROCESSOR_ROLE",
+      "ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE",
+      "CONFIG_MANAGER_ROLE",
+      "FINALIZE_ROLE",
+      "MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE",
+      "DISABLE_CONSENSUS_ROLE",
+      "DEFAULT_ADMIN_ROLE",
+      "SUBMIT_DATA_ROLE",
+      "MANAGE_QUORUM_ROLE",
+      "REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE",
+      "REPORT_EXITED_VALIDATORS_ROLE",
+      "PAUSE_ROLE",
+      "MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE",
+      "UNSAFE_SET_EXITED_VALIDATORS_ROLE",
+      "CHURN_VALIDATORS_PER_DAY_LIMIT_MANGER_ROLE",
+      "RECOVER_ASSETS_ROLE"
+    ],
+    "AccessControlEnumerable": [
+      "AccessControlEnumerable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Owner",
+      "Admin"
+    ],
+    "AccessControl_OZ": [
+      "AccessControl"
+    ],
+    "hasRole": [
+      "hasRole"
+    ],
+    "onlyAdmin": [
+      "onlyAdmin"
+    ],
+    "grantRole": [
+      "grantRole"
+    ],
+    "revokeRole": [
+      "revokeRole"
+    ],
+    "Managed_contract": [
+      "managed"
+    ]
+  },
+  "ac_contracts_count": 16,
+  "ac_specs_count": 0,
+  "other_specs_count": 1,
+  "total_sol_files_in_project": 57,
+  "total_spec_files_in_project": 1,
+  "contracts": [
+    {
+      "file": "0.8.9\\Burner.sol",
+      "size_bytes": 15306,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "RECOVER_ASSETS_ROLE",
+          "REQUEST_BURN_MY_STETH_ROLE",
+          "REQUEST_BURN_SHARES_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\DepositSecurityModule.sol",
+      "size_bytes": 17186,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\OracleDaemonConfig.sol",
+      "size_bytes": 2691,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "CONFIG_MANAGER_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\StakingRouter.sol",
+      "size_bytes": 64400,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "STAKING_MODULE_RESUME_ROLE",
+          "MANAGE_WITHDRAWAL_CREDENTIALS_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "REPORT_EXITED_VALIDATORS_ROLE",
+          "REPORT_REWARDS_MINTED_ROLE",
+          "UNSAFE_SET_EXITED_VALIDATORS_ROLE",
+          "STAKING_MODULE_PAUSE_ROLE",
+          "STAKING_MODULE_MANAGE_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\WithdrawalQueue.sol",
+      "size_bytes": 20076,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "RESUME_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "PAUSE_ROLE",
+          "ORACLE_ROLE",
+          "FINALIZE_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\WithdrawalQueueERC721.sol",
+      "size_bytes": 15173,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "MANAGE_TOKEN_URI_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\oracle\\AccountingOracle.sol",
+      "size_bytes": 36398,
+      "patterns": {
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "SUBMIT_DATA_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\oracle\\BaseOracle.sol",
+      "size_bytes": 14013,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "MANAGE_CONSENSUS_VERSION_ROLE",
+          "MANAGE_CONSENSUS_CONTRACT_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\oracle\\HashConsensus.sol",
+      "size_bytes": 41880,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "MANAGE_FAST_LANE_CONFIG_ROLE",
+          "MANAGE_REPORT_PROCESSOR_ROLE",
+          "DISABLE_CONSENSUS_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "MANAGE_QUORUM_ROLE",
+          "MANAGE_MEMBERS_AND_QUORUM_ROLE",
+          "MANAGE_FRAME_CONFIG_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\oracle\\ValidatorsExitBusOracle.sol",
+      "size_bytes": 18420,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "SUBMIT_DATA_ROLE",
+          "PAUSE_ROLE",
+          "RESUME_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\proxy\\OssifiableProxy.sol",
+      "size_bytes": 3610,
+      "patterns": {
+        "onlyAdmin": [
+          "onlyAdmin"
+        ],
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\sanity_checks\\OracleReportSanityChecker.sol",
+      "size_bytes": 39939,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "ONE_OFF_CL_BALANCE_DECREASE_LIMIT_MANAGER_ROLE",
+          "MAX_ACCOUNTING_EXTRA_DATA_LIST_ITEMS_COUNT_ROLE",
+          "REQUEST_TIMESTAMP_MARGIN_MANAGER_ROLE",
+          "SHARE_RATE_DEVIATION_LIMIT_MANAGER_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "MAX_NODE_OPERATORS_PER_EXTRA_DATA_ITEM_COUNT_ROLE",
+          "MAX_POSITIVE_TOKEN_REBASE_MANAGER_ROLE",
+          "ANNUAL_BALANCE_INCREASE_LIMIT_MANAGER_ROLE",
+          "CHURN_VALIDATORS_PER_DAY_LIMIT_MANGER_ROLE",
+          "MAX_VALIDATOR_EXIT_REQUESTS_PER_REPORT_ROLE",
+          "ALL_LIMITS_MANAGER_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\test_helpers\\AccessControlEnumerableMock.sol",
+      "size_bytes": 768,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\test_helpers\\oracle\\BaseOracleTimeTravellable.sol",
+      "size_bytes": 2953,
+      "patterns": {
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\utils\\access\\AccessControl.sol",
+      "size_bytes": 8316,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "MY_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "0.8.9\\utils\\access\\AccessControlEnumerable.sol",
+      "size_bytes": 3147,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [],
+  "other_specs": [
+    {
+      "file": "specs\\DSM.spec",
+      "size_bytes": 2215
+    }
+  ]
+}

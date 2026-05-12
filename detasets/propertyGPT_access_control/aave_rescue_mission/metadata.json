@@ -1,0 +1,42 @@
+{
+  "project": "aave_rescue_mission",
+  "generated_at": "2026-05-12T16:36:53.956069Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ]
+  },
+  "ac_contracts_count": 1,
+  "ac_specs_count": 0,
+  "other_specs_count": 2,
+  "total_sol_files_in_project": 13,
+  "total_spec_files_in_project": 2,
+  "contracts": [
+    {
+      "file": "contracts\\AaveMerkleDistributor.sol",
+      "size_bytes": 4818,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [],
+  "other_specs": [
+    {
+      "file": "specs\\rescueLendMigrator.spec",
+      "size_bytes": 2537
+    },
+    {
+      "file": "specs\\rescueSTKAAVE.spec",
+      "size_bytes": 662
+    }
+  ]
+}

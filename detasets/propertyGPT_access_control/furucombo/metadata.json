@@ -1,0 +1,197 @@
+{
+  "project": "furucombo",
+  "generated_at": "2026-05-12T16:36:55.123492Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "auth",
+      "Owner"
+    ]
+  },
+  "ac_contracts_count": 13,
+  "ac_specs_count": 6,
+  "other_specs_count": 2,
+  "total_sol_files_in_project": 156,
+  "total_spec_files_in_project": 8,
+  "contracts": [
+    {
+      "file": "contracts\\FeeRuleRegistry.sol",
+      "size_bytes": 3916,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\Registry.sol",
+      "size_bytes": 4905,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\examples\\MerkleRedeem.sol",
+      "size_bytes": 4018,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\examples\\Staking.sol",
+      "size_bytes": 5283,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\handlers\\compound\\HSCompound.sol",
+      "size_bytes": 9055,
+      "patterns": {
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\handlers\\maker\\dapphub\\DSAuth.sol",
+      "size_bytes": 2033,
+      "patterns": {
+        "auth_modifier": [
+          "auth"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\StakingRewardsAdapterFactory.sol",
+      "size_bytes": 1070,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\StakingRewardsAdapterRegistry.sol",
+      "size_bytes": 2723,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\original\\CurveRewards.sol",
+      "size_bytes": 6492,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\original\\StakingRewards.sol",
+      "size_bytes": 7280,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\original\\dependency\\Owned.sol",
+      "size_bytes": 1127,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\original\\dependency\\RewardsDistributionRecipient.sol",
+      "size_bytes": 709,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\staking\\original\\dependency\\SynthetixPausable.sol",
+      "size_bytes": 1368,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\hbalancer.spec",
+      "size_bytes": 3045
+    },
+    {
+      "file": "specs\\hmaker.spec",
+      "size_bytes": 2797
+    },
+    {
+      "file": "specs\\hscompound.spec",
+      "size_bytes": 2797
+    },
+    {
+      "file": "specs\\privileged.spec",
+      "size_bytes": 1199
+    },
+    {
+      "file": "specs\\proxy.spec",
+      "size_bytes": 22324
+    },
+    {
+      "file": "specs\\registry.spec",
+      "size_bytes": 4033
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\libParam.spec",
+      "size_bytes": 671
+    },
+    {
+      "file": "specs\\sanity.spec",
+      "size_bytes": 91
+    }
+  ]
+}

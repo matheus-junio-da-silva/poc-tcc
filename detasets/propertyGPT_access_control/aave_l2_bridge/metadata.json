@@ -1,0 +1,110 @@
+{
+  "project": "aave_l2_bridge",
+  "generated_at": "2026-05-12T16:36:53.882234Z",
+  "access_control_patterns_found": {
+    "auth_modifier": [
+      "Owner",
+      "Gov",
+      "Guard"
+    ],
+    "onlyGuardian": [
+      "onlyGuardian"
+    ],
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ]
+  },
+  "ac_contracts_count": 6,
+  "ac_specs_count": 2,
+  "other_specs_count": 2,
+  "total_sol_files_in_project": 31,
+  "total_spec_files_in_project": 4,
+  "contracts": [
+    {
+      "file": "contracts\\bridges\\ArbitrumBridgeExecutor.sol",
+      "size_bytes": 1730,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\bridges\\BridgeExecutorBase.sol",
+      "size_bytes": 12883,
+      "patterns": {
+        "onlyGuardian": [
+          "onlyGuardian"
+        ],
+        "auth_modifier": [
+          "Guard"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\bridges\\L2BridgeExecutor.sol",
+      "size_bytes": 2623,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\bridges\\OptimismBridgeExecutor.sol",
+      "size_bytes": 2230,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\dependencies\\polygon\\CustomPolygonMapping.sol",
+      "size_bytes": 5236,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\SimpleL2BridgeExecutor.sol",
+      "size_bytes": 702,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\complexity.spec",
+      "size_bytes": 2497
+    },
+    {
+      "file": "specs\\Optimism_ArbitrumBridge.spec",
+      "size_bytes": 15732
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\erc20.spec",
+      "size_bytes": 762
+    },
+    {
+      "file": "specs\\PolygonBridge.spec",
+      "size_bytes": 15604
+    }
+  ]
+}

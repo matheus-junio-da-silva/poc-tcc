@@ -1,0 +1,129 @@
+{
+  "project": "notional_finance_v2",
+  "generated_at": "2026-05-12T16:36:55.641505Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Owner"
+    ],
+    "grantRole": [
+      "grantRole"
+    ],
+    "revokeRole": [
+      "revokeRole"
+    ],
+    "ROLE_constant": [
+      "PROPOSER_ROLE",
+      "TIMELOCK_ADMIN_ROLE",
+      "EXECUTOR_ROLE"
+    ]
+  },
+  "ac_contracts_count": 2,
+  "ac_specs_count": 2,
+  "other_specs_count": 13,
+  "total_sol_files_in_project": 86,
+  "total_spec_files_in_project": 15,
+  "contracts": [
+    {
+      "file": "contracts\\external\\actions\\GovernanceAction.sol",
+      "size_bytes": 17330,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\external\\governance\\GovernorAlpha.sol",
+      "size_bytes": 22999,
+      "patterns": {
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "PROPOSER_ROLE",
+          "TIMELOCK_ADMIN_ROLE",
+          "EXECUTOR_ROLE"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "certora\\governance\\GovernanceAction.spec",
+      "size_bytes": 2197
+    },
+    {
+      "file": "certora\\governance\\GovernanceOwner.spec",
+      "size_bytes": 356
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "certora\\notes.spec",
+      "size_bytes": 3246
+    },
+    {
+      "file": "certora\\oldAccountContext.spec",
+      "size_bytes": 6178
+    },
+    {
+      "file": "certora\\sanity.spec",
+      "size_bytes": 80
+    },
+    {
+      "file": "certora\\accountContext\\AccountPortfolio.spec",
+      "size_bytes": 4308
+    },
+    {
+      "file": "certora\\accountContext\\ActiveCurrencies.spec",
+      "size_bytes": 4881
+    },
+    {
+      "file": "certora\\accountContext\\Balances.spec",
+      "size_bytes": 941
+    },
+    {
+      "file": "certora\\accountContext\\Portfolio.spec",
+      "size_bytes": 12093
+    },
+    {
+      "file": "certora\\accountContext\\SetAccountContext.spec",
+      "size_bytes": 2564
+    },
+    {
+      "file": "certora\\asset\\DateTime.spec",
+      "size_bytes": 3122
+    },
+    {
+      "file": "certora\\asset\\LiquidityCurve.spec",
+      "size_bytes": 12798
+    },
+    {
+      "file": "certora\\asset\\Settlement.spec",
+      "size_bytes": 4279
+    },
+    {
+      "file": "certora\\asset\\Valuation.spec",
+      "size_bytes": 11736
+    },
+    {
+      "file": "certora\\governance\\CashGroup.spec",
+      "size_bytes": 2950
+    }
+  ]
+}

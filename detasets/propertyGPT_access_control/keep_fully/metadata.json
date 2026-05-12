@@ -1,0 +1,85 @@
+{
+  "project": "keep_fully",
+  "generated_at": "2026-05-12T16:36:55.245614Z",
+  "access_control_patterns_found": {
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Operator",
+      "Owner",
+      "Admin"
+    ],
+    "onlyAdmin": [
+      "onlyAdmin"
+    ],
+    "Managed_contract": [
+      "managed"
+    ]
+  },
+  "ac_contracts_count": 5,
+  "ac_specs_count": 1,
+  "other_specs_count": 0,
+  "total_sol_files_in_project": 45,
+  "total_spec_files_in_project": 1,
+  "contracts": [
+    {
+      "file": "contracts\\AbstractBondedECDSAKeep.sol",
+      "size_bytes": 27493,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\BondedECDSAKeep.sol",
+      "size_bytes": 6536,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\BondedECDSAKeepVendor.sol",
+      "size_bytes": 12998,
+      "patterns": {
+        "onlyAdmin": [
+          "onlyAdmin"
+        ],
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\BondedECDSAKeepVendorImplV1.sol",
+      "size_bytes": 7744,
+      "patterns": {
+        "auth_modifier": [
+          "Operator"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\KeepBonding.sol",
+      "size_bytes": 5146,
+      "patterns": {
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\fullyBackedBonding.spec",
+      "size_bytes": 24058
+    }
+  ],
+  "other_specs": []
+}

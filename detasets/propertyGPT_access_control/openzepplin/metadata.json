@@ -1,0 +1,495 @@
+{
+  "project": "openzepplin",
+  "generated_at": "2026-05-12T16:36:55.953007Z",
+  "access_control_patterns_found": {
+    "AccessControl_OZ": [
+      "AccessControl"
+    ],
+    "onlyRole": [
+      "onlyRole"
+    ],
+    "hasRole": [
+      "hasRole"
+    ],
+    "grantRole": [
+      "grantRole"
+    ],
+    "revokeRole": [
+      "revokeRole"
+    ],
+    "ROLE_constant": [
+      "PROPOSER_ROLE",
+      "SOME_ROLE",
+      "EXECUTOR_ROLE",
+      "DEFAULT_ADMIN_ROLE",
+      "MINTER_ROLE",
+      "MY_ROLE",
+      "PAUSER_ROLE",
+      "CANCELLER_ROLE",
+      "TIMELOCK_ADMIN_ROLE"
+    ],
+    "AccessControlEnumerable": [
+      "AccessControlEnumerable"
+    ],
+    "Managed_contract": [
+      "managed"
+    ],
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Gov",
+      "Owner",
+      "Admin"
+    ]
+  },
+  "ac_contracts_count": 26,
+  "ac_specs_count": 7,
+  "other_specs_count": 10,
+  "total_sol_files_in_project": 270,
+  "total_spec_files_in_project": 17,
+  "contracts": [
+    {
+      "file": "contracts\\access\\AccessControl.sol",
+      "size_bytes": 8362,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE",
+          "MY_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\access\\AccessControlCrossChain.sol",
+      "size_bytes": 1755,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "SOME_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\access\\AccessControlEnumerable.sol",
+      "size_bytes": 2471,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\access\\IAccessControl.sol",
+      "size_bytes": 3008,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "grantRole": [
+          "grantRole"
+        ],
+        "revokeRole": [
+          "revokeRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\access\\IAccessControlEnumerable.sol",
+      "size_bytes": 1259,
+      "patterns": {
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\access\\Ownable.sol",
+      "size_bytes": 2691,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\Governor.sol",
+      "size_bytes": 21166,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\governance\\TimelockController.sol",
+      "size_bytes": 14509,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "PROPOSER_ROLE",
+          "TIMELOCK_ADMIN_ROLE",
+          "EXECUTOR_ROLE",
+          "CANCELLER_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\interfaces\\IERC4626.sol",
+      "size_bytes": 12401,
+      "patterns": {
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\AccessControlCrossChainMock.sol",
+      "size_bytes": 704,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\AccessControlEnumerableMock.sol",
+      "size_bytes": 468,
+      "patterns": {
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\AccessControlMock.sol",
+      "size_bytes": 438,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "onlyRole": [
+          "onlyRole"
+        ],
+        "ROLE_constant": [
+          "DEFAULT_ADMIN_ROLE"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\ERC1271WalletMock.sol",
+      "size_bytes": 557,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\OwnableMock.sol",
+      "size_bytes": 133,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\crosschain\\receivers.sol",
+      "size_bytes": 1884,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\proxy\\beacon\\UpgradeableBeacon.sol",
+      "size_bytes": 2105,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\proxy\\transparent\\ProxyAdmin.sol",
+      "size_bytes": 2921,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\proxy\\transparent\\TransparentUpgradeableProxy.sol",
+      "size_bytes": 5228,
+      "patterns": {
+        "auth_modifier": [
+          "Admin"
+        ],
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\proxy\\utils\\UUPSUpgradeable.sol",
+      "size_bytes": 4316,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\token\\ERC1155\\presets\\ERC1155PresetMinterPauser.sol",
+      "size_bytes": 4042,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "MINTER_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "PAUSER_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\token\\ERC20\\extensions\\ERC20Snapshot.sol",
+      "size_bytes": 8996,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\token\\ERC20\\presets\\ERC20PresetMinterPauser.sol",
+      "size_bytes": 3113,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "MINTER_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "PAUSER_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\token\\ERC721\\ERC721.sol",
+      "size_bytes": 14801,
+      "patterns": {
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\token\\ERC721\\presets\\ERC721PresetMinterPauserAutoId.sol",
+      "size_bytes": 4491,
+      "patterns": {
+        "AccessControl_OZ": [
+          "AccessControl"
+        ],
+        "hasRole": [
+          "hasRole"
+        ],
+        "ROLE_constant": [
+          "MINTER_ROLE",
+          "DEFAULT_ADMIN_ROLE",
+          "PAUSER_ROLE"
+        ],
+        "AccessControlEnumerable": [
+          "AccessControlEnumerable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\utils\\escrow\\Escrow.sol",
+      "size_bytes": 2306,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\utils\\escrow\\RefundEscrow.sol",
+      "size_bytes": 3290,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\AccessControl.spec",
+      "size_bytes": 2133
+    },
+    {
+      "file": "specs\\ERC1155.spec",
+      "size_bytes": 32934
+    },
+    {
+      "file": "specs\\ERC1155Supply.spec",
+      "size_bytes": 2709
+    },
+    {
+      "file": "specs\\GovernorBase.spec",
+      "size_bytes": 16101
+    },
+    {
+      "file": "specs\\GovernorCountingSimple.spec",
+      "size_bytes": 8042
+    },
+    {
+      "file": "specs\\GovernorPreventLateQuorum.spec",
+      "size_bytes": 11895
+    },
+    {
+      "file": "specs\\TimelockController.spec",
+      "size_bytes": 10728
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\ERC1155Burnable.spec",
+      "size_bytes": 6869
+    },
+    {
+      "file": "specs\\ERC1155Pausable.spec",
+      "size_bytes": 3099
+    },
+    {
+      "file": "specs\\erc20.spec",
+      "size_bytes": 761
+    },
+    {
+      "file": "specs\\ERC20FlashMint.spec",
+      "size_bytes": 1032
+    },
+    {
+      "file": "specs\\ERC20Votes.spec",
+      "size_bytes": 11815
+    },
+    {
+      "file": "specs\\ERC20Wrapper.spec",
+      "size_bytes": 9580
+    },
+    {
+      "file": "specs\\ERC721Votes.spec",
+      "size_bytes": 9809
+    },
+    {
+      "file": "specs\\Initializable.spec",
+      "size_bytes": 6030
+    },
+    {
+      "file": "specs\\RulesInProgress.spec",
+      "size_bytes": 6868
+    },
+    {
+      "file": "specs\\sanity.spec",
+      "size_bytes": 519
+    }
+  ]
+}

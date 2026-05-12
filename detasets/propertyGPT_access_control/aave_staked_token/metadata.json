@@ -1,0 +1,79 @@
+{
+  "project": "aave_staked_token",
+  "generated_at": "2026-05-12T16:36:53.989524Z",
+  "access_control_patterns_found": {
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "auth_modifier": [
+      "Owner",
+      "Admin"
+    ],
+    "ROLE_constant": [
+      "SLASH_ADMIN_ROLE",
+      "CLAIM_HELPER_ROLE",
+      "COOLDOWN_ADMIN_ROLE"
+    ]
+  },
+  "ac_contracts_count": 2,
+  "ac_specs_count": 1,
+  "other_specs_count": 5,
+  "total_sol_files_in_project": 8,
+  "total_spec_files_in_project": 6,
+  "contracts": [
+    {
+      "file": "certora\\harness\\DummyERC20Impl.sol",
+      "size_bytes": 2053,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\StakedTokenV3.sol",
+      "size_bytes": 17214,
+      "patterns": {
+        "ROLE_constant": [
+          "SLASH_ADMIN_ROLE",
+          "CLAIM_HELPER_ROLE",
+          "COOLDOWN_ADMIN_ROLE"
+        ],
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "certora\\specs\\propertiesWithSummarizations.spec",
+      "size_bytes": 1431
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "certora\\specs\\allProps.spec",
+      "size_bytes": 23774
+    },
+    {
+      "file": "certora\\specs\\base.spec",
+      "size_bytes": 3484
+    },
+    {
+      "file": "certora\\specs\\invariants.spec",
+      "size_bytes": 4935
+    },
+    {
+      "file": "certora\\specs\\summarizations.spec",
+      "size_bytes": 156
+    },
+    {
+      "file": "certora\\specs\\summarizationsCollector.spec",
+      "size_bytes": 110
+    }
+  ]
+}

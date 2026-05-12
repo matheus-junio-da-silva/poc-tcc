@@ -1,0 +1,155 @@
+{
+  "project": "sushi_benttobox",
+  "generated_at": "2026-05-12T16:36:56.684025Z",
+  "access_control_patterns_found": {
+    "onlyOwner": [
+      "onlyOwner"
+    ],
+    "Ownable": [
+      "Ownable"
+    ],
+    "auth_modifier": [
+      "Owner"
+    ],
+    "Managed_contract": [
+      "managed"
+    ]
+  },
+  "ac_contracts_count": 10,
+  "ac_specs_count": 4,
+  "other_specs_count": 2,
+  "total_sol_files_in_project": 52,
+  "total_spec_files_in_project": 6,
+  "contracts": [
+    {
+      "file": "contracts\\BentoBox.sol",
+      "size_bytes": 25262,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\MasterContractManager.sol",
+      "size_bytes": 6647,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\flat\\BentoBoxFlat.sol",
+      "size_bytes": 52002,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\flat\\SushiStrategyFlat.sol",
+      "size_bytes": 13831,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\DummyStrategyMock.sol",
+      "size_bytes": 2502,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\MoneySink.sol",
+      "size_bytes": 2427,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\SimpleStrategyMock.sol",
+      "size_bytes": 1916,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\samples\\salary.sol",
+      "size_bytes": 8418,
+      "patterns": {
+        "Managed_contract": [
+          "managed"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\strategies\\CompoundStrategy.sol",
+      "size_bytes": 7974,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\strategies\\SushiStrategy.sol",
+      "size_bytes": 2936,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "spec\\bentobox.spec",
+      "size_bytes": 11356
+    },
+    {
+      "file": "spec\\bentoBoxCompoundStrategy.spec",
+      "size_bytes": 11992
+    },
+    {
+      "file": "spec\\compoundStrategy.spec",
+      "size_bytes": 6083
+    },
+    {
+      "file": "spec\\compoundStrategyAdditional.spec",
+      "size_bytes": 2808
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "spec\\rebase.spec",
+      "size_bytes": 7263
+    },
+    {
+      "file": "spec\\strategy.spec",
+      "size_bytes": 4273
+    }
+  ]
+}

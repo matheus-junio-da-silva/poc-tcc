@@ -1,0 +1,94 @@
+{
+  "project": "radicle_drips",
+  "generated_at": "2026-05-12T16:36:56.536748Z",
+  "access_control_patterns_found": {
+    "Managed_contract": [
+      "managed",
+      "Managed"
+    ],
+    "onlyAdmin": [
+      "onlyAdmin"
+    ],
+    "auth_modifier": [
+      "Admin"
+    ],
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ]
+  },
+  "ac_contracts_count": 3,
+  "ac_specs_count": 1,
+  "other_specs_count": 5,
+  "total_sol_files_in_project": 6,
+  "total_spec_files_in_project": 6,
+  "contracts": [
+    {
+      "file": "src\\DripsHub.sol",
+      "size_bytes": 26973,
+      "patterns": {
+        "Managed_contract": [
+          "Managed"
+        ]
+      }
+    },
+    {
+      "file": "src\\Managed.sol",
+      "size_bytes": 4185,
+      "patterns": {
+        "onlyAdmin": [
+          "onlyAdmin"
+        ],
+        "auth_modifier": [
+          "Admin"
+        ],
+        "Managed_contract": [
+          "managed",
+          "Managed"
+        ]
+      }
+    },
+    {
+      "file": "src\\Reserve.sol",
+      "size_bytes": 12034,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\Reserve.spec",
+      "size_bytes": 7233
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\DripsHub.spec",
+      "size_bytes": 34394
+    },
+    {
+      "file": "specs\\DripsHubBackup.spec",
+      "size_bytes": 17821
+    },
+    {
+      "file": "specs\\SlotTester.spec",
+      "size_bytes": 1015
+    },
+    {
+      "file": "specs\\Splits.spec",
+      "size_bytes": 34405
+    },
+    {
+      "file": "specs\\Splits2.spec",
+      "size_bytes": 12420
+    }
+  ]
+}

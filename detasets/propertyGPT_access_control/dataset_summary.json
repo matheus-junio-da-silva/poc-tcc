@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-05-12T16:36:56.684025Z",
+  "source_dir": "C:\\Users\\mathe\\Downloads\\property\\PropertyGPT\\certora_projects",
+  "output_dir": "C:\\Users\\mathe\\Downloads\\property\\PropertyGPT\\access_control_dataset",
+  "total_projects_with_ac": 21,
+  "total_ac_contracts": 200,
+  "total_ac_specs": 53,
+  "total_other_specs": 84,
+  "global_pattern_counts": {
+    "auth_modifier": 33,
+    "onlyGuardian": 2,
+    "Ownable": 15,
+    "onlyOwner": 19,
+    "ROLE_constant": 62,
+    "onlyAdmin": 5,
+    "Managed_contract": 8,
+    "AccessControl_OZ": 4,
+    "onlyRole": 4,
+    "hasRole": 3,
+    "grantRole": 4,
+    "revokeRole": 4,
+    "AccessControlEnumerable": 3,
+    "onlyGovernor": 1
+  },
+  "projects": [
+    {
+      "project": "aave_l2_bridge",
+      "ac_contracts_count": 6,
+      "ac_specs_count": 2,
+      "patterns": [
+        "auth_modifier",
+        "onlyGuardian",
+        "Ownable",
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "aave_proof_of_reserve",
+      "ac_contracts_count": 2,
+      "ac_specs_count": 0,
+      "patterns": [
+        "Ownable",
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "aave_rescue_mission",
+      "ac_contracts_count": 1,
+      "ac_specs_count": 0,
+      "patterns": [
+        "Ownable",
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "aave_staked_token",
+      "ac_contracts_count": 2,
+      "ac_specs_count": 1,
+      "patterns": [
+        "onlyOwner",
+        "auth_modifier",
+        "ROLE_constant"
+      ]
+    },
+    {
+      "project": "aave_starknet_bridge",
+      "ac_contracts_count": 1,
+      "ac_specs_count": 0,
+      "patterns": [
+        "onlyAdmin",
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "aave_v2",
+      "ac_contracts_count": 16,
+      "ac_specs_count": 0,
+      "patterns": [
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier",
+        "Managed_contract"
+      ]
+    },
+    {
+      "project": "aave_v3",
+      "ac_contracts_count": 17,
+      "ac_specs_count": 2,
+      "patterns": [
+        "AccessControl_OZ",
+        "onlyRole",
+        "hasRole",
+        "grantRole",
+        "revokeRole",
+        "ROLE_constant",
+        "AccessControlEnumerable",
+        "Managed_contract",
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "aave_vault",
+      "ac_contracts_count": 1,
+      "ac_specs_count": 2,
+      "patterns": [
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "celo_governance",
+      "ac_contracts_count": 34,
+      "ac_specs_count": 7,
+      "patterns": [
+        "Ownable",
+        "onlyOwner",
+        "onlyGuardian",
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "furucombo",
+      "ac_contracts_count": 13,
+      "ac_specs_count": 6,
+      "patterns": [
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "gho-core",
+      "ac_contracts_count": 3,
+      "ac_specs_count": 3,
+      "patterns": [
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier",
+        "AccessControl_OZ",
+        "onlyRole",
+        "ROLE_constant"
+      ]
+    },
+    {
+      "project": "keep_fully",
+      "ac_contracts_count": 5,
+      "ac_specs_count": 1,
+      "patterns": [
+        "onlyOwner",
+        "auth_modifier",
+        "onlyAdmin",
+        "Managed_contract"
+      ]
+    },
+    {
+      "project": "lido_v2",
+      "ac_contracts_count": 16,
+      "ac_specs_count": 0,
+      "patterns": [
+        "onlyRole",
+        "ROLE_constant",
+        "AccessControlEnumerable",
+        "onlyOwner",
+        "auth_modifier",
+        "AccessControl_OZ",
+        "hasRole",
+        "onlyAdmin",
+        "grantRole",
+        "revokeRole",
+        "Managed_contract"
+      ]
+    },
+    {
+      "project": "notional_finance_v2",
+      "ac_contracts_count": 2,
+      "ac_specs_count": 2,
+      "patterns": [
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier",
+        "grantRole",
+        "revokeRole",
+        "ROLE_constant"
+      ]
+    },
+    {
+      "project": "openzepplin",
+      "ac_contracts_count": 26,
+      "ac_specs_count": 7,
+      "patterns": [
+        "AccessControl_OZ",
+        "onlyRole",
+        "hasRole",
+        "grantRole",
+        "revokeRole",
+        "ROLE_constant",
+        "AccessControlEnumerable",
+        "Managed_contract",
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "opyn_gamma_protocol",
+      "ac_contracts_count": 10,
+      "ac_specs_count": 5,
+      "patterns": [
+        "Ownable",
+        "onlyOwner",
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "ousd",
+      "ac_contracts_count": 20,
+      "ac_specs_count": 4,
+      "patterns": [
+        "onlyGovernor",
+        "Ownable",
+        "auth_modifier",
+        "onlyAdmin",
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "popsicle_v3_optimizer",
+      "ac_contracts_count": 6,
+      "ac_specs_count": 1,
+      "patterns": [
+        "auth_modifier"
+      ]
+    },
+    {
+      "project": "radicle_drips",
+      "ac_contracts_count": 3,
+      "ac_specs_count": 1,
+      "patterns": [
+        "Managed_contract",
+        "onlyAdmin",
+        "auth_modifier",
+        "Ownable",
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "rocket_joe",
+      "ac_contracts_count": 6,
+      "ac_specs_count": 5,
+      "patterns": [
+        "Ownable",
+        "onlyOwner"
+      ]
+    },
+    {
+      "project": "sushi_benttobox",
+      "ac_contracts_count": 10,
+      "ac_specs_count": 4,
+      "patterns": [
+        "onlyOwner",
+        "Ownable",
+        "auth_modifier",
+        "Managed_contract"
+      ]
+    }
+  ]
+}

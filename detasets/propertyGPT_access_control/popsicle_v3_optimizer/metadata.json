@@ -1,0 +1,90 @@
+{
+  "project": "popsicle_v3_optimizer",
+  "generated_at": "2026-05-12T16:36:56.486208Z",
+  "access_control_patterns_found": {
+    "auth_modifier": [
+      "Gov"
+    ]
+  },
+  "ac_contracts_count": 6,
+  "ac_specs_count": 1,
+  "other_specs_count": 3,
+  "total_sol_files_in_project": 54,
+  "total_spec_files_in_project": 4,
+  "contracts": [
+    {
+      "file": "contracts\\popsicle-v3-optimizer\\OptimizerStrategy.sol",
+      "size_bytes": 3918,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\popsicle-v3-optimizer\\OptimizerStrategy_flat.sol",
+      "size_bytes": 4681,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\popsicle-v3-optimizer\\PopsicleV3Optimizer.sol",
+      "size_bytes": 28227,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\popsicle-v3-optimizer\\PopsicleV3Optimizer_arbitrum.sol",
+      "size_bytes": 24485,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\popsicle-v3-optimizer\\PopsicleV3Optimizer_flat.sol",
+      "size_bytes": 114671,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\popsicle-v3-optimizer\\PopsicleV3Optimizer_flat_arbitrum.sol",
+      "size_bytes": 114655,
+      "patterns": {
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "spec\\PopsicleV3Optimizer.spec",
+      "size_bytes": 21211
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "spec\\FullMathWrapper.spec",
+      "size_bytes": 2421
+    },
+    {
+      "file": "spec\\PoolActions.spec",
+      "size_bytes": 1513
+    },
+    {
+      "file": "spec\\sanity.spec",
+      "size_bytes": 717
+    }
+  ]
+}

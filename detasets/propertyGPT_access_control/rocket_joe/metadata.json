@@ -1,0 +1,118 @@
+{
+  "project": "rocket_joe",
+  "generated_at": "2026-05-12T16:36:56.579208Z",
+  "access_control_patterns_found": {
+    "Ownable": [
+      "Ownable"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ]
+  },
+  "ac_contracts_count": 6,
+  "ac_specs_count": 5,
+  "other_specs_count": 3,
+  "total_sol_files_in_project": 15,
+  "total_spec_files_in_project": 8,
+  "contracts": [
+    {
+      "file": "contracts\\LaunchEvent.sol",
+      "size_bytes": 25798,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\RocketJoeFactory.sol",
+      "size_bytes": 11387,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\RocketJoeStaking.sol",
+      "size_bytes": 7750,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\RocketJoeToken.sol",
+      "size_bytes": 2515,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\ERC20Token.sol",
+      "size_bytes": 783,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\mocks\\ERC20Token6decimals.sol",
+      "size_bytes": 976,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "spec\\LaunchEvent.spec",
+      "size_bytes": 53305
+    },
+    {
+      "file": "spec\\LEHighLevel.spec",
+      "size_bytes": 7464
+    },
+    {
+      "file": "spec\\LEPreset.spec",
+      "size_bytes": 5894
+    },
+    {
+      "file": "spec\\LEVarTran.spec",
+      "size_bytes": 14937
+    },
+    {
+      "file": "spec\\Staking.spec",
+      "size_bytes": 17559
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "spec\\LEInProgress.spec",
+      "size_bytes": 3001
+    },
+    {
+      "file": "spec\\LEValidStates.spec",
+      "size_bytes": 13439
+    },
+    {
+      "file": "spec\\sanity.spec",
+      "size_bytes": 715
+    }
+  ]
+}

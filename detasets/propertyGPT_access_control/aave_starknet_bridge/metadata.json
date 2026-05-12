@@ -1,0 +1,46 @@
+{
+  "project": "aave_starknet_bridge",
+  "generated_at": "2026-05-12T16:36:54.057252Z",
+  "access_control_patterns_found": {
+    "onlyAdmin": [
+      "onlyAdmin"
+    ],
+    "auth_modifier": [
+      "Admin"
+    ]
+  },
+  "ac_contracts_count": 1,
+  "ac_specs_count": 0,
+  "other_specs_count": 3,
+  "total_sol_files_in_project": 29,
+  "total_spec_files_in_project": 3,
+  "contracts": [
+    {
+      "file": "contracts\\l1\\governance\\Executor.sol",
+      "size_bytes": 48152,
+      "patterns": {
+        "onlyAdmin": [
+          "onlyAdmin"
+        ],
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [],
+  "other_specs": [
+    {
+      "file": "specs\\bridge.spec",
+      "size_bytes": 18501
+    },
+    {
+      "file": "specs\\bridgeConstIndex.spec",
+      "size_bytes": 7395
+    },
+    {
+      "file": "specs\\setup.spec",
+      "size_bytes": 17516
+    }
+  ]
+}

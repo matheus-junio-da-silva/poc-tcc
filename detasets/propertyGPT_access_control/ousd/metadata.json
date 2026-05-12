@@ -1,0 +1,268 @@
+{
+  "project": "ousd",
+  "generated_at": "2026-05-12T16:36:56.345276Z",
+  "access_control_patterns_found": {
+    "onlyGovernor": [
+      "onlyGovernor"
+    ],
+    "Ownable": [
+      "Ownable"
+    ],
+    "auth_modifier": [
+      "Owner",
+      "Gov",
+      "Admin"
+    ],
+    "onlyAdmin": [
+      "onlyAdmin"
+    ],
+    "onlyOwner": [
+      "onlyOwner"
+    ]
+  },
+  "ac_contracts_count": 20,
+  "ac_specs_count": 4,
+  "other_specs_count": 5,
+  "total_sol_files_in_project": 72,
+  "total_spec_files_in_project": 9,
+  "contracts": [
+    {
+      "file": "contracts\\contracts\\compensation\\CompensationClaims.sol",
+      "size_bytes": 5445,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\governance\\Governable.sol",
+      "size_bytes": 5444,
+      "patterns": {
+        "Ownable": [
+          "Ownable"
+        ],
+        "onlyGovernor": [
+          "onlyGovernor"
+        ],
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\governance\\Governor.sol",
+      "size_bytes": 8161,
+      "patterns": {
+        "onlyAdmin": [
+          "onlyAdmin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\liquidity\\LiquidityReward.sol",
+      "size_bytes": 13471,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\mocks\\MockOGN.sol",
+      "size_bytes": 4870,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\mocks\\MockVault.sol",
+      "size_bytes": 682,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\mocks\\WhitelistedPausableToken.sol",
+      "size_bytes": 3417,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ],
+        "auth_modifier": [
+          "Owner"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\oracle\\ChainlinkOracle.sol",
+      "size_bytes": 4644,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\oracle\\MixOracle.sol",
+      "size_bytes": 9364,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\proxies\\InitializeGovernedUpgradeabilityProxy.sol",
+      "size_bytes": 3187,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\staking\\SingleAssetStaking.sol",
+      "size_bytes": 17114,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\strategies\\AaveStrategy.sol",
+      "size_bytes": 6120,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\strategies\\ThreePoolStrategy.sol",
+      "size_bytes": 10670,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\timelock\\Timelock.sol",
+      "size_bytes": 6379,
+      "patterns": {
+        "onlyAdmin": [
+          "onlyAdmin"
+        ],
+        "auth_modifier": [
+          "Admin"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\token\\OUSD.sol",
+      "size_bytes": 18945,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\token\\OUSDReset.sol",
+      "size_bytes": 490,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\utils\\InitializableAbstractStrategy.sol",
+      "size_bytes": 8881,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ],
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\vault\\VaultAdmin.sol",
+      "size_bytes": 14553,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ],
+        "auth_modifier": [
+          "Gov"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\vault\\VaultInitializer.sol",
+      "size_bytes": 979,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    },
+    {
+      "file": "contracts\\contracts\\vault\\VaultStorage.sol",
+      "size_bytes": 4052,
+      "patterns": {
+        "onlyGovernor": [
+          "onlyGovernor"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "spec\\Privileged.spec",
+      "size_bytes": 1199
+    },
+    {
+      "file": "spec\\PrivilegedOUSD.spec",
+      "size_bytes": 1189
+    },
+    {
+      "file": "spec\\PrivilegedVault.spec",
+      "size_bytes": 1128
+    },
+    {
+      "file": "spec\\PrivilegedVaultAdmin.spec",
+      "size_bytes": 1044
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "spec\\math.spec",
+      "size_bytes": 1304
+    },
+    {
+      "file": "spec\\ousd.spec",
+      "size_bytes": 13637
+    },
+    {
+      "file": "spec\\ousdExtras.spec",
+      "size_bytes": 1862
+    },
+    {
+      "file": "spec\\ousdSum.spec",
+      "size_bytes": 2905
+    },
+    {
+      "file": "spec\\sanity.spec",
+      "size_bytes": 91
+    }
+  ]
+}

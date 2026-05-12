@@ -1,0 +1,69 @@
+{
+  "project": "aave_vault",
+  "generated_at": "2026-05-12T16:36:54.556968Z",
+  "access_control_patterns_found": {
+    "onlyOwner": [
+      "onlyOwner"
+    ]
+  },
+  "ac_contracts_count": 1,
+  "ac_specs_count": 2,
+  "other_specs_count": 8,
+  "total_sol_files_in_project": 6,
+  "total_spec_files_in_project": 10,
+  "contracts": [
+    {
+      "file": "src\\ATokenVault.sol",
+      "size_bytes": 26389,
+      "patterns": {
+        "onlyOwner": [
+          "onlyOwner"
+        ]
+      }
+    }
+  ],
+  "ac_specs": [
+    {
+      "file": "specs\\erc4626.spec",
+      "size_bytes": 14026
+    },
+    {
+      "file": "specs\\methods_base.spec",
+      "size_bytes": 8569
+    }
+  ],
+  "other_specs": [
+    {
+      "file": "specs\\accrueYieldCheck.spec",
+      "size_bytes": 2005
+    },
+    {
+      "file": "specs\\changeInContractBalanceShouldCauseAccrual.spec",
+      "size_bytes": 2347
+    },
+    {
+      "file": "specs\\erc20.spec",
+      "size_bytes": 599
+    },
+    {
+      "file": "specs\\fees_LEQ_ATokenBal.spec",
+      "size_bytes": 7999
+    },
+    {
+      "file": "specs\\lastVaultBal_LEQ_ATokenBalThis.spec",
+      "size_bytes": 5275
+    },
+    {
+      "file": "specs\\positiveSupply_imply_positiveAssets.spec",
+      "size_bytes": 8552
+    },
+    {
+      "file": "specs\\rayMul_rayDiv_mulDiv_properties.spec",
+      "size_bytes": 1565
+    },
+    {
+      "file": "specs\\totalSupply_EQ_sumAllBal.spec",
+      "size_bytes": 2525
+    }
+  ]
+}
