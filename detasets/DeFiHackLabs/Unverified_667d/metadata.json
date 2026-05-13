@@ -1,0 +1,27 @@
+{
+  "hack_name": "Unverified_667d",
+  "date": "20240828",
+  "date_period": "2024-08",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2024/README.md#20240828-unverified_667d---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [
+    "grantRole"
+  ],
+  "poc_file": "unverified_667d_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-08\\unverified_667d_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0x8de7eaba58efb23b6f323984377af582b23134e9",
+  "total_lost": "10k",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.568643Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

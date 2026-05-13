@@ -1,0 +1,617 @@
+{
+  "generated_at": "2026-05-13T13:45:46.035814Z",
+  "total": 87,
+  "ok": 32,
+  "skipped": 10,
+  "failed": 45,
+  "results": [
+    {
+      "hack": "88mph_NFT",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "ABCCApp",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "ADC",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "0x8d2e",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x8d2Ef0d39A438C3601112AE21701819E13c41288"
+    },
+    {
+      "hack": "0xf340",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xf340bd3eb3e82994cff5b8c3493245edbce63436"
+    },
+    {
+      "hack": "AIS",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "Ak1111",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "BabySwap",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "BRAND",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "Bancor_Protocol",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "AIRWA",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x3af7da38c9f68df9549ce1980eef4ac6b635223a"
+    },
+    {
+      "hack": "AIRBTC",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x12050e4355a392162698c6cf30eb8c9e0777300d"
+    },
+    {
+      "hack": "CGT",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x579A3244f38112b8AAbefcE0227555C9b6e7aaF0"
+    },
+    {
+      "hack": "CEXISWAP",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xb8a5890d53df78dee6182a6c0968696e827e3305"
+    },
+    {
+      "hack": "Civfund",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x7caec5e4a3906d0919895d113f7ed9b3a0cbf826"
+    },
+    {
+      "hack": "CoW",
+      "status": "ok",
+      "address": "0x9008d19f58aabd9ed0d60971565aa8510560ab41",
+      "contract_name": "GPv2Settlement",
+      "privileged_fn": "withdraw",
+      "files_saved": 16,
+      "is_proxy": false
+    },
+    {
+      "hack": "Corkprotocol",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xea6f30e360192bae715599e15e2f765b49e4da98"
+    },
+    {
+      "hack": "DAO_Maker",
+      "status": "ok",
+      "address": "0x9fa69536d1cda4A04cFB50688294de75B505a9aE",
+      "contract_name": "ERC20",
+      "privileged_fn": "init",
+      "files_saved": 1,
+      "is_proxy": true
+    },
+    {
+      "hack": "DAO_SoulMate",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xd215ffaf0f85fb6f93f11e49bd6175ad58af0dfd"
+    },
+    {
+      "hack": "CIVNFT",
+      "status": "ok",
+      "address": "0xf169bd68ed72b2fdc3c9234833197171aa000580",
+      "contract_name": "TransparentUpgradeableProxy",
+      "privileged_fn": "mint",
+      "files_saved": 13,
+      "is_proxy": true
+    },
+    {
+      "hack": "DEPUSDT_LEVUSDC",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+    },
+    {
+      "hack": "Erc20transfer",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x43dc865e916914fd93540461fde124484fbf8faa"
+    },
+    {
+      "hack": "FlippazOne_NFT",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xE85A08Cf316F695eBE7c13736C8Cc38a7Cc3e944"
+    },
+    {
+      "hack": "ETHFIN",
+      "status": "ok",
+      "address": "0x17bd2e09fa4585c15749f40bb32a6e3db58522ba",
+      "contract_name": "EthernalFinanceII",
+      "privileged_fn": "withdraw",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "FPR",
+      "status": "ok",
+      "address": "0xA9c7ec037797DC6E3F9255fFDe422DA6bF96024d",
+      "contract_name": "BEP20FPR",
+      "privileged_fn": "setAdmin",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "FILX_DN404",
+      "status": "ok",
+      "address": "0x2c7112245fc4af701ebf90399264a7e89205dad4",
+      "contract_name": "LinearVesting",
+      "privileged_fn": "init",
+      "files_saved": 22,
+      "is_proxy": true
+    },
+    {
+      "hack": "GFOX",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x47c4b3144de2c87a458d510c0c0911d1903d1686"
+    },
+    {
+      "hack": "GAX",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xdb4b73df2f6de4afcd3a883efe8b7a4b0763822b"
+    },
+    {
+      "hack": "GROKD",
+      "status": "ok",
+      "address": "0x31d3231cDa62C0b7989b488cA747245676a32D81",
+      "contract_name": "ERC1967Proxy",
+      "privileged_fn": "withdraw",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "Freedom",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xae3ada8787245977832c6dab2d4474d3943527ab"
+    },
+    {
+      "hack": "INUMI",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xdb27d4ff4be1cd04c34a7cb6f47402c37cb73459"
+    },
+    {
+      "hack": "HPAY",
+      "status": "ok",
+      "address": "0xe9bc03ef08e991a99f1bd095a8590499931dcc30",
+      "contract_name": "MintableAutoCompundRelockBonus",
+      "privileged_fn": "withdraw",
+      "files_saved": 36,
+      "is_proxy": false
+    },
+    {
+      "hack": "GYMNetwork",
+      "status": "ok",
+      "address": "0x6b869795937dd2b6f4e03d5a0ffd07a8ad8c095b",
+      "contract_name": "GymRouter",
+      "privileged_fn": "initialize",
+      "files_saved": 16,
+      "is_proxy": true
+    },
+    {
+      "hack": "HORS",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x6f3390c6C200e9bE81b32110CE191a293dc0eaba"
+    },
+    {
+      "hack": "LocalTrade",
+      "status": "ok",
+      "address": "0xcE3e12bD77DD54E20a18cB1B94667F3E697bea06",
+      "contract_name": "LCTExchange",
+      "privileged_fn": "owner",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "LeetSwap",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x94dac4a3ce998143aa119c05460731da80ad90cf"
+    },
+    {
+      "hack": "INUMI_db27",
+      "status": "ok",
+      "address": "0x3496B523e5C00a4b4150D6721320CdDb234c3079",
+      "contract_name": "ERC677InitializableTokenV2",
+      "privileged_fn": "burn",
+      "files_saved": 6,
+      "is_proxy": true
+    },
+    {
+      "hack": "LaunchZone",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xaee8ef10ac816834cd7026ec34f35bdde568191f"
+    },
+    {
+      "hack": "MainnetSettler",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x3a38877312d1125d2391663cba9f7190953bf2d9"
+    },
+    {
+      "hack": "Melo",
+      "status": "ok",
+      "address": "0x9A1aEF8C9ADA4224aD774aFdaC07C24955C92a54",
+      "contract_name": "cERC20",
+      "privileged_fn": "mint",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "MBC___ZZSH",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
+    },
+    {
+      "hack": "MEV_0xa247",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x4e087743e8025012c4704a1953c87eeff1e6ef48"
+    },
+    {
+      "hack": "MetaDragon",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x3ad998a01ad1f1bbe6dba6a08e658c1749dabfa4"
+    },
+    {
+      "hack": "MetaPool",
+      "status": "ok",
+      "address": "0x48afbbd342f64ef8a9ab1c143719b63c2ad81710",
+      "contract_name": "TransparentUpgradeableProxy",
+      "privileged_fn": "withdraw",
+      "files_saved": 14,
+      "is_proxy": true
+    },
+    {
+      "hack": "MEV_0x8c2d",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x69e068eb917115ed103278b812ec7541f021cea0"
+    },
+    {
+      "hack": "MulticallWithXera",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x90be00229fe8000000009e007743a485d400c3b7"
+    },
+    {
+      "hack": "NFTG",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x5fbbb391d54f4fb1d1cf18310c93d400bc80042e"
+    },
+    {
+      "hack": "MEVbot",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
+    },
+    {
+      "hack": "NGFS",
+      "status": "ok",
+      "address": "0xa608985f5b40cdf6862bec775207f84280a91e3a",
+      "contract_name": "NGFSToken",
+      "privileged_fn": "transfer",
+      "files_saved": 11,
+      "is_proxy": false
+    },
+    {
+      "hack": "Paraswap",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xfde0d1575ed8e06fbf36256bcdfa1f359281455a"
+    },
+    {
+      "hack": "Parity_Multisig",
+      "status": "ok",
+      "address": "0x1AC5Fac863c0a026e029B173f2AE4D33938AB473",
+      "contract_name": "IntrospectionToken",
+      "privileged_fn": "transfer",
+      "files_saved": 5,
+      "is_proxy": false
+    },
+    {
+      "hack": "Ragnarok_Online_Invasion",
+      "status": "skipped",
+      "reason": "no_address"
+    },
+    {
+      "hack": "Pledge",
+      "status": "ok",
+      "address": "0x061944c0f3c2d7dabafb50813efb05c4e0c952e1",
+      "contract_name": "Pledge",
+      "privileged_fn": "transfer",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "PLN",
+      "status": "ok",
+      "address": "0xe0c218e1633a5c76d57ff4f11149f07bfff16aea",
+      "contract_name": "PLNTOKEN",
+      "privileged_fn": "withdraw",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "RICE",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xcfe0de4a50c80b434092f87e106dfa40b71a5563"
+    },
+    {
+      "hack": "Sandbox_LAND",
+      "status": "ok",
+      "address": "0x50f5474724e0Ee42D9a4e711ccFB275809Fd6d4a",
+      "contract_name": "Land",
+      "privileged_fn": "burn",
+      "files_saved": 10,
+      "is_proxy": false
+    },
+    {
+      "hack": "Reaper_Farm",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xcdA5deA176F2dF95082f4daDb96255Bdb2bc7C7D"
+    },
+    {
+      "hack": "ShadowFi",
+      "status": "ok",
+      "address": "0x10bc28d2810dD462E16facfF18f78783e859351b",
+      "contract_name": "ShadowFi",
+      "privileged_fn": "burn",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "Rikkei_Finance",
+      "status": "ok",
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "contract_name": "BEP20TokenImplementation",
+      "privileged_fn": "transfer",
+      "files_saved": 2,
+      "is_proxy": true
+    },
+    {
+      "hack": "Shezmu",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x641249dB01d5C9a04d1A223765fFd15f95167924"
+    },
+    {
+      "hack": "Shell_MEV_0xa898",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xa898b78b7cbbabacf9d179c4c46c212c0ac66f46"
+    },
+    {
+      "hack": "SuperRare",
+      "status": "ok",
+      "address": "0xfFB512B9176D527C5D32189c3e310Ed4aB2Bb9eC",
+      "contract_name": "RareStakingV1",
+      "privileged_fn": "initialize",
+      "files_saved": 22,
+      "is_proxy": false
+    },
+    {
+      "hack": "Phoenix",
+      "status": "ok",
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "contract_name": "UChildAdministrableERC20",
+      "privileged_fn": "mint",
+      "files_saved": 2,
+      "is_proxy": true
+    },
+    {
+      "hack": "Templedao",
+      "status": "skipped",
+      "reason": "already_enriched"
+    },
+    {
+      "hack": "SwapX",
+      "status": "ok",
+      "address": "0x34EA3F7162E6f6Ed16bD171267eC180fD5c848da",
+      "contract_name": "Diamond",
+      "privileged_fn": "owner",
+      "files_saved": 11,
+      "is_proxy": false
+    },
+    {
+      "hack": "SizeCredit",
+      "status": "ok",
+      "address": "0xf4a21ac7e51d17a0e1c8b59f7a98bb7a97806f14",
+      "contract_name": "LeverageUp",
+      "privileged_fn": "validateInitialize",
+      "files_saved": 130,
+      "is_proxy": false
+    },
+    {
+      "hack": "TokenHolder",
+      "status": "ok",
+      "address": "0x8c7f34436C0037742AeCf047e06fD4B27Ad01117",
+      "contract_name": "BorrowerOperationsV6",
+      "privileged_fn": "initialize",
+      "files_saved": 14,
+      "is_proxy": false
+    },
+    {
+      "hack": "Uerii_Token",
+      "status": "ok",
+      "address": "0x418c24191ae947a78c99fdc0e45a1f96afb254be",
+      "contract_name": "Token",
+      "privileged_fn": "mint",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "Stead",
+      "status": "ok",
+      "address": "0xf9FF933f51bA180a474634440a406c95DfB27596",
+      "contract_name": "TransparentUpgradeableProxy",
+      "privileged_fn": "owner",
+      "files_saved": 13,
+      "is_proxy": true
+    },
+    {
+      "hack": "ULME",
+      "status": "ok",
+      "address": "0xAE975a25646E6eB859615d0A147B909c13D31FEd",
+      "contract_name": "UniverseGoldMountain",
+      "privileged_fn": "transfer",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "Unverified_03f9",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x03f911aedc25c770e701b8f563e8102cfacd62c0"
+    },
+    {
+      "hack": "Unverified_16d0",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x16d0dc96c1bdf283ce1ff10e01924ac76b06c95c"
+    },
+    {
+      "hack": "Unverified_5697",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x0000daaee5fbc2d3fc5a5c0cb456d2c24e4f81de"
+    },
+    {
+      "hack": "Unverified_0x6077",
+      "status": "ok",
+      "address": "0xFeAFe253802b77456B4627F8c2306a9CeBb5d681",
+      "contract_name": "D3MM",
+      "privileged_fn": "owner",
+      "files_saved": 71,
+      "is_proxy": false
+    },
+    {
+      "hack": "Unverified_54cd",
+      "status": "ok",
+      "address": "0x54cd23460df45559fd5feeaada7ba25f89c13525",
+      "contract_name": "ERC1967Proxy",
+      "privileged_fn": "withdraw",
+      "files_saved": 13,
+      "is_proxy": true
+    },
+    {
+      "hack": "Unverified_766a",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x766a0936ff0ad045d39871846194edbd5df63a58"
+    },
+    {
+      "hack": "Unverified_a89f",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xb3094734fe249a7b0110dc12d66f6c404ada28cb"
+    },
+    {
+      "hack": "Unverified_667d",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x8de7eaba58efb23b6f323984377af582b23134e9"
+    },
+    {
+      "hack": "unverified_8490",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x7248939f65bdd23aab9eaab1bc4a4f909567486e"
+    },
+    {
+      "hack": "Unverified_b5cb",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xb5cb0555a1d28c9dfdbc14017dae131d5c1cc19c"
+    },
+    {
+      "hack": "UnverifiedContr_0x452E25",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x1194e1d6085885ce054a7ff8cd3cd0c3fa308ec8"
+    },
+    {
+      "hack": "unverified_d4f1",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xd4f1afd0331255e848c119ca39143d41144f7cb3"
+    },
+    {
+      "hack": "USDTStakingContract28",
+      "status": "ok",
+      "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "contract_name": "TetherToken",
+      "privileged_fn": "transfer",
+      "files_saved": 1,
+      "is_proxy": false
+    },
+    {
+      "hack": "Unwarp",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0x8befc1d90d03011a7d0b35b3a00ec50f8e014802"
+    },
+    {
+      "hack": "VeloCore",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xed11d5b013bf3296b1507da38b7bcb97845dd037"
+    },
+    {
+      "hack": "wKeyDAO",
+      "status": "ok",
+      "address": "0xd511096a73292a7419a94354d4c1c73e8a3cd851",
+      "contract_name": "WebKeyProSales",
+      "privileged_fn": "owner",
+      "files_saved": 23,
+      "is_proxy": true
+    },
+    {
+      "hack": "X319",
+      "status": "failed",
+      "reason": "fetch_failed",
+      "address": "0xedd632eaf3b57e100ae9142e8ed1641e5fd6b2c0"
+    }
+  ]
+}

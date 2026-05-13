@@ -1,0 +1,37 @@
+{
+  "hack_name": "GROKD",
+  "date": "20240412",
+  "date_period": "2024-04",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2024/README.md#20240412-grokd---lack-of-access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "GROKD_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-04\\GROKD_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.527071Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:02.687867Z",
+  "fetched_contract_name": "ERC1967Proxy",
+  "fetched_address": "0x31d3231cDa62C0b7989b488cA747245676a32D81",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "ERC1967Proxy.sol"
+  ],
+  "privileged_function_identified": "upgradeTo",
+  "fix_note": "Proxy ERC1967: so tem implementation(); funcao critica e upgradeTo",
+  "fixed_at": "2026-05-13T15:30:01.591872Z"
+}

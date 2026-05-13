@@ -1,0 +1,35 @@
+{
+  "hack_name": "Pledge",
+  "date": "20241203",
+  "date_period": "2024-12",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2024/README.md#20241203-pledge---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Pledge_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-12\\Pledge_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0x061944c0f3c2d7dabafb50813efb05c4e0c952e1",
+  "total_lost": "15K",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.677308Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:17.843436Z",
+  "fetched_contract_name": "Pledge",
+  "fetched_address": "0x061944c0f3c2d7dabafb50813efb05c4e0c952e1",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "Pledge.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

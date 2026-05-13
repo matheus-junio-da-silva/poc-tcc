@@ -1,0 +1,35 @@
+{
+  "hack_name": "ShadowFi",
+  "date": "20220902",
+  "date_period": "2022-09",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2022/README.md#20220902-shadowfi---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Shadowfi_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-09\\Shadowfi_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.320140Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:23.823553Z",
+  "fetched_contract_name": "ShadowFi",
+  "fetched_address": "0x10bc28d2810dD462E16facfF18f78783e859351b",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "ShadowFi.sol"
+  ],
+  "privileged_function_identified": "burn"
+}

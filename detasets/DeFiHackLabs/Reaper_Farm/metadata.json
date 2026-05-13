@@ -1,0 +1,25 @@
+{
+  "hack_name": "Reaper_Farm",
+  "date": "20220801",
+  "date_period": "2022-08",
+  "vulnerability_type": "access_control",
+  "description": "business logic flaw  lack of access control mechanism",
+  "readme_link": "past/2022/README.md#20220801-reaper-farm---business-logic-flaw--lack-of-access-control-mechanism",
+  "chain": "fantom",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "ReaperFarm_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-08\\ReaperFarm_exp.sol",
+  "attacker_address": "0x5636e55e4a72299a0f194c001841e2ce75bb527a",
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": "~1.7M US$",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.315455Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "hack_name": "X319",
+  "date": "20241109",
+  "date_period": "2024-11",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2024/README.md#20241109-X319---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "X319_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-11\\X319_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0xedd632eaf3b57e100ae9142e8ed1641e5fd6b2c0",
+  "total_lost": "12.9k USD",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.645711Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

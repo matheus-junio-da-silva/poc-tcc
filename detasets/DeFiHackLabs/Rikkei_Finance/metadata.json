@@ -1,0 +1,36 @@
+{
+  "hack_name": "Rikkei_Finance",
+  "date": "20220415",
+  "date_period": "2022-04",
+  "vulnerability_type": "access_control",
+  "description": "access control  price oracle manipulation",
+  "readme_link": "past/2022/README.md#20220415-rikkei-finance---access-control--price-oracle-manipulation",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Rikkei_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-04\\Rikkei_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.295429Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:23.881487Z",
+  "fetched_contract_name": "BEP20TokenImplementation",
+  "fetched_address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+  "is_api_proxy": true,
+  "impl_address": "0xba5fe23f8a3a24bed3236f05f2fcf35fd0bf0b5c",
+  "contracts_downloaded": [
+    "BEP20UpgradeableProxy.sol",
+    "BEP20TokenImplementation.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

@@ -1,0 +1,27 @@
+{
+  "hack_name": "unverified_d4f1",
+  "date": "20250215",
+  "date_period": "2025-02",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2025/README.md#20250215-unverified_d4f1---access-control",
+  "chain": "bsc",
+  "is_proxy": true,
+  "proxy_patterns_found": [
+    "initialize"
+  ],
+  "ac_patterns_in_poc": [],
+  "poc_file": "unverified_d4f1_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2025-02\\unverified_d4f1_exp.sol",
+  "attacker_address": "0x8149f77504007450711023cf0ec11bdd6348401f",
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0xd4f1afd0331255e848c119ca39143d41144f7cb3",
+  "total_lost": "15.2k USD",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.693849Z",
+  "notes": {
+    "proxy": "This contract uses a proxy pattern. In Certora, use --proxy_impl and verify the implementation contract separately. Storage collision is an additional attack vector in proxies.",
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

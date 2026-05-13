@@ -1,0 +1,2879 @@
+{
+  "generated_at": "2026-05-13T15:30:13.908473Z",
+  "total": 41,
+  "ready": 37,
+  "not_ready": 4,
+  "reports": [
+    {
+      "hack": "88mph_NFT",
+      "contract": "NFT",
+      "fn": "transferOwnership",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "0.5.17",
+      "sol_files": [
+        "AaveMarket.sol",
+        "Address.sol",
+        "ATokenMock.sol",
+        "CERC20Mock.sol",
+        "CloneFactory.sol",
+        "CompoundERC20Market.sol",
+        "ComptrollerMock.sol",
+        "Context.sol",
+        "Counters.sol",
+        "CreamERC20Market.sol",
+        "Curve.sol",
+        "CurveLPWithdrawer.sol",
+        "CurveZapIn.sol",
+        "DecMath.sol",
+        "DInterest.sol",
+        "DInterestWithDepositFee.sol",
+        "Dumper.sol",
+        "EMAOracle.sol",
+        "ERC165.sol",
+        "ERC20.sol",
+        "ERC20Burnable.sol",
+        "ERC20Detailed.sol",
+        "ERC20Mock.sol",
+        "ERC721.sol",
+        "ERC721Metadata.sol",
+        "FractionalDeposit.sol",
+        "FractionalDepositFactory.sol",
+        "HarvestMarket.sol",
+        "HarvestStaking.sol",
+        "HarvestStakingMock.sol",
+        "HarvestVault.sol",
+        "ICERC20.sol",
+        "IComptroller.sol",
+        "IERC165.sol",
+        "IERC20.sol",
+        "IERC721.sol",
+        "IERC721Metadata.sol",
+        "IERC721Receiver.sol",
+        "IFeeModel.sol",
+        "IInterestModel.sol",
+        "IInterestOracle.sol",
+        "ILendingPool.sol",
+        "ILendingPoolAddressesProvider.sol",
+        "IMoneyMarket.sol",
+        "IMPHIssuanceModel.sol",
+        "IRewards.sol",
+        "LendingPoolAddressesProviderMock.sol",
+        "LendingPoolMock.sol",
+        "LinearInterestModel.sol",
+        "Math.sol",
+        "MPHIssuanceModel01.sol",
+        "MPHMinter.sol",
+        "MPHToken.sol",
+        "NFT.sol",
+        "NFTFactory.sol",
+        "OneSplitAudit.sol",
+        "OneSplitDumper.sol",
+        "Ownable.sol",
+        "PercentageFeeModel.sol",
+        "ReentrancyGuard.sol",
+        "Rewards.sol",
+        "Roles.sol",
+        "SafeERC20.sol",
+        "SafeMath.sol",
+        "SignerRole.sol",
+        "Vault.sol",
+        "VaultMock.sol",
+        "VaultWithDepositFeeMock.sol",
+        "Vesting.sol",
+        "YearnWithdrawer.sol",
+        "yERC20.sol",
+        "YVaultMarket.sol",
+        "ZapCurve.sol",
+        "ZeroCouponBond.sol",
+        "ZeroCouponBondFactory.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'NFT' encontrado em ['NFT.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transferOwnership' encontrada: function transferOwnership(address newOwner)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 202 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'FractionalDeposit.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: that in ['DInterest.sol', 'DInterest.sol', 'DInterest.sol', 'DInterestWithDepositFee.sol', 'DInterestWithDepositFee.sol', 'DInterestWithDepositFee.sol', 'IERC721Receiver.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: for in ['DInterest.sol', 'DInterestWithDepositFee.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: calls in ['FractionalDeposit.sol', 'FractionalDepositFactory.sol', 'IERC721Receiver.sol', 'ZapCurve.sol', 'ZeroCouponBond.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: address in ['FractionalDeposit.sol', 'FractionalDepositFactory.sol', 'IERC721Receiver.sol', 'ZapCurve.sol', 'ZeroCouponBond.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: IRewardDistributionRecipient in ['HarvestStakingMock.sol', 'Rewards.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: LPTokenWrapper in ['HarvestStakingMock.sol', 'Rewards.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: from in ['ReentrancyGuard.sol', 'ZeroCouponBond.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 11
+    },
+    {
+      "hack": "ABCCApp",
+      "contract": "ABCCApp",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "0.8.24",
+      "sol_files": [
+        "ABCCApp.sol",
+        "Context.sol",
+        "IERC20.sol",
+        "Ownable.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'ABCCApp' encontrado em ['ABCCApp.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address to, uint256 value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 3 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 3
+    },
+    {
+      "hack": "ADC",
+      "contract": "Vault",
+      "fn": "withdraw",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "^0.7.0",
+      "sol_files": [
+        "Address.sol",
+        "AssetHelpers.sol",
+        "AssetManagers.sol",
+        "AssetTransfersHandler.sol",
+        "Authentication.sol",
+        "BalanceAllocation.sol",
+        "BalancerErrors.sol",
+        "EIP712.sol",
+        "EnumerableMap.sol",
+        "EnumerableSet.sol",
+        "Fees.sol",
+        "FixedPoint.sol",
+        "FlashLoans.sol",
+        "GeneralPoolsBalance.sol",
+        "IAsset.sol",
+        "IAuthentication.sol",
+        "IAuthorizer.sol",
+        "IBasePool.sol",
+        "IERC20.sol",
+        "IFlashLoanRecipient.sol",
+        "IGeneralPool.sol",
+        "IMinimalSwapInfoPool.sol",
+        "InputHelpers.sol",
+        "IPoolSwapStructs.sol",
+        "ISignaturesValidator.sol",
+        "ITemporarilyPausable.sol",
+        "IVault.sol",
+        "IWETH.sol",
+        "LogExpMath.sol",
+        "Math.sol",
+        "MinimalSwapInfoPoolsBalance.sol",
+        "PoolBalances.sol",
+        "PoolRegistry.sol",
+        "PoolTokens.sol",
+        "ProtocolFeesCollector.sol",
+        "ReentrancyGuard.sol",
+        "SafeCast.sol",
+        "SafeERC20.sol",
+        "SignaturesValidator.sol",
+        "Swaps.sol",
+        "TemporarilyPausable.sol",
+        "TwoTokenPoolsBalance.sol",
+        "UserBalance.sol",
+        "Vault.sol",
+        "VaultAuthorization.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'Vault' encontrado em ['Vault.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'withdraw' encontrada: function withdraw(uint256 amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 148 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: caller in ['AssetTransfersHandler.sol', 'AssetTransfersHandler.sol', 'AssetTransfersHandler.sol', 'UserBalance.sol', 'UserBalance.sol', 'UserBalance.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Authentication.sol', 'Authentication.sol', 'IVault.sol', 'IVault.sol', 'TemporarilyPausable.sol', 'TemporarilyPausable.sol', 'TemporarilyPausable.sol', 'TemporarilyPausable.sol', 'UserBalance.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['BalancerErrors.sol', 'IVault.sol', 'ProtocolFeesCollector.sol', 'TemporarilyPausable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['EIP712.sol', 'EIP712.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: Example in ['EnumerableMap.sol', 'EnumerableSet.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: that in ['IVault.sol', 'IVault.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['IVault.sol', 'IVault.sol', 'UserBalance.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: address in ['IVault.sol', 'PoolRegistry.sol', 'PoolRegistry.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: can in ['IVault.sol', 'PoolRegistry.sol', 'TemporarilyPausable.sol', 'TemporarilyPausable.sol', 'TemporarilyPausable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 10
+    },
+    {
+      "hack": "AIS",
+      "contract": "AISPACE",
+      "fn": "setMarketAddress",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.20",
+      "sol_files": [
+        "AISPACE.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'AISPACE' encontrado em ['AISPACE.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'setMarketAddress' encontrada: function setMarketAddress(address _address)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['AISPACE.sol', 'AISPACE.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['AISPACE.sol', 'AISPACE.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol', 'AISPACE.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 5
+    },
+    {
+      "hack": "Ak1111",
+      "contract": "AkashaOFT",
+      "fn": "owner",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "AccessControl.sol",
+        "AkashaOFT.sol",
+        "BytesLib.sol",
+        "Context.sol",
+        "ERC165.sol",
+        "ERC20.sol",
+        "ExcessivelySafeCall.sol",
+        "IAccessControl.sol",
+        "IERC165.sol",
+        "IERC20.sol",
+        "IERC20Metadata.sol",
+        "ILayerZeroEndpoint.sol",
+        "ILayerZeroReceiver.sol",
+        "ILayerZeroUserApplicationConfig.sol",
+        "IOFT.sol",
+        "IOFTCore.sol",
+        "LzApp.sol",
+        "Math.sol",
+        "NonblockingLzApp.sol",
+        "OFT.sol",
+        "OFTCore.sol",
+        "Ownable.sol",
+        "SignedMath.sol",
+        "Strings.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'AkashaOFT' encontrado em ['AkashaOFT.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'owner' encontrada: function owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 34 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['AkashaOFT.sol', 'Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: from in ['ExcessivelySafeCall.sol', 'ExcessivelySafeCall.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: assembly in ['ExcessivelySafeCall.sol', 'ExcessivelySafeCall.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['IAccessControl.sol', 'IAccessControl.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: address in ['ILayerZeroEndpoint.sol', 'ILayerZeroEndpoint.sol', 'ILayerZeroEndpoint.sol', 'ILayerZeroEndpoint.sol', 'ILayerZeroEndpoint.sol', 'ILayerZeroEndpoint.sol', 'ILayerZeroEndpoint.sol', 'ILayerZeroReceiver.sol', 'ILayerZeroUserApplicationConfig.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() deveria ser envfree",
+          "fix": "Adicionar envfree ao final da declaracao de owner()"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 8
+    },
+    {
+      "hack": "BabySwap",
+      "contract": "SwapMining",
+      "fn": "addWhitelist",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": ">=0.6.0 <0.8.0",
+      "sol_files": [
+        "Address.sol",
+        "BabyLibrary.sol",
+        "BabyToken.sol",
+        "BEP20.sol",
+        "console.sol",
+        "Context.sol",
+        "EnumerableSet.sol",
+        "IBabyFactory.sol",
+        "IBabyPair.sol",
+        "IBEP20.sol",
+        "IERC20.sol",
+        "Ownable.sol",
+        "SafeMath.sol",
+        "SwapMining.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'SwapMining' encontrado em ['SwapMining.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'addWhitelist' encontrada: function addWhitelist(address _addToken)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 18 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 2
+    },
+    {
+      "hack": "Bancor_Protocol",
+      "contract": "XBPToken",
+      "fn": "transfer",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "0.4.19",
+      "sol_files": [
+        "XBPToken.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'XBPToken' encontrado em ['XBPToken.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address _to, uint256 _value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address public owner', '_owner', '_owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: owner in ['XBPToken.sol', 'XBPToken.sol', 'XBPToken.sol', 'XBPToken.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['XBPToken.sol', 'XBPToken.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 3
+    },
+    {
+      "hack": "BRAND",
+      "contract": "PancakePair",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": ">=0.5.0",
+      "sol_files": [
+        "PancakePair.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'PancakePair' encontrado em ['PancakePair.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address to, uint value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: which in ['PancakePair.sol', 'PancakePair.sol', 'PancakePair.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 2
+    },
+    {
+      "hack": "CIVNFT",
+      "contract": "TransparentUpgradeableProxy",
+      "fn": "upgradeTo",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "Address.sol",
+        "Context.sol",
+        "ERC1967Proxy.sol",
+        "ERC1967Upgrade.sol",
+        "IBeacon.sol",
+        "import.sol",
+        "Ownable.sol",
+        "Proxiable.sol",
+        "Proxy.sol",
+        "ProxyAdmin.sol",
+        "StorageSlot.sol",
+        "TransparentUpgradeableProxy.sol",
+        "UUPSUpgradeable.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'TransparentUpgradeableProxy' encontrado em ['TransparentUpgradeableProxy.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'upgradeTo' encontrada: function upgradeTo(address newImplementation)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 13 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Spec aponta para 'TransparentUpgradeableProxy' (proxy), deveria apontar para a implementacao",
+          "fix": "Atualizar fetched_contract_name no metadata para o contrato de implementacao"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 14 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['ERC1967Proxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Upgrade.sol', 'Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 6
+    },
+    {
+      "hack": "CoW",
+      "contract": "GPv2Settlement",
+      "fn": "setPreSignature",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "^0.7.6",
+      "sol_files": [
+        "GPv2Authentication.sol",
+        "GPv2EIP1271.sol",
+        "GPv2Interaction.sol",
+        "GPv2Order.sol",
+        "GPv2SafeERC20.sol",
+        "GPv2Settlement.sol",
+        "GPv2Signing.sol",
+        "GPv2Trade.sol",
+        "GPv2Transfer.sol",
+        "GPv2VaultRelayer.sol",
+        "IERC20.sol",
+        "IVault.sol",
+        "ReentrancyGuard.sol",
+        "SafeCast.sol",
+        "SafeMath.sol",
+        "StorageAccessible.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'GPv2Settlement' encontrado em ['GPv2Settlement.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'setPreSignature' encontrada: function setPreSignature(bytes calldata orderUid, bool signed)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 29 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: interactions in ['GPv2Interaction.sol', 'GPv2Settlement.sol', 'GPv2Settlement.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: that in ['GPv2SafeERC20.sol', 'StorageAccessible.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: can in ['GPv2Settlement.sol', 'GPv2Settlement.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: containing in ['StorageAccessible.sol', 'StorageAccessible.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "error",
+          "msg": "owner() nao declarado no bloco methods",
+          "fix": "Adicionar: function owner() external returns (address) envfree;"
+        }
+      ],
+      "certora_ready": false,
+      "error_count": 1,
+      "warn_count": 5
+    },
+    {
+      "hack": "DAO_Maker",
+      "contract": "ERC20",
+      "fn": "transfer",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "ERC20.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'ERC20' encontrado em ['ERC20.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address recipient, uint256 amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Proxy mas so 1 arquivo .sol - implementacao pode estar faltando",
+          "fix": "Verificar se o contrato de implementacao foi baixado"
+        },
+        {
+          "severity": "warn",
+          "msg": "Contrato proxy mas spec nao verifica upgradeTo",
+          "fix": "Adicionar rule onlyOwnerCanUpgrade com upgradeTo@withrevert"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 3
+    },
+    {
+      "hack": "ETHFIN",
+      "contract": "EthernalFinanceII",
+      "fn": "DistributeRewards",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.6",
+      "sol_files": [
+        "EthernalFinanceII.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'EthernalFinanceII' encontrado em ['EthernalFinanceII.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'DistributeRewards' encontrada: function DistributeRewards(uint32 count)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['_owner', '_owner', '_owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: address in ['EthernalFinanceII.sol', 'EthernalFinanceII.sol', 'EthernalFinanceII.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: balance in ['EthernalFinanceII.sol', 'EthernalFinanceII.sol', 'EthernalFinanceII.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "error",
+          "msg": "owner() nao declarado no bloco methods",
+          "fix": "Adicionar: function owner() external returns (address) envfree;"
+        }
+      ],
+      "certora_ready": false,
+      "error_count": 1,
+      "warn_count": 3
+    },
+    {
+      "hack": "FILX_DN404",
+      "contract": "LinearVesting",
+      "fn": "init",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "Address.sol",
+        "BeaconProxy.sol",
+        "Context.sol",
+        "draft-IERC1822.sol",
+        "ERC1967Proxy.sol",
+        "ERC1967Upgrade.sol",
+        "IBeacon.sol",
+        "IERC1967.sol",
+        "IERC20.sol",
+        "IERC20Permit.sol",
+        "ILinearVesting.sol",
+        "LinearVesting.sol",
+        "Ownable.sol",
+        "Proxy.sol",
+        "ProxyAdmin.sol",
+        "SafeERC20.sol",
+        "SafeMath.sol",
+        "StorageSlot.sol",
+        "TransparentUpgradeableProxy.sol",
+        "UpgradeableBeacon.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'LinearVesting' encontrado em ['LinearVesting.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'init' encontrada: function init(IERC20 initToken,\n        uint256 initPeriods,\n        uint256 initInterval)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 20 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 24 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['BeaconProxy.sol', 'ERC1967Proxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'UpgradeableBeacon.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Upgrade.sol', 'Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol', 'SafeERC20.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 7
+    },
+    {
+      "hack": "FPR",
+      "contract": "BEP20FPR",
+      "fn": "setPairAddr",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "0.5.16",
+      "sol_files": [
+        "BEP20FPR.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'BEP20FPR' encontrado em ['BEP20FPR.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'setPairAddr' encontrada: function setPairAddr(address pair)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['BEP20FPR.sol', 'BEP20FPR.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['BEP20FPR.sol', 'BEP20FPR.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 3
+    },
+    {
+      "hack": "GROKD",
+      "contract": "ERC1967Proxy",
+      "fn": "upgradeTo",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.20",
+      "sol_files": [
+        "ERC1967Proxy.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'ERC1967Proxy' encontrado em ['ERC1967Proxy.sol']"
+        },
+        {
+          "severity": "error",
+          "msg": "Funcao 'upgradeTo' NAO encontrada no source",
+          "fix": "Funcoes similares encontradas: ['upgradeToAndCall', 'upgradeBeaconToAndCall']"
+        },
+        {
+          "severity": "error",
+          "msg": "owner() nao encontrada - spec usa currentContract.owner()",
+          "fix": "Adaptar spec para usar o mecanismo de AC real do contrato"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: if in ['ERC1967Proxy.sol', 'ERC1967Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Proxy.sol', 'ERC1967Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "error",
+          "msg": "owner() nao declarado no bloco methods",
+          "fix": "Adicionar: function owner() external returns (address) envfree;"
+        }
+      ],
+      "certora_ready": false,
+      "error_count": 3,
+      "warn_count": 2
+    },
+    {
+      "hack": "GYMNetwork",
+      "contract": "GymRouter",
+      "fn": "initialize",
+      "chain": "bsc",
+      "is_proxy": true,
+      "pragma": "0.8.15",
+      "sol_files": [
+        "AddressUpgradeable.sol",
+        "ContextUpgradeable.sol",
+        "draft-IERC20PermitUpgradeable.sol",
+        "EnumerableSet.sol",
+        "GymRouter.sol",
+        "IERC20Upgradeable.sol",
+        "IFactory.sol",
+        "IMunicipality.sol",
+        "INetGymStreet.sol",
+        "Initializable.sol",
+        "IPancakeRouter01.sol",
+        "IPancakeRouter02.sol",
+        "OwnableUpgradeable.sol",
+        "ReentrancyGuardUpgradeable.sol",
+        "SafeERC20Upgradeable.sol",
+        "TransparentUpgradeableProxy.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'GymRouter' encontrado em ['GymRouter.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'initialize' encontrada: function initialize(address _routerAddress,\n        address _weth,\n        uint256 _commission)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 16 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 17 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: in in ['AddressUpgradeable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['AddressUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: lived in ['AddressUpgradeable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['AddressUpgradeable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['ContextUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Initializable.sol', 'OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: from in ['Initializable.sol', 'Initializable.sol', 'ReentrancyGuardUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: has in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['TransparentUpgradeableProxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['TransparentUpgradeableProxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 12
+    },
+    {
+      "hack": "HPAY",
+      "contract": "MintableAutoCompundRelockBonus",
+      "fn": "withdraw",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "AccessControl.sol",
+        "AccessControlEnumerable.sol",
+        "AccessControlUpgradeable.sol",
+        "Address.sol",
+        "AddressUpgradeable.sol",
+        "AutocompundStaking.sol",
+        "BaseStaking.sol",
+        "Context.sol",
+        "ContextUpgradeable.sol",
+        "EnumerableSet.sol",
+        "ERC165.sol",
+        "ERC165Upgradeable.sol",
+        "ERC20.sol",
+        "ERC20Burnable.sol",
+        "ERC20Pausable.sol",
+        "ERC20PresetMinterPauser.sol",
+        "FixedTimeLockStaking.sol",
+        "IAccessControl.sol",
+        "IAccessControlEnumerable.sol",
+        "IAccessControlUpgradeable.sol",
+        "IERC165.sol",
+        "IERC165Upgradeable.sol",
+        "IERC20.sol",
+        "IERC20Metadata.sol",
+        "Initializable.sol",
+        "MintableAutoCompundRelockBonus.sol",
+        "MintableSupplyStaking.sol",
+        "OwnableUpgradeable.sol",
+        "Pausable.sol",
+        "RelockBonusStaking.sol",
+        "SafeERC20.sol",
+        "StakingUtils.sol",
+        "StaticFixedTimeLockStaking.sol",
+        "Strings.sol",
+        "StringsUpgradeable.sol",
+        "TaxedStaking.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'MintableAutoCompundRelockBonus' encontrado em ['MintableAutoCompundRelockBonus.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'withdraw' encontrada: function withdraw(uint256 _amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 84 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: event in ['AccessControl.sol', 'AccessControlUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: in in ['Address.sol', 'AddressUpgradeable.sol', 'Pausable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['Address.sol', 'AddressUpgradeable.sol', 'ERC20PresetMinterPauser.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: lived in ['Address.sol', 'AddressUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'AddressUpgradeable.sol', 'ERC20Pausable.sol', 'Pausable.sol', 'Pausable.sol', 'Pausable.sol', 'Pausable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'ContextUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Pausable.sol', 'Pausable.sol', 'Pausable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: and in ['ERC165.sol', 'ERC165Upgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['IAccessControl.sol', 'IAccessControl.sol', 'IAccessControlUpgradeable.sol', 'IAccessControlUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: interfaces in ['IERC165.sol', 'IERC165Upgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['IERC165.sol', 'IERC165Upgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Initializable.sol', 'OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: can in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 14
+    },
+    {
+      "hack": "INUMI_db27",
+      "contract": "ERC677InitializableTokenV2",
+      "fn": "burn",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "pragma": "0.4.24",
+      "sol_files": [
+        "Address.sol",
+        "AdminUpgradeabilityProxy.sol",
+        "ERC677InitializableTokenV2.sol",
+        "Proxy.sol",
+        "TokenProxy.sol",
+        "UpgradeabilityProxy.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'ERC677InitializableTokenV2' encontrado em ['ERC677InitializableTokenV2.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'burn' encontrada: function burn(uint256 value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 6 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Import nao resolvido localmente: ERC677InitializableTokenV2.sol -> ERC20Mintable.sol",
+          "fix": "Certora pode resolver via remappings ou --packages"
+        },
+        {
+          "severity": "warn",
+          "msg": "Import nao resolvido localmente: ERC677InitializableTokenV2.sol -> Ownerable.sol",
+          "fix": "Certora pode resolver via remappings ou --packages"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Address.sol', 'ERC677InitializableTokenV2.sol', 'ERC677InitializableTokenV2.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Address.sol', 'ERC677InitializableTokenV2.sol', 'ERC677InitializableTokenV2.sol', 'ERC677InitializableTokenV2.sol', 'ERC677InitializableTokenV2.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['AdminUpgradeabilityProxy.sol', 'UpgradeabilityProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: has in ['ERC677InitializableTokenV2.sol', 'ERC677InitializableTokenV2.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 7
+    },
+    {
+      "hack": "LocalTrade",
+      "contract": "LCTExchange",
+      "fn": "owner",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "LCTExchange.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'LCTExchange' encontrado em ['LCTExchange.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'owner' encontrada: function owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['LCTExchange.sol', 'LCTExchange.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['LCTExchange.sol', 'LCTExchange.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() deveria ser envfree",
+          "fix": "Adicionar envfree ao final da declaracao de owner()"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 4
+    },
+    {
+      "hack": "Melo",
+      "contract": "cERC20",
+      "fn": "mint",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "0.5.11",
+      "sol_files": [
+        "cERC20.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'cERC20' encontrado em ['cERC20.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'mint' encontrada: function mint(address account,\n\n        uint256 amount,\n\n        string calldata txId)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 1
+    },
+    {
+      "hack": "MetaPool",
+      "contract": "TransparentUpgradeableProxy",
+      "fn": "upgradeTo",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "Address.sol",
+        "BeaconProxy.sol",
+        "Context.sol",
+        "draft-IERC1822.sol",
+        "ERC1967Proxy.sol",
+        "ERC1967Upgrade.sol",
+        "IBeacon.sol",
+        "IERC1967.sol",
+        "Ownable.sol",
+        "Proxy.sol",
+        "ProxyAdmin.sol",
+        "StorageSlot.sol",
+        "TransparentUpgradeableProxy.sol",
+        "UpgradeableBeacon.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'TransparentUpgradeableProxy' encontrado em ['TransparentUpgradeableProxy.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'upgradeTo' encontrada: function upgradeTo(address)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 14 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Spec aponta para 'TransparentUpgradeableProxy' (proxy), deveria apontar para a implementacao",
+          "fix": "Atualizar fetched_contract_name no metadata para o contrato de implementacao"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 17 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['BeaconProxy.sol', 'ERC1967Proxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'UpgradeableBeacon.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Upgrade.sol', 'Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 8
+    },
+    {
+      "hack": "NGFS",
+      "contract": "NGFSToken",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.4",
+      "sol_files": [
+        "Address.sol",
+        "Context.sol",
+        "IERC20.sol",
+        "IPancakeLibrary.sol",
+        "IPancakePair.sol",
+        "IPancakeRouter01.sol",
+        "IPancakeRouter02.sol",
+        "IUniswapV2Factory.sol",
+        "NGFSToken.sol",
+        "Ownable.sol",
+        "SafeMath.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'NGFSToken' encontrado em ['NGFSToken.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address to, uint256 value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 11 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 2
+    },
+    {
+      "hack": "Parity_Multisig",
+      "contract": "IntrospectionToken",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.19",
+      "sol_files": [
+        "BEP20.sol",
+        "BEP20Detailed.sol",
+        "IBEP20.sol",
+        "IntrospectionToken.sol",
+        "SafeMath.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'IntrospectionToken' encontrado em ['IntrospectionToken.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address recipient, uint256 amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['_owner', '_owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 5 imports resolvidos localmente"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 1
+    },
+    {
+      "hack": "Phoenix",
+      "contract": "UChildAdministrableERC20",
+      "fn": "deposit",
+      "chain": "polygon",
+      "is_proxy": true,
+      "pragma": "^0.6.0",
+      "sol_files": [
+        "UChildAdministrableERC20.sol",
+        "UChildERC20Proxy.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'UChildAdministrableERC20' encontrado em ['UChildAdministrableERC20.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'deposit' encontrada: function deposit(address user, bytes calldata depositData)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 2 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['UChildAdministrableERC20.sol', 'UChildAdministrableERC20.sol', 'UChildAdministrableERC20.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['UChildAdministrableERC20.sol', 'UChildAdministrableERC20.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "error",
+          "msg": "owner() nao declarado no bloco methods",
+          "fix": "Adicionar: function owner() external returns (address) envfree;"
+        },
+        {
+          "severity": "warn",
+          "msg": "Contrato proxy mas spec nao verifica upgradeTo",
+          "fix": "Adicionar rule onlyOwnerCanUpgrade com upgradeTo@withrevert"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": false,
+      "error_count": 1,
+      "warn_count": 4
+    },
+    {
+      "hack": "Pledge",
+      "contract": "Pledge",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.20",
+      "sol_files": [
+        "Pledge.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'Pledge' encontrado em ['Pledge.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address to, uint256 value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 1
+    },
+    {
+      "hack": "PLN",
+      "contract": "PLNTOKEN",
+      "fn": "burn",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "0.8.19",
+      "sol_files": [
+        "PLNTOKEN.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'PLNTOKEN' encontrado em ['PLNTOKEN.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'burn' encontrada: function burn(address to)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 1
+    },
+    {
+      "hack": "Rikkei_Finance",
+      "contract": "BEP20TokenImplementation",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": true,
+      "pragma": "^0.6.0",
+      "sol_files": [
+        "BEP20TokenImplementation.sol",
+        "BEP20UpgradeableProxy.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'BEP20TokenImplementation' encontrado em ['BEP20TokenImplementation.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address recipient, uint256 amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['_owner', '_owner', '_owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 2 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['BEP20TokenImplementation.sol', 'BEP20TokenImplementation.sol', 'BEP20TokenImplementation.sol', 'BEP20TokenImplementation.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['BEP20TokenImplementation.sol', 'BEP20TokenImplementation.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['BEP20TokenImplementation.sol', 'BEP20UpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['BEP20TokenImplementation.sol', 'BEP20TokenImplementation.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['BEP20UpgradeableProxy.sol', 'BEP20UpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 6
+    },
+    {
+      "hack": "Sandbox_LAND",
+      "contract": "Land",
+      "fn": "burn",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "0.5.9",
+      "sol_files": [
+        "AddressUtils.sol",
+        "Admin.sol",
+        "ERC721BaseToken.sol",
+        "ERC721Events.sol",
+        "ERC721MandatoryTokenReceiver.sol",
+        "ERC721TokenReceiver.sol",
+        "Land.sol",
+        "LandBaseToken.sol",
+        "MetaTransactionReceiver.sol",
+        "SuperOperators.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'Land' encontrado em ['Land.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'burn' encontrada: function burn(uint256 id)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 10 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: supports in ['ERC721BaseToken.sol', 'Land.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 2
+    },
+    {
+      "hack": "ShadowFi",
+      "contract": "ShadowFi",
+      "fn": "burn",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.8.4",
+      "sol_files": [
+        "ShadowFi.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'ShadowFi' encontrado em ['ShadowFi.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'burn' encontrada: function burn(address account, uint256 _amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['_owner', 'address public owner']. Verificar se herda Ownable."
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 1
+    },
+    {
+      "hack": "SizeCredit",
+      "contract": "LeverageUp",
+      "fn": "validateInitialize",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "0.8.23",
+      "sol_files": [
+        "AccountingLibrary.sol",
+        "Address.sol",
+        "AggregatorV3Interface.sol",
+        "Authorization.sol",
+        "BoringPtSeller.sol",
+        "BuyCreditLimit.sol",
+        "BuyCreditMarket.sol",
+        "CapsLibrary.sol",
+        "ChainlinkPriceFeed.sol",
+        "ChainlinkSequencerUptimeFeed.sol",
+        "Claim.sol",
+        "Compensate.sol",
+        "Context.sol",
+        "ContextUpgradeable.sol",
+        "CopyLimitOrders.sol",
+        "DataTypes.sol",
+        "Deposit.sol",
+        "DepositTokenLibrary.sol",
+        "DexSwap.sol",
+        "draft-IERC1822.sol",
+        "draft-IERC6093.sol",
+        "ERC1967Utils.sol",
+        "ERC20.sol",
+        "Errors.sol",
+        "Events.sol",
+        "FixedPointMathLib.sol",
+        "FullMath.sol",
+        "I1InchAggregator.sol",
+        "IAaveIncentivesController.sol",
+        "IAToken.sol",
+        "IBeacon.sol",
+        "IERC20.sol",
+        "IERC20Metadata.sol",
+        "IERC20Permit.sol",
+        "IInitializableAToken.sol",
+        "IMulticall.sol",
+        "Initializable.sol",
+        "Initialize.sol",
+        "IPActionAddRemoveLiqV3.sol",
+        "IPActionCallbackV3.sol",
+        "IPActionMiscV3.sol",
+        "IPActionSimple.sol",
+        "IPActionStorageV4.sol",
+        "IPActionSwapPTV3.sol",
+        "IPActionSwapYTV3.sol",
+        "IPAllActionTypeV3.sol",
+        "IPAllActionV3.sol",
+        "IPAllEventsV3.sol",
+        "IPGauge.sol",
+        "IPInterestManagerYT.sol",
+        "IPLimitRouter.sol",
+        "IPMarket.sol",
+        "IPMarketSwapCallback.sol",
+        "IPool.sol",
+        "IPoolAddressesProvider.sol",
+        "IPPrincipalToken.sol",
+        "IPriceFeed.sol",
+        "IPSwapAggregator.sol",
+        "IPYieldToken.sol",
+        "IRequiresAuthorization.sol",
+        "IRewardManager.sol",
+        "IScaledBalanceToken.sol",
+        "ISize.sol",
+        "ISizeAdmin.sol",
+        "ISizeFactory.sol",
+        "ISizeFactoryOffchainGetters.sol",
+        "ISizeFactoryV1_7.sol",
+        "ISizeV1_7.sol",
+        "ISizeView.sol",
+        "ISizeViewV1_7.sol",
+        "IStandardizedYield.sol",
+        "IUniswapV2Router02.sol",
+        "IUniswapV3Pool.sol",
+        "IUniswapV3PoolActions.sol",
+        "IUniswapV3PoolDerivedState.sol",
+        "IUniswapV3PoolErrors.sol",
+        "IUniswapV3PoolEvents.sol",
+        "IUniswapV3PoolImmutables.sol",
+        "IUniswapV3PoolOwnerActions.sol",
+        "IUniswapV3PoolState.sol",
+        "IUniswapV3Router.sol",
+        "IUnoswapRouter.sol",
+        "IWETH.sol",
+        "LeverageUp.sol",
+        "Liquidate.sol",
+        "LiquidateWithReplacement.sol",
+        "LoanLibrary.sol",
+        "LogExpMath.sol",
+        "MarketApproxLibV2.sol",
+        "MarketMathCore.sol",
+        "Math.sol",
+        "MiniHelpers.sol",
+        "NonTransferrableScaledTokenV1_5.sol",
+        "NonTransferrableToken.sol",
+        "OfferLibrary.sol",
+        "OracleLibrary.sol",
+        "Ownable.sol",
+        "Ownable2StepUpgradeable.sol",
+        "OwnableUpgradeable.sol",
+        "PartialRepay.sol",
+        "PeripheryErrors.sol",
+        "PMath.sol",
+        "PoolAddress.sol",
+        "PriceFeed.sol",
+        "PYIndex.sol",
+        "Repay.sol",
+        "RiskLibrary.sol",
+        "SafeCast.sol",
+        "SafeERC20.sol",
+        "SelfLiquidate.sol",
+        "SellCreditLimit.sol",
+        "SellCreditMarket.sol",
+        "SetUserConfiguration.sol",
+        "SignedMath.sol",
+        "SizeStorage.sol",
+        "SizeViewData.sol",
+        "StorageSlot.sol",
+        "Strings.sol",
+        "SYUtils.sol",
+        "TickMath.sol",
+        "UniswapV3PriceFeed.sol",
+        "UpdateConfig.sol",
+        "UUPSUpgradeable.sol",
+        "WadRayMath.sol",
+        "Withdraw.sol",
+        "YieldCurveLibrary.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'LeverageUp' encontrado em ['LeverageUp.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'validateInitialize' encontrada: function validateInitialize(State storage,\n        address owner,\n        InitializeFeeConfigParams memory f,\n        InitializeRiskConfigParams memory r,\n        InitializeOracleParams memory o,\n        InitializeDataParams memory d)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 381 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: if in ['Address.sol', 'Address.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'ContextUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'UUPSUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: should in ['draft-IERC1822.sol', 'UUPSUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: that in ['IInitializableAToken.sol', 'Initializable.sol', 'IUniswapV3PoolImmutables.sol', 'PriceFeed.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Initializable.sol', 'Ownable.sol', 'Ownable.sol', 'Ownable2StepUpgradeable.sol', 'Ownable2StepUpgradeable.sol', 'OwnableUpgradeable.sol', 'OwnableUpgradeable.sol', 'SafeERC20.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: from in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: has in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: receiving in ['IPool.sol', 'IPool.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: address in ['IPoolAddressesProvider.sol', 'IUniswapV3PoolImmutables.sol', 'IUniswapV3PoolImmutables.sol', 'IUniswapV3PoolImmutables.sol', 'PoolAddress.sol', 'PoolAddress.sol', 'SizeStorage.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: through in ['ISize.sol', 'ISize.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: owner in ['ISizeFactory.sol', 'NonTransferrableScaledTokenV1_5.sol', 'NonTransferrableToken.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: used in ['OracleLibrary.sol', 'OracleLibrary.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: setting in ['Ownable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol', 'OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: returns in ['SafeERC20.sol', 'UniswapV3PriceFeed.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Parametros de 'validateInitialize' diferem: spec=2, source=6",
+          "fix": "Source real: function validateInitialize(State storage,\n        address owner,\n        InitializeFeeConfigParams memory f,\n        InitializeRiskConfigParams memory r,\n        InitializeOracleParams memory o,\n        InitializeDataParams memory d)"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 18
+    },
+    {
+      "hack": "Stead",
+      "contract": "TransparentUpgradeableProxy",
+      "fn": "owner",
+      "chain": "arbitrum",
+      "is_proxy": true,
+      "pragma": "^0.8.20",
+      "sol_files": [
+        "Address.sol",
+        "BeaconProxy.sol",
+        "Context.sol",
+        "ERC1967Proxy.sol",
+        "ERC1967Utils.sol",
+        "IBeacon.sol",
+        "IERC1967.sol",
+        "Ownable.sol",
+        "Proxy.sol",
+        "ProxyAdmin.sol",
+        "StorageSlot.sol",
+        "TransparentUpgradeableProxy.sol",
+        "UpgradeableBeacon.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'TransparentUpgradeableProxy' encontrado em ['TransparentUpgradeableProxy.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'owner' encontrada: function owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 13 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Spec aponta para 'TransparentUpgradeableProxy' (proxy), deveria apontar para a implementacao",
+          "fix": "Atualizar fetched_contract_name no metadata para o contrato de implementacao"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 17 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'ProxyAdmin.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: if in ['Address.sol', 'Address.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['BeaconProxy.sol', 'ERC1967Proxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'UpgradeableBeacon.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Utils.sol', 'Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() deveria ser envfree",
+          "fix": "Adicionar envfree ao final da declaracao de owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "Contrato proxy mas spec nao verifica upgradeTo",
+          "fix": "Adicionar rule onlyOwnerCanUpgrade com upgradeTo@withrevert"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 11
+    },
+    {
+      "hack": "SuperRare",
+      "contract": "RareStakingV1",
+      "fn": "initialize",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "0.8.28",
+      "sol_files": [
+        "Address.sol",
+        "ContextUpgradeable.sol",
+        "draft-IERC1822.sol",
+        "ERC1967Utils.sol",
+        "Errors.sol",
+        "Hashes.sol",
+        "IBeacon.sol",
+        "IERC1363.sol",
+        "IERC165.sol",
+        "IERC1967.sol",
+        "IERC20.sol",
+        "Initializable.sol",
+        "IRareStaking.sol",
+        "MerkleProof.sol",
+        "OwnableUpgradeable.sol",
+        "RareStakingV1.sol",
+        "ReentrancyGuardUpgradeable.sol",
+        "SafeERC20.sol",
+        "StorageSlot.sol",
+        "UUPSUpgradeable.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'RareStakingV1' encontrado em ['RareStakingV1.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'initialize' encontrada: function initialize()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 28 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: if in ['Address.sol', 'Address.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['ContextUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'UUPSUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: should in ['draft-IERC1822.sol', 'SafeERC20.sol', 'SafeERC20.sol', 'UUPSUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Initializable.sol', 'OwnableUpgradeable.sol', 'OwnableUpgradeable.sol', 'SafeERC20.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: from in ['Initializable.sol', 'Initializable.sol', 'ReentrancyGuardUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: has in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: uses in ['SafeERC20.sol', 'SafeERC20.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Parametros de 'initialize' diferem: spec=3, source=0",
+          "fix": "Source real: function initialize()"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 11
+    },
+    {
+      "hack": "SwapX",
+      "contract": "Diamond",
+      "fn": "owner",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "0.7.6",
+      "sol_files": [
+        "Address.sol",
+        "Context.sol",
+        "Diamond.sol",
+        "ERC20Custom.sol",
+        "IDiamond.sol",
+        "IERC20.sol",
+        "ITreasury.sol",
+        "Operator.sol",
+        "Ownable.sol",
+        "SafeMath.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'Diamond' encontrado em ['Diamond.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'owner' encontrada: function owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 14 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() deveria ser envfree",
+          "fix": "Adicionar envfree ao final da declaracao de owner()"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 3
+    },
+    {
+      "hack": "Templedao",
+      "contract": "StaxLPStaking",
+      "fn": "withdraw",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "^0.8.4",
+      "sol_files": [
+        "Address.sol",
+        "Context.sol",
+        "ERC20.sol",
+        "IERC20.sol",
+        "IERC20Metadata.sol",
+        "Ownable.sol",
+        "SafeERC20.sol",
+        "StaxLPStaking.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'StaxLPStaking' encontrado em ['StaxLPStaking.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'withdraw' encontrada: function withdraw(uint256 amount, bool claim)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 11 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 3
+    },
+    {
+      "hack": "TokenHolder",
+      "contract": "BorrowerOperationsV6",
+      "fn": "initialize",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "0.8.29",
+      "sol_files": [
+        "AccessControlUpgradeable.sol",
+        "BorrowerOperationsV6.sol",
+        "ContextUpgradeable.sol",
+        "draft-IERC6093.sol",
+        "ERC165Upgradeable.sol",
+        "ERC20Upgradeable.sol",
+        "IAccessControl.sol",
+        "IERC165.sol",
+        "IERC20.sol",
+        "IERC20Metadata.sol",
+        "Initializable.sol",
+        "ReentrancyGuardUpgradeable.sol",
+        "StorageSlot.sol",
+        "TokenHolder.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'BorrowerOperationsV6' encontrado em ['BorrowerOperationsV6.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'initialize' encontrada: function initialize(IERC20 _weth)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 21 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['ContextUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['IAccessControl.sol', 'IAccessControl.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: from in ['Initializable.sol', 'Initializable.sol', 'ReentrancyGuardUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: has in ['Initializable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: function in ['TokenHolder.sol', 'TokenHolder.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 7
+    },
+    {
+      "hack": "Uerii_Token",
+      "contract": "Token",
+      "fn": "mint",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "^0.8.0",
+      "sol_files": [
+        "Token.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'Token' encontrado em ['Token.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'mint' encontrada: function mint()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 1
+    },
+    {
+      "hack": "ULME",
+      "contract": "UniverseGoldMountain",
+      "fn": "transfer",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "^0.5.0",
+      "sol_files": [
+        "UniverseGoldMountain.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'UniverseGoldMountain' encontrado em ['UniverseGoldMountain.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address recipient, uint256 amount)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['address owner', 'address owner', 'address owner']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['UniverseGoldMountain.sol', 'UniverseGoldMountain.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 2
+    },
+    {
+      "hack": "Unverified_0x6077",
+      "contract": "D3MM",
+      "fn": "owner",
+      "chain": "bsc",
+      "is_proxy": false,
+      "pragma": "0.8.16",
+      "sol_files": [
+        "Address.sol",
+        "AggregatorV3Interface.sol",
+        "CloneFactory.sol",
+        "Context.sol",
+        "D3FeeRateModel.sol",
+        "D3Funding.sol",
+        "D3Maker.sol",
+        "D3MM.sol",
+        "D3MMFactory.sol",
+        "D3MMLiquidationRouter.sol",
+        "D3Oracle.sol",
+        "D3PoolQuota.sol",
+        "D3Proxy.sol",
+        "D3RateManager.sol",
+        "D3Storage.sol",
+        "D3Token.sol",
+        "D3Trading.sol",
+        "D3UserQuota.sol",
+        "D3Vault.sol",
+        "D3VaultFunding.sol",
+        "D3VaultLiquidation.sol",
+        "D3VaultStorage.sol",
+        "DecimalMath.sol",
+        "DODOApprove.sol",
+        "DODOApproveProxy.sol",
+        "DODOMath.sol",
+        "ERC20.sol",
+        "Errors.sol",
+        "ID3Factory.sol",
+        "ID3Maker.sol",
+        "ID3MM.sol",
+        "ID3Oracle.sol",
+        "ID3PoolQuota.sol",
+        "ID3RateManager.sol",
+        "ID3Token.sol",
+        "ID3UserQuota.sol",
+        "ID3Vault.sol",
+        "IDODOApprove.sol",
+        "IDODOApproveProxy.sol",
+        "IDODOLiquidator.sol",
+        "IDODOSwapCallback.sol",
+        "IDToken.sol",
+        "IERC20.sol",
+        "IERC20Metadata.sol",
+        "IERC20Permit.sol",
+        "IFeeRateModel.sol",
+        "InitializableOwnable.sol",
+        "IWETH.sol",
+        "MakerTypes.sol",
+        "Math.sol",
+        "MockChainlinkPriceFeed.sol",
+        "MockChainlinkPriceFeed2.sol",
+        "MockChainlinkPriceFeed3.sol",
+        "MockD3MM.sol",
+        "MockD3MMFactory.sol",
+        "MockD3Oracle.sol",
+        "MockD3Pool.sol",
+        "MockD3Proxy.sol",
+        "MockD3UserQuota.sol",
+        "MockERC20.sol",
+        "MockFeeRateModel.sol",
+        "MockRouter.sol",
+        "Ownable.sol",
+        "PMMPricing.sol",
+        "PMMRangeOrder.sol",
+        "ReentrancyGuard.sol",
+        "SafeERC20.sol",
+        "Types.sol",
+        "WETH9.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'D3MM' encontrado em ['D3MM.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'owner' encontrada: function owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 126 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'D3MMFactory.sol', 'D3RateManager.sol', 'D3UserQuota.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: address in ['D3MMFactory.sol', 'D3MMLiquidationRouter.sol', 'Types.sol', 'Types.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['D3Proxy.sol', 'MockD3Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol', 'SafeERC20.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() deveria ser envfree",
+          "fix": "Adicionar envfree ao final da declaracao de owner()"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 7
+    },
+    {
+      "hack": "Unverified_54cd",
+      "contract": "ERC1967Proxy",
+      "fn": "upgradeTo",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "pragma": "^0.8.20",
+      "sol_files": [
+        "Address.sol",
+        "BeaconProxy.sol",
+        "Context.sol",
+        "ERC1967Proxy.sol",
+        "ERC1967Utils.sol",
+        "IBeacon.sol",
+        "IERC1967.sol",
+        "Ownable.sol",
+        "Proxy.sol",
+        "ProxyAdmin.sol",
+        "StorageSlot.sol",
+        "TransparentUpgradeableProxy.sol",
+        "UpgradeableBeacon.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'ERC1967Proxy' encontrado em ['ERC1967Proxy.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'upgradeTo' encontrada: function upgradeTo(address newImplementation)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 13 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "warn",
+          "msg": "Spec aponta para 'ERC1967Proxy' (proxy), deveria apontar para a implementacao",
+          "fix": "Atualizar fetched_contract_name no metadata para o contrato de implementacao"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 17 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'ProxyAdmin.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: if in ['Address.sol', 'Address.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['BeaconProxy.sol', 'ERC1967Proxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'UpgradeableBeacon.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Utils.sol', 'Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Ownable.sol', 'Ownable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 9
+    },
+    {
+      "hack": "USDTStakingContract28",
+      "contract": "TetherToken",
+      "fn": "transfer",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "pragma": "^0.4.17",
+      "sol_files": [
+        "TetherToken.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'TetherToken' encontrado em ['TetherToken.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'transfer' encontrada: function transfer(address to, uint value)"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() nao encontrada como funcao, mas ha padrao de ownership",
+          "fix": "Padroes: ['Ownable', 'Ownable', 'Ownable']. Verificar se herda Ownable."
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['TetherToken.sol', 'TetherToken.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['TetherToken.sol', 'TetherToken.sol', 'TetherToken.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: if in ['TetherToken.sol', 'TetherToken.sol', 'TetherToken.sol', 'TetherToken.sol', 'TetherToken.sol', 'TetherToken.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 4
+    },
+    {
+      "hack": "wKeyDAO",
+      "contract": "WebKeyProSales",
+      "fn": "owner",
+      "chain": "bsc",
+      "is_proxy": true,
+      "pragma": ">=0.6.0 <0.8.0",
+      "sol_files": [
+        "AccessControlUpgradeable.sol",
+        "Address.sol",
+        "AddressUpgradeable.sol",
+        "BeaconProxy.sol",
+        "console.sol",
+        "Context.sol",
+        "ContextUpgradeable.sol",
+        "draft-IERC1822.sol",
+        "EnumerableSetUpgradeable.sol",
+        "ERC1967Proxy.sol",
+        "ERC1967Upgrade.sol",
+        "IBeacon.sol",
+        "IERC1967.sol",
+        "IERC20Upgradeable.sol",
+        "Initializable.sol",
+        "Ownable.sol",
+        "OwnableUpgradeable.sol",
+        "Proxy.sol",
+        "ProxyAdmin.sol",
+        "Sales.sol",
+        "StorageSlot.sol",
+        "TransparentUpgradeableProxy.sol",
+        "UpgradeableBeacon.sol"
+      ],
+      "issues": [
+        {
+          "severity": "ok",
+          "msg": "Contrato 'WebKeyProSales' encontrado em ['Sales.sol']"
+        },
+        {
+          "severity": "ok",
+          "msg": "Funcao 'owner' encontrada: function owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() encontrada (NAO view/pure - remover envfree da spec)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Proxy: 23 arquivos presentes (proxy + implementacao)"
+        },
+        {
+          "severity": "ok",
+          "msg": "Todos os 29 imports resolvidos localmente"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: call in ['AccessControlUpgradeable.sol', 'AccessControlUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: in in ['Address.sol', 'AddressUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: will in ['Address.sol', 'AddressUpgradeable.sol', 'Initializable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: lived in ['Address.sol', 'AddressUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: must in ['Address.sol', 'AddressUpgradeable.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol', 'ProxyAdmin.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: implements in ['BeaconProxy.sol', 'ERC1967Proxy.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: is in ['Context.sol', 'ContextUpgradeable.sol', 'Initializable.sol', 'Initializable.sol', 'UpgradeableBeacon.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: provides in ['ERC1967Upgrade.sol', 'Proxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: to in ['Initializable.sol', 'Ownable.sol', 'Ownable.sol', 'OwnableUpgradeable.sol', 'TransparentUpgradeableProxy.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: setting in ['Ownable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "Nome de contrato duplicado: without in ['Ownable.sol', 'Ownable.sol', 'OwnableUpgradeable.sol', 'OwnableUpgradeable.sol']",
+          "fix": "Certora pode se confundir com nomes duplicados"
+        },
+        {
+          "severity": "warn",
+          "msg": "owner() deveria ser envfree",
+          "fix": "Adicionar envfree ao final da declaracao de owner()"
+        },
+        {
+          "severity": "warn",
+          "msg": "Contrato proxy mas spec nao verifica upgradeTo",
+          "fix": "Adicionar rule onlyOwnerCanUpgrade com upgradeTo@withrevert"
+        },
+        {
+          "severity": "info",
+          "msg": "Proxy sem invariante implementationNeverZero",
+          "fix": "Considerar adicionar invariante de implementacao"
+        }
+      ],
+      "certora_ready": true,
+      "error_count": 0,
+      "warn_count": 14
+    }
+  ]
+}

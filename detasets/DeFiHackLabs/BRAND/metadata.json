@@ -1,0 +1,35 @@
+{
+  "hack_name": "BRAND",
+  "date": "20231102",
+  "date_period": "2023-11",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2023/README.md#20231102-brand---lack-of-access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "BRAND_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-11\\BRAND_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": "~23 WBNB",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.441157Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-12T18:10:16.045358Z",
+  "fetched_contract_name": "PancakePair",
+  "fetched_address": "0x88fF4f62A75733C0f5afe58672121568a680DE84",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "PancakePair.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

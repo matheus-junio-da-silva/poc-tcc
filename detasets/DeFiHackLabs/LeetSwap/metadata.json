@@ -1,0 +1,25 @@
+{
+  "hack_name": "LeetSwap",
+  "date": "20230801",
+  "date_period": "2023-08",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2023/README.md#20230801-leetswap---access-control",
+  "chain": "unknown",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Leetswap_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-08\\Leetswap_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://basescan.org/address/0x94dac4a3ce998143aa119c05460731da80ad90cf",
+  "total_lost": "~630K USD$",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.431514Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

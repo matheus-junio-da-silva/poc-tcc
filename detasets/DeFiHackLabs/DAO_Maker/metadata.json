@@ -1,0 +1,39 @@
+{
+  "hack_name": "DAO_Maker",
+  "date": "20210903",
+  "date_period": "2021-09",
+  "vulnerability_type": "access_control",
+  "description": "bad access controal",
+  "readme_link": "past/2021/README.md#20210903-dao-maker---bad-access-controal",
+  "chain": "ethereum",
+  "is_proxy": true,
+  "proxy_patterns_found": [
+    "initialize"
+  ],
+  "ac_patterns_in_poc": [],
+  "poc_file": "DaoMaker_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2021-09\\DaoMaker_exp.sol",
+  "attacker_address": "0x2708cace7b42302af26f1ab896111d87faeff92f",
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.284741Z",
+  "notes": {
+    "proxy": "This contract uses a proxy pattern. In Certora, use --proxy_impl and verify the implementation contract separately. Storage collision is an additional attack vector in proxies.",
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:44:55.976882Z",
+  "fetched_contract_name": "ERC20",
+  "fetched_address": "0x9fa69536d1cda4A04cFB50688294de75B505a9aE",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "ERC20.sol"
+  ],
+  "privileged_function_identified": "transfer",
+  "fix_note": "init nao existe como funcao publica; transfer foi explorada",
+  "fixed_at": "2026-05-13T15:30:01.580366Z"
+}

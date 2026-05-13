@@ -1,0 +1,37 @@
+{
+  "hack_name": "PLN",
+  "date": "20240905",
+  "date_period": "2024-09",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2024/README.md#20240905-PLN---access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "PLN_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-09\\PLN_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://etherscan.io/address/0xe0c218e1633a5c76d57ff4f11149f07bfff16aea",
+  "total_lost": "400k USD",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.586700Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:19.621096Z",
+  "fetched_contract_name": "PLNTOKEN",
+  "fetched_address": "0xe0c218e1633a5c76d57ff4f11149f07bfff16aea",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "PLNTOKEN.sol"
+  ],
+  "privileged_function_identified": "burn",
+  "fix_note": "withdraw nao existe; burn e public sem AC",
+  "fixed_at": "2026-05-13T15:30:01.601797Z"
+}

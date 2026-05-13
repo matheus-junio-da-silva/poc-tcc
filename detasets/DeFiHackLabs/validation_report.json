@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-05-13T14:14:45.285604Z",
+  "dry_run": false,
+  "total_checked": 41,
+  "ok": 7,
+  "fixed": 34,
+  "warning": 0,
+  "error": 0,
+  "results": [
+    {
+      "hack": "88mph_NFT",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transferOwnership()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "ABCCApp",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "ADC",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "AIS",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:setAdmin()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Ak1111",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    },
+    {
+      "hack": "BabySwap",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Bancor_Protocol",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "BRAND",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "CIVNFT",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:mint()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "CoW",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "DAO_Maker",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    },
+    {
+      "hack": "ETHFIN",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "FILX_DN404",
+      "status": "fixed",
+      "problems": [
+        "MISSING_PARAMS:init"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "FPR",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:setAdmin()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "GROKD",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "GYMNetwork",
+      "status": "fixed",
+      "problems": [
+        "MISSING_PARAMS:initialize"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "HPAY",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()",
+        "MISSING_PARAMS:withdraw"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "INUMI_db27",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:burn()",
+        "MISSING_PARAMS:burn"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "LocalTrade",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    },
+    {
+      "hack": "Melo",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:mint()",
+        "MISSING_PARAMS:mint"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "MetaPool",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "NGFS",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Parity_Multisig",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Phoenix",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:mint()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Pledge",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "PLN",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Rikkei_Finance",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Sandbox_LAND",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:burn()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "ShadowFi",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:burn()",
+        "MISSING_PARAMS:burn"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "SizeCredit",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:validateInitialize()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Stead",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    },
+    {
+      "hack": "SuperRare",
+      "status": "fixed",
+      "problems": [
+        "MISSING_PARAMS:initialize"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "SwapX",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    },
+    {
+      "hack": "Templedao",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()",
+        "MISSING_PARAMS:withdraw"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "TokenHolder",
+      "status": "fixed",
+      "problems": [
+        "MISSING_PARAMS:initialize"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Uerii_Token",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:mint()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "ULME",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "Unverified_0x6077",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    },
+    {
+      "hack": "Unverified_54cd",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:withdraw()"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "USDTStakingContract28",
+      "status": "fixed",
+      "problems": [
+        "WRONG_SIGNATURE:transfer()",
+        "MISSING_PARAMS:transfer"
+      ],
+      "fixes_applied": [
+        "spec_regenerated"
+      ]
+    },
+    {
+      "hack": "wKeyDAO",
+      "status": "ok",
+      "problems": [],
+      "fixes_applied": []
+    }
+  ]
+}

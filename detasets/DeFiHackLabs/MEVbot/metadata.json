@@ -1,0 +1,25 @@
+{
+  "hack_name": "MEVbot",
+  "date": "20231107",
+  "date_period": "2022-09",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2023/README.md#20231107-mevbot---lack-of-access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "BNB48MEVBot_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-09\\BNB48MEVBot_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.446596Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

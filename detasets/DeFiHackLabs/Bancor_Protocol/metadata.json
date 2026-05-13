@@ -1,0 +1,35 @@
+{
+  "hack_name": "Bancor_Protocol",
+  "date": "20200618",
+  "date_period": "2020-06",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2021/README.md#20200618-bancor-protocol---access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Bancor_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2020-06\\Bancor_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.272997Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-12T18:08:29.281889Z",
+  "fetched_contract_name": "XBPToken",
+  "fetched_address": "0x28dee01D53FED0Edf5f6E310BF8Ef9311513Ae40",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "XBPToken.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

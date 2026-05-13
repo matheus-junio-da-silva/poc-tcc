@@ -1,0 +1,25 @@
+{
+  "hack_name": "Shell_MEV_0xa898",
+  "date": "20240115",
+  "date_period": "2024-01",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2024/README.md#20240115-Shell_MEV_0xa898---lack-of-access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Shell_MEV_0xa898_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-01\\Shell_MEV_0xa898_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0xa898b78b7cbbabacf9d179c4c46c212c0ac66f46",
+  "total_lost": "~1000 $BUSD",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.477596Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

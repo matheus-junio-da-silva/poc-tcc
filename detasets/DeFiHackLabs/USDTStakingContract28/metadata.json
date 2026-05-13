@@ -1,0 +1,35 @@
+{
+  "hack_name": "USDTStakingContract28",
+  "date": "20230715",
+  "date_period": "2023-07",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2023/README.md#20230715-usdtstakingcontract28---lack-of-access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "USDTStakingContract28_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-07\\USDTStakingContract28_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": "~20999 USD",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.426453Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:42.629487Z",
+  "fetched_contract_name": "TetherToken",
+  "fetched_address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "TetherToken.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

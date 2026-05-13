@@ -1,0 +1,38 @@
+{
+  "hack_name": "Phoenix",
+  "date": "20230307",
+  "date_period": "2023-03",
+  "vulnerability_type": "access_control",
+  "description": "phoenix   access control  arbitrary external call",
+  "readme_link": "past/2023/README.md#20230307---phoenix---access-control--arbitrary-external-call",
+  "chain": "polygon",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Phoenix_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-03\\Phoenix_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.389614Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:27.758288Z",
+  "fetched_contract_name": "UChildAdministrableERC20",
+  "fetched_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+  "is_api_proxy": true,
+  "impl_address": "0xdd9185db084f5c4fff3b4f70e7ba62123b812226",
+  "contracts_downloaded": [
+    "UChildERC20Proxy.sol",
+    "UChildAdministrableERC20.sol"
+  ],
+  "privileged_function_identified": "deposit",
+  "fix_note": "mint nao e public/external diretamente; deposit foi explorada",
+  "fixed_at": "2026-05-13T15:30:01.599218Z"
+}

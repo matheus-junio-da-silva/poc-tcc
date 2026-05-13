@@ -1,0 +1,35 @@
+{
+  "hack_name": "ULME",
+  "date": "20221025",
+  "date_period": "2022-10",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2022/README.md#20221025-ulme---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "ULME_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-10\\ULME_exp.sol",
+  "attacker_address": "0x056c20ab7e25e4dd7e49568f964d98e415da63d3",
+  "attack_tx": null,
+  "vulnerable_contract": "0xAE975a25646E6eB859615d0A147B909c13D31FEd",
+  "total_lost": "~250k US$ which resulted in ~50k profit",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.358464Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:31.819196Z",
+  "fetched_contract_name": "UniverseGoldMountain",
+  "fetched_address": "0xAE975a25646E6eB859615d0A147B909c13D31FEd",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "UniverseGoldMountain.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

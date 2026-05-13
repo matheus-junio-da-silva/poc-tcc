@@ -1,0 +1,35 @@
+{
+  "hack_name": "Uerii_Token",
+  "date": "20221017",
+  "date_period": "2022-10",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2022/README.md#20221017-uerii-token---access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Uerii_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-10\\Uerii_exp.sol",
+  "attacker_address": "0xcc1A341D0F2a06Eaba436935399793F05C2bbE92",
+  "attack_tx": null,
+  "vulnerable_contract": "https://etherscan.io/address/0x418c24191ae947a78c99fdc0e45a1f96afb254be",
+  "total_lost": "~2,5K USDC",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.341287Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:30.177315Z",
+  "fetched_contract_name": "Token",
+  "fetched_address": "0x418c24191ae947a78c99fdc0e45a1f96afb254be",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "Token.sol"
+  ],
+  "privileged_function_identified": "mint"
+}

@@ -1,0 +1,39 @@
+{
+  "hack_name": "Parity_Multisig",
+  "date": "20170719",
+  "date_period": "2024-03",
+  "vulnerability_type": "access_control",
+  "description": "delegatecall to unprotected initwallet",
+  "readme_link": "past/2021/README.md#20170719-parity-multisig---delegatecall-to-unprotected-initwallet",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "IT_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-03\\IT_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.267334Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:17.773452Z",
+  "fetched_contract_name": "IntrospectionToken",
+  "fetched_address": "0x1AC5Fac863c0a026e029B173f2AE4D33938AB473",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "IntrospectionToken.sol",
+    "SafeMath.sol",
+    "IBEP20.sol",
+    "BEP20Detailed.sol",
+    "BEP20.sol"
+  ],
+  "privileged_function_identified": "transfer"
+}

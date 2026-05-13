@@ -1,0 +1,37 @@
+{
+  "hack_name": "ETHFIN",
+  "date": "20240329",
+  "date_period": "2024-03",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2024/README.md#20240329-ethfin---lack-of-access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "ETHFIN_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-03\\ETHFIN_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0x17bd2e09fa4585c15749f40bb32a6e3db58522ba",
+  "total_lost": "~$1.24K (2.13 BNB)",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.519898Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:44:58.442833Z",
+  "fetched_contract_name": "EthernalFinanceII",
+  "fetched_address": "0x17bd2e09fa4585c15749f40bb32a6e3db58522ba",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "EthernalFinanceII.sol"
+  ],
+  "privileged_function_identified": "DistributeRewards",
+  "fix_note": "withdraw nao existe; DistributeRewards e a funcao critica",
+  "fixed_at": "2026-05-13T15:30:01.584545Z"
+}

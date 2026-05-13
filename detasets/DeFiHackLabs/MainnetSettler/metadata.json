@@ -1,0 +1,25 @@
+{
+  "hack_name": "MainnetSettler",
+  "date": "20241120",
+  "date_period": "2024-11",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2024/README.md#20241120-mainnetsettler---access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "MainnetSettler_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-11\\MainnetSettler_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": "$66K",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.653475Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

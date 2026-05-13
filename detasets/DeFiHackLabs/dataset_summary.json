@@ -1,0 +1,715 @@
+{
+  "generated_at": "2026-05-12T17:11:43.822065Z",
+  "source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs",
+  "output": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\ac_dataset",
+  "total_entries": 87,
+  "with_poc": 86,
+  "without_poc": 1,
+  "proxy_contracts": 5,
+  "chains": {
+    "bsc": 41,
+    "ethereum": 39,
+    "fantom": 1,
+    "unknown": 4,
+    "polygon": 1,
+    "arbitrum": 1
+  },
+  "entries": [
+    {
+      "hack_name": "Parity_Multisig",
+      "date": "20170719",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "IT_exp.sol",
+      "description": "delegatecall to unprotected initwallet"
+    },
+    {
+      "hack_name": "Bancor_Protocol",
+      "date": "20200618",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Bancor_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "88mph_NFT",
+      "date": "20210607",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "88mph_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "DAO_Maker",
+      "date": "20210903",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "poc": "DaoMaker_exp.sol",
+      "description": "bad access controal"
+    },
+    {
+      "hack_name": "Sandbox_LAND",
+      "date": "20220208",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Sandbox_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Rikkei_Finance",
+      "date": "20220415",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Rikkei_exp.sol",
+      "description": "access control  price oracle manipulation"
+    },
+    {
+      "hack_name": "GYMNetwork",
+      "date": "20220608",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "GYMNET_exp.sol",
+      "description": "accesscontrol"
+    },
+    {
+      "hack_name": "FlippazOne_NFT",
+      "date": "20220706",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "FlippazOne_exp.sol",
+      "description": "accesscontrol"
+    },
+    {
+      "hack_name": "Reaper_Farm",
+      "date": "20220801",
+      "chain": "fantom",
+      "is_proxy": false,
+      "poc": "ReaperFarm_exp.sol",
+      "description": "business logic flaw  lack of access control mechanism"
+    },
+    {
+      "hack_name": "ShadowFi",
+      "date": "20220902",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Shadowfi_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Ragnarok_Online_Invasion",
+      "date": "20220908",
+      "chain": "unknown",
+      "is_proxy": false,
+      "poc": null,
+      "description": "broken access control"
+    },
+    {
+      "hack_name": "BabySwap",
+      "date": "20221001",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "BabySwap_exp.sol",
+      "description": "parameter access control"
+    },
+    {
+      "hack_name": "Templedao",
+      "date": "20221011",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Templedao_exp.sol",
+      "description": "insufficient access control"
+    },
+    {
+      "hack_name": "Uerii_Token",
+      "date": "20221017",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Uerii_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "HPAY",
+      "date": "20221018",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "HPAY_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "ULME",
+      "date": "20221025",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "ULME_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "MBC___ZZSH",
+      "date": "20221129",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "MBC_ZZSH_exp.sol",
+      "description": "mbc  zzsh   business logic flaw  access control"
+    },
+    {
+      "hack_name": "FPR",
+      "date": "20221214",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "FPR_exp.sol",
+      "description": "fpr   access control"
+    },
+    {
+      "hack_name": "LaunchZone",
+      "date": "20230227",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "LaunchZone_exp.sol",
+      "description": "launchzone   access control"
+    },
+    {
+      "hack_name": "SwapX",
+      "date": "20230227",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "SwapX_exp.sol",
+      "description": "swapx   access control"
+    },
+    {
+      "hack_name": "Phoenix",
+      "date": "20230307",
+      "chain": "polygon",
+      "is_proxy": false,
+      "poc": "Phoenix_exp.sol",
+      "description": "phoenix   access control  arbitrary external call"
+    },
+    {
+      "hack_name": "Melo",
+      "date": "20230506",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Melo_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "LocalTrade",
+      "date": "20230524",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "LocalTrader2_exp.sol",
+      "description": "improper access control of close source contract"
+    },
+    {
+      "hack_name": "DEPUSDT_LEVUSDC",
+      "date": "20230615",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "DEPUSDT_LEVUSDC_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "CIVNFT",
+      "date": "20230708",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "CIVNFT_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "Civfund",
+      "date": "20230708",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Civfund_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "USDTStakingContract28",
+      "date": "20230715",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "USDTStakingContract28_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "LeetSwap",
+      "date": "20230801",
+      "chain": "unknown",
+      "is_proxy": false,
+      "poc": "Leetswap_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "CEXISWAP",
+      "date": "20230921",
+      "chain": "ethereum",
+      "is_proxy": true,
+      "poc": "CEXISWAP_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "BRAND",
+      "date": "20231102",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "BRAND_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "MEVbot",
+      "date": "20231107",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "BNB48MEVBot_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "MEV_0x8c2d",
+      "date": "20231112",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "MEV_0x8c2d_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "MEV_0xa247",
+      "date": "20231112",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "MEV_0xa247_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "AIS",
+      "date": "20231129",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "AIS_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Freedom",
+      "date": "20240110",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Freedom_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "Shell_MEV_0xa898",
+      "date": "20240115",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Shell_MEV_0xa898_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "DAO_SoulMate",
+      "date": "20240122",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "DAO_SoulMate_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "ADC",
+      "date": "20240202",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "ADC_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "FILX_DN404",
+      "date": "20240210",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "DN404_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Paraswap",
+      "date": "20240320",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Paraswap_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "CGT",
+      "date": "20240323",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "CGT_exp.sol",
+      "description": "incorrect access control"
+    },
+    {
+      "hack_name": "ETHFIN",
+      "date": "20240329",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "ETHFIN_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "GROKD",
+      "date": "20240412",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "GROKD_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "NGFS",
+      "date": "20240425",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "NGFS_exp.sol",
+      "description": "bad access control"
+    },
+    {
+      "hack_name": "GFOX",
+      "date": "20240510",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "GFOX_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "MetaDragon",
+      "date": "20240529",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "MetaDragon_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "VeloCore",
+      "date": "20240601",
+      "chain": "unknown",
+      "is_proxy": false,
+      "poc": "Velocore_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "UnverifiedContr_0x452E25",
+      "date": "20240703",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "UnverifiedContr_0x452E25_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "GAX",
+      "date": "20240711",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "GAX_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "Unverified_667d",
+      "date": "20240828",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "unverified_667d_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_16d0",
+      "date": "20240904",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "unverified_16d0.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_a89f",
+      "date": "20240905",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "unverified_a89f_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "PLN",
+      "date": "20240905",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "PLN_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "INUMI",
+      "date": "20240911",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "INUMI_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "INUMI_db27",
+      "date": "20240911",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "NUM_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "AIRBTC",
+      "date": "20240911",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "AIRBTC_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_03f9",
+      "date": "20240912",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "unverified_03f9_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_5697",
+      "date": "20240913",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "unverified_5697_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_766a",
+      "date": "20240918",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "unverified_766a_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Shezmu",
+      "date": "20240920",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Shezmu_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Erc20transfer",
+      "date": "20241022",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Erc20transfer_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "CoW",
+      "date": "20241107",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "CoW_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "X319",
+      "date": "20241109",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "X319_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "MainnetSettler",
+      "date": "20241120",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "MainnetSettler_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Ak1111",
+      "date": "20241123",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Ak1111_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "NFTG",
+      "date": "20241126",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "NFTG_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Pledge",
+      "date": "20241203",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "Pledge_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "HORS",
+      "date": "20250108",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "HORS_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "unverified_d4f1",
+      "date": "20250215",
+      "chain": "bsc",
+      "is_proxy": true,
+      "poc": "unverified_d4f1_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "wKeyDAO",
+      "date": "20250316",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "wKeyDAO_exp.sol",
+      "description": "unprotected function"
+    },
+    {
+      "hack_name": "AIRWA",
+      "date": "20250404",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "AIRWA_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_0x6077",
+      "date": "20250411",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "UN_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "Unwarp",
+      "date": "20250514",
+      "chain": "unknown",
+      "is_proxy": false,
+      "poc": "Unwarp_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "RICE",
+      "date": "20250524",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "RICE_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "Corkprotocol",
+      "date": "20250528",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "Corkprotocol_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "unverified_8490",
+      "date": "20250610",
+      "chain": "bsc",
+      "is_proxy": true,
+      "poc": "unverified_8490_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "MetaPool",
+      "date": "20250617",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "MetaPool_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_b5cb",
+      "date": "20250625",
+      "chain": "bsc",
+      "is_proxy": true,
+      "poc": "unverified_b5cb_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Stead",
+      "date": "20250629",
+      "chain": "arbitrum",
+      "is_proxy": false,
+      "poc": "Stead_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "Unverified_54cd",
+      "date": "20250705",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "unverified_54cd_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "SuperRare",
+      "date": "20250728",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "SuperRare_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "SizeCredit",
+      "date": "20250815",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "SizeCredit_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "MulticallWithXera",
+      "date": "20250820",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "MulticallWithXera_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "0x8d2e",
+      "date": "20250820",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "0x8d2e_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "ABCCApp",
+      "date": "20250823",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "ABCCApp_exp.sol",
+      "description": "lack of access control"
+    },
+    {
+      "hack_name": "0xf340",
+      "date": "20250827",
+      "chain": "ethereum",
+      "is_proxy": false,
+      "poc": "0xf340_exp.sol",
+      "description": "access control"
+    },
+    {
+      "hack_name": "TokenHolder",
+      "date": "20251007",
+      "chain": "bsc",
+      "is_proxy": false,
+      "poc": "TokenHolder_exp.sol",
+      "description": "access control"
+    }
+  ]
+}

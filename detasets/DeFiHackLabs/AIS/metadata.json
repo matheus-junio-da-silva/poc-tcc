@@ -1,0 +1,37 @@
+{
+  "hack_name": "AIS",
+  "date": "20231129",
+  "date_period": "2023-11",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2023/README.md#20231129-ais---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "AIS_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-11\\AIS_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": "~$61k",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.466949Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-12T18:03:07.271828Z",
+  "fetched_contract_name": "AISPACE",
+  "fetched_address": "0x6844Ef18012A383c14E9a76a93602616EE9d6132",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "AISPACE.sol"
+  ],
+  "privileged_function_identified": "setMarketAddress",
+  "fix_note": "setAdmin nao existe; setMarketAddress e funcao privilegiada real",
+  "fixed_at": "2026-05-13T15:30:01.563276Z"
+}

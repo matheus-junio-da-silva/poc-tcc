@@ -1,0 +1,25 @@
+{
+  "hack_name": "GFOX",
+  "date": "20240510",
+  "date_period": "2024-05",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2024/README.md#20240510-gfox---lack-of-access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "GFOX_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-05\\GFOX_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://etherscan.io/address/0x47c4b3144de2c87a458d510c0c0911d1903d1686",
+  "total_lost": "330K",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.538759Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

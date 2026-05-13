@@ -1,0 +1,25 @@
+{
+  "hack_name": "GAX",
+  "date": "20240711",
+  "date_period": "2024-07",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2024/README.md#20240711-GAX---lack-of-access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "GAX_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2024-07\\GAX_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0xdb4b73df2f6de4afcd3a883efe8b7a4b0763822b",
+  "total_lost": "~50k $BUSD",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.563125Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

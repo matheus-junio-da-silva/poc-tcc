@@ -1,0 +1,25 @@
+{
+  "hack_name": "AIRWA",
+  "date": "20250404",
+  "date_period": "2025-04",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2025/README.md#20250404-airwa---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "AIRWA_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2025-04\\AIRWA_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0x3af7da38c9f68df9549ce1980eef4ac6b635223a",
+  "total_lost": "~ 56.73 BNB",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.711600Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

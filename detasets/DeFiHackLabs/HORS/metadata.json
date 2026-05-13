@@ -1,0 +1,25 @@
+{
+  "hack_name": "HORS",
+  "date": "20250108",
+  "date_period": "2025-01",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2025/README.md#20250108-hors---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "HORS_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2025-01\\HORS_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://bscscan.com/address/0x6f3390c6C200e9bE81b32110CE191a293dc0eaba",
+  "total_lost": "14.8 WBNB",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.686965Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

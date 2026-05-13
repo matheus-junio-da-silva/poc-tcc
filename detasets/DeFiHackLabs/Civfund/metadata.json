@@ -1,0 +1,25 @@
+{
+  "hack_name": "Civfund",
+  "date": "20230708",
+  "date_period": "2023-07",
+  "vulnerability_type": "access_control",
+  "description": "lack of access control",
+  "readme_link": "past/2023/README.md#20230708-civfund---lack-of-access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Civfund_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-07\\Civfund_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://etherscan.io/address/0x7caec5e4a3906d0919895d113f7ed9b3a0cbf826",
+  "total_lost": "~165K USD$",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.421875Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

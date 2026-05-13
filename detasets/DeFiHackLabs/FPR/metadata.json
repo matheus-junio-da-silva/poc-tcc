@@ -1,0 +1,37 @@
+{
+  "hack_name": "FPR",
+  "date": "20221214",
+  "date_period": "2022-12",
+  "vulnerability_type": "access_control",
+  "description": "fpr   access control",
+  "readme_link": "past/2022/README.md#20221214---fpr---access-control",
+  "chain": "bsc",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "FPR_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-12\\FPR_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": "~$29k",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.370215Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:44:59.486283Z",
+  "fetched_contract_name": "BEP20FPR",
+  "fetched_address": "0xA9c7ec037797DC6E3F9255fFDe422DA6bF96024d",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "BEP20FPR.sol"
+  ],
+  "privileged_function_identified": "setPairAddr",
+  "fix_note": "setAdmin nao existe; setPairAddr permite alterar par sem restricao",
+  "fixed_at": "2026-05-13T15:30:01.588346Z"
+}

@@ -1,0 +1,40 @@
+{
+  "hack_name": "INUMI_db27",
+  "date": "20240911",
+  "date_period": "2022-11",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2024/README.md#20240911-INUMI_db27---access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "NUM_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-11\\NUM_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": null,
+  "total_lost": null,
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.598488Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-13T13:45:08.436130Z",
+  "fetched_contract_name": "ERC677InitializableTokenV2",
+  "fetched_address": "0x3496B523e5C00a4b4150D6721320CdDb234c3079",
+  "is_api_proxy": true,
+  "impl_address": "0x1827693da6234cfb41664be5b1dba781fa7b40ea",
+  "contracts_downloaded": [
+    "TokenProxy.sol",
+    "Address.sol",
+    "UpgradeabilityProxy.sol",
+    "Proxy.sol",
+    "AdminUpgradeabilityProxy.sol",
+    "ERC677InitializableTokenV2.sol"
+  ],
+  "privileged_function_identified": "burn"
+}

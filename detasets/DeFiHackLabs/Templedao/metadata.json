@@ -1,0 +1,42 @@
+{
+  "hack_name": "Templedao",
+  "date": "20221011",
+  "date_period": "2022-10",
+  "vulnerability_type": "access_control",
+  "description": "insufficient access control",
+  "readme_link": "past/2022/README.md#20221011-templedao---insufficient-access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "Templedao_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2022-10\\Templedao_exp.sol",
+  "attacker_address": "0x9c9fb3100a2a521985f0c47de3b4598dafd25b01",
+  "attack_tx": null,
+  "vulnerable_contract": "https://etherscan.io/address/0xd2869042e12a3506100af1d192b5b04d65137941",
+  "total_lost": "$~2.3M",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.335375Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  },
+  "enriched": true,
+  "enriched_at": "2026-05-12T17:42:41.937718Z",
+  "fetched_contract_name": "StaxLPStaking",
+  "fetched_address": "0xd2869042e12a3506100af1d192b5b04d65137941",
+  "is_api_proxy": false,
+  "impl_address": null,
+  "contracts_downloaded": [
+    "StaxLPStaking.sol",
+    "Ownable.sol",
+    "ERC20.sol",
+    "IERC20.sol",
+    "SafeERC20.sol",
+    "Context.sol",
+    "IERC20Metadata.sol",
+    "Address.sol"
+  ],
+  "privileged_function_identified": "withdraw"
+}

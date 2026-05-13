@@ -1,0 +1,25 @@
+{
+  "hack_name": "0x8d2e",
+  "date": "20250820",
+  "date_period": "2025-08",
+  "vulnerability_type": "access_control",
+  "description": "access control",
+  "readme_link": "past/2025/README.md#20250820-0x8d2e---access-control",
+  "chain": "ethereum",
+  "is_proxy": false,
+  "proxy_patterns_found": [],
+  "ac_patterns_in_poc": [],
+  "poc_file": "0x8d2e_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2025-08\\0x8d2e_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://basescan.org/address/0x8d2Ef0d39A438C3601112AE21701819E13c41288",
+  "total_lost": "40k USDC",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.803433Z",
+  "notes": {
+    "proxy": null,
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "hack_name": "CEXISWAP",
+  "date": "20230921",
+  "date_period": "2023-09",
+  "vulnerability_type": "access_control",
+  "description": "incorrect access control",
+  "readme_link": "past/2023/README.md#20230921-cexiswap---incorrect-access-control",
+  "chain": "ethereum",
+  "is_proxy": true,
+  "proxy_patterns_found": [
+    "delegatecall",
+    "initialize",
+    "EIP1967",
+    "upgradeTo"
+  ],
+  "ac_patterns_in_poc": [],
+  "poc_file": "CEXISWAP_exp.sol",
+  "poc_source": "C:\\Users\\mathe\\Downloads\\dataset_defihacks_access_control\\DeFiHackLabs\\src\\test\\2023-09\\CEXISWAP_exp.sol",
+  "attacker_address": null,
+  "attack_tx": null,
+  "vulnerable_contract": "https://etherscan.io/address/0xb8a5890d53df78dee6182a6c0968696e827e3305",
+  "total_lost": "~30K USD$",
+  "certora_spec": "spec/AccessControlSpec.spec",
+  "certora_conf": "certora.conf",
+  "generated_at": "2026-05-12T17:11:43.437141Z",
+  "notes": {
+    "proxy": "This contract uses a proxy pattern. In Certora, use --proxy_impl and verify the implementation contract separately. Storage collision is an additional attack vector in proxies.",
+    "certora_usage": "1. Get the vulnerable contract source code via Etherscan/Blockscout. 2. Adapt <ContractName> and <privileged_function> in the spec. 3. Run: certoraRun certora.conf"
+  }
+}
