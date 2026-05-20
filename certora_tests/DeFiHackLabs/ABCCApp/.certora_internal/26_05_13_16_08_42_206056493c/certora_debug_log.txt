@@ -1,0 +1,17 @@
+Saving last configuration file to .certora_internal/26_05_13_16_08_42_206056493c/run.conf
+Failed to find the latest package version of certora-cli. Local version is 8.13.0
+There is no TAC file. Going to script CertoraProver/certoraBuild.py to main_with_args()
+main build cache key computed based on {'files': ['contracts/ABCCApp.sol'], 'package_version_for_build_cache': 'certora-cli 8.13.0', 'packages': ['@openzeppelin/contracts=node_modules/@openzeppelin/contracts'], 'packages_path': 'node_modules', 'solc': './solc_wrapper.sh', 'solc_allow_path': 'contracts', 'test_condition': 'True'}
+Creating dir /home/mat/poc1novo/poc-tcc/certora_tests/DeFiHackLabs/ABCCApp/.certora_internal/26_05_13_16_08_42_206056493c/.certora_config
+In /home/mat/poc1novo/poc-tcc/certora_tests/DeFiHackLabs/ABCCApp/spec/AccessControlSpec.spec, found the imports: []
+copying spec file /home/mat/poc1novo/poc-tcc/certora_tests/DeFiHackLabs/ABCCApp/spec/AccessControlSpec.spec to /home/mat/poc1novo/poc-tcc/certora_tests/DeFiHackLabs/ABCCApp/.certora_internal/26_05_13_16_08_42_206056493c/.certora_sources/.0_AccessControlSpec.spec.spec
+writing /home/mat/poc1novo/poc-tcc/certora_tests/DeFiHackLabs/ABCCApp/.certora_internal/26_05_13_16_08_42_206056493c/.certora_verify.json
+
+building file contracts/ABCCApp.sol
+Running cmd ./solc_wrapper.sh --version
+stdout, stderr = .certora_internal/26_05_13_16_08_42_206056493c/.certora_config/version_check_solc_wrapper.sh.stdout, .certora_internal/26_05_13_16_08_42_206056493c/.certora_config/version_check_solc_wrapper.sh.stderr
+Exitcode 0
+Solc run ./solc_wrapper.sh --version time: 0.1651
+Running cmd ./solc_wrapper.sh -o ".certora_internal/26_05_13_16_08_42_206056493c/.certora_config/ABCCApp.sol_0/" --overwrite --allow-paths "contracts",.,"node_modules/@openzeppelin/contracts" --standard-json
+stdout, stderr = .certora_internal/26_05_13_16_08_42_206056493c/.certora_config/ABCCApp.sol_0.standard.stdout.json, .certora_internal/26_05_13_16_08_42_206056493c/.certora_config/ABCCApp.sol_0.standard.stderr.json
+build failed
