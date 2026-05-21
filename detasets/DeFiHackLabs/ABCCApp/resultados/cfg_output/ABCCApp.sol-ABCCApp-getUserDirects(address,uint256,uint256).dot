@@ -1,0 +1,204 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+referrals = userDirects[_user]
+
+IRs:
+REF_106(ABCCApp.DirectReferral[]) -> userDirects[_user]
+referrals(ABCCApp.DirectReferral[]) = ['REF_106(ABCCApp.DirectReferral[])']"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+
+EXPRESSION:
+len = referrals.length
+
+IRs:
+REF_107 -> LENGTH referrals
+len(uint256) := REF_107(uint256)"];
+2->3;
+3[label="Node Type: IF 3
+
+EXPRESSION:
+len == 0 || page == 0 || pageSize == 0
+
+IRs:
+TMP_135(bool) = len == 0
+TMP_136(bool) = page == 0
+TMP_137(bool) = TMP_135 || TMP_136
+TMP_138(bool) = pageSize == 0
+TMP_139(bool) = TMP_137 || TMP_138
+CONDITION TMP_139"];
+3->4[label="True"];
+3->5[label="False"];
+4[label="Node Type: RETURN 4
+
+EXPRESSION:
+new ABCCApp.DirectReferralInfo[](0)
+
+IRs:
+TMP_141(ABCCApp.DirectReferralInfo[])  = new ABCCApp.DirectReferralInfo[](0)
+RETURN TMP_141"];
+5[label="Node Type: END_IF 5
+"];
+5->18;
+8[label="Node Type: NEW VARIABLE 8
+
+EXPRESSION:
+resultLen = end - start
+
+IRs:
+TMP_142(uint256) = end (c)- start
+resultLen(uint256) := TMP_142(uint256)"];
+8->9;
+9[label="Node Type: NEW VARIABLE 9
+
+EXPRESSION:
+result = new ABCCApp.DirectReferralInfo[](resultLen)
+
+IRs:
+TMP_144(ABCCApp.DirectReferralInfo[])  = new ABCCApp.DirectReferralInfo[](resultLen)
+result(ABCCApp.DirectReferralInfo[]) = ['TMP_144(ABCCApp.DirectReferralInfo[])']"];
+9->12;
+10[label="Node Type: BEGIN_LOOP 10
+"];
+10->13;
+11[label="Node Type: END_LOOP 11
+"];
+11->17;
+12[label="Node Type: NEW VARIABLE 12
+
+EXPRESSION:
+i = 0
+
+IRs:
+i(uint256) := 0(uint256)"];
+12->10;
+13[label="Node Type: IF_LOOP 13
+
+EXPRESSION:
+i < resultLen
+
+IRs:
+TMP_145(bool) = i < resultLen
+CONDITION TMP_145"];
+13->14[label="True"];
+13->11[label="False"];
+14[label="Node Type: NEW VARIABLE 14
+
+EXPRESSION:
+ref = referrals[end - 1 - i]
+
+IRs:
+TMP_146(uint256) = end (c)- 1
+TMP_147(uint256) = TMP_146 (c)- i
+REF_108(ABCCApp.DirectReferral) -> referrals[TMP_147]
+ref(ABCCApp.DirectReferral) := REF_108(ABCCApp.DirectReferral)"];
+14->15;
+15[label="Node Type: EXPRESSION 15
+
+EXPRESSION:
+result[i] = DirectReferralInfo({target:ref.target,timestamp:ref.timestamp,totalInvest:users[ref.target].investUSDT,directPerf:users[ref.target].directPerf,remainingUSDT:users[ref.target].remainingUSDT})
+
+IRs:
+REF_109(ABCCApp.DirectReferralInfo) -> result[i]
+REF_110(address) -> ref.target
+REF_111(uint256) -> ref.timestamp
+REF_112(address) -> ref.target
+REF_113(ABCCApp.User) -> users[REF_112]
+REF_114(uint256) -> REF_113.investUSDT
+REF_115(address) -> ref.target
+REF_116(ABCCApp.User) -> users[REF_115]
+REF_117(uint256) -> REF_116.directPerf
+REF_118(address) -> ref.target
+REF_119(ABCCApp.User) -> users[REF_118]
+REF_120(uint256) -> REF_119.remainingUSDT
+TMP_148(ABCCApp.DirectReferralInfo) = new DirectReferralInfo(REF_110,REF_111,REF_114,REF_117,REF_120)
+REF_109(ABCCApp.DirectReferralInfo) (->result) := TMP_148(ABCCApp.DirectReferralInfo)"];
+15->16;
+16[label="Node Type: EXPRESSION 16
+
+EXPRESSION:
+i ++
+
+IRs:
+TMP_149(uint256) := i(uint256)
+i(uint256) = i (c)+ 1"];
+16->13;
+17[label="Node Type: RETURN 17
+
+EXPRESSION:
+result
+
+IRs:
+RETURN result"];
+18[label="Node Type: IF 18
+
+EXPRESSION:
+len > page * pageSize
+
+IRs:
+TMP_150(uint256) = page (c)* pageSize
+TMP_151(bool) = len > TMP_150
+CONDITION TMP_151"];
+18->19[label="True"];
+18->20[label="False"];
+19[label="Node Type: EXPRESSION 19
+
+EXPRESSION:
+start = len - page * pageSize
+
+IRs:
+TMP_152(uint256) = page (c)* pageSize
+TMP_153(uint256) = len (c)- TMP_152
+start(uint256) := TMP_153(uint256)"];
+19->21;
+20[label="Node Type: EXPRESSION 20
+
+EXPRESSION:
+start = 0
+
+IRs:
+start(uint256) := 0(uint256)"];
+20->21;
+21[label="Node Type: END_IF 21
+"];
+21->22;
+22[label="Node Type: IF 22
+
+EXPRESSION:
+len > (page - 1) * pageSize
+
+IRs:
+TMP_154(uint256) = page (c)- 1
+TMP_155(uint256) = TMP_154 (c)* pageSize
+TMP_156(bool) = len > TMP_155
+CONDITION TMP_156"];
+22->23[label="True"];
+22->24[label="False"];
+23[label="Node Type: EXPRESSION 23
+
+EXPRESSION:
+end = len - (page - 1) * pageSize
+
+IRs:
+TMP_157(uint256) = page (c)- 1
+TMP_158(uint256) = TMP_157 (c)* pageSize
+TMP_159(uint256) = len (c)- TMP_158
+end(uint256) := TMP_159(uint256)"];
+23->25;
+24[label="Node Type: EXPRESSION 24
+
+EXPRESSION:
+end = 0
+
+IRs:
+end(uint256) := 0(uint256)"];
+24->25;
+25[label="Node Type: END_IF 25
+"];
+25->8;
+}

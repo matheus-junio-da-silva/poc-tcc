@@ -1,0 +1,365 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(isEnable,CLOSED)
+
+IRs:
+TMP_38(None) = SOLIDITY_CALL require(bool,string)(isEnable,CLOSED)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+require(bool,string)(number > 0,E0)
+
+IRs:
+TMP_39(bool) = number > 0
+TMP_40(None) = SOLIDITY_CALL require(bool,string)(TMP_39,E0)"];
+2->3;
+3[label="Node Type: NEW VARIABLE 3
+
+EXPRESSION:
+user = users[msg.sender]
+
+IRs:
+REF_22(ABCCApp.User) -> users[msg.sender]
+user(ABCCApp.User) := REF_22(ABCCApp.User)"];
+3->4;
+4[label="Node Type: NEW VARIABLE 4
+"];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+(totalUSDT,None,None) = getCanClaimUSDT(msg.sender)
+
+IRs:
+TUPLE_1(uint256,uint256,uint256) = INTERNAL_CALL, ABCCApp.getCanClaimUSDT(address)(msg.sender)
+totalUSDT(uint256)= UNPACK TUPLE_1 index: 0 "];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+require(bool,string)(totalUSDT == 0,E1)
+
+IRs:
+TMP_41(bool) = totalUSDT == 0
+TMP_42(None) = SOLIDITY_CALL require(bool,string)(TMP_41,E1)"];
+6->7;
+7[label="Node Type: IF 7
+
+EXPRESSION:
+user.joinTime == 0
+
+IRs:
+REF_23(uint256) -> user.joinTime
+TMP_43(bool) = REF_23 == 0
+CONDITION TMP_43"];
+7->8[label="True"];
+7->20[label="False"];
+8[label="Node Type: IF 8
+
+EXPRESSION:
+referer == address(0)
+
+IRs:
+TMP_44 = CONVERT 0 to address
+TMP_45(bool) = referer == TMP_44
+CONDITION TMP_45"];
+8->9[label="True"];
+8->10[label="False"];
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+referer = address(this)
+
+IRs:
+TMP_46 = CONVERT this to address
+referer(address) := TMP_46(address)"];
+9->10;
+10[label="Node Type: END_IF 10
+"];
+10->11;
+11[label="Node Type: EXPRESSION 11
+
+EXPRESSION:
+require(bool,string)(referer != msg.sender,E2)
+
+IRs:
+TMP_47(bool) = referer != msg.sender
+TMP_48(None) = SOLIDITY_CALL require(bool,string)(TMP_47,E2)"];
+11->12;
+12[label="Node Type: IF 12
+
+EXPRESSION:
+referer != address(this)
+
+IRs:
+TMP_49 = CONVERT this to address
+TMP_50(bool) = referer != TMP_49
+CONDITION TMP_50"];
+12->13[label="True"];
+12->16[label="False"];
+13[label="Node Type: EXPRESSION 13
+
+EXPRESSION:
+require(bool,string)(users[referer].joinTime > 0,E3)
+
+IRs:
+REF_24(ABCCApp.User) -> users[referer]
+REF_25(uint256) -> REF_24.joinTime
+TMP_51(bool) = REF_25 > 0
+TMP_52(None) = SOLIDITY_CALL require(bool,string)(TMP_51,E3)"];
+13->14;
+14[label="Node Type: EXPRESSION 14
+
+EXPRESSION:
+userDirects[referer].push(DirectReferral({target:msg.sender,timestamp:block.timestamp}))
+
+IRs:
+REF_26(ABCCApp.DirectReferral[]) -> userDirects[referer]
+TMP_53(ABCCApp.DirectReferral) = new DirectReferral(msg.sender,block.timestamp)
+REF_28 -> LENGTH REF_26
+TMP_55(uint256) := REF_28(uint256)
+TMP_56(uint256) = TMP_55 (c)+ 1
+REF_28(uint256) (->userDirects) := TMP_56(uint256)
+REF_29(ABCCApp.DirectReferral) -> REF_26[TMP_55]
+REF_29(ABCCApp.DirectReferral) (->userDirects) := TMP_53(ABCCApp.DirectReferral)"];
+14->15;
+15[label="Node Type: EXPRESSION 15
+
+EXPRESSION:
+users[referer].activeCount ++
+
+IRs:
+REF_30(ABCCApp.User) -> users[referer]
+REF_31(uint256) -> REF_30.activeCount
+TMP_57(uint256) := REF_31(uint256)
+REF_31(-> users) = REF_31 (c)+ 1"];
+15->16;
+16[label="Node Type: END_IF 16
+"];
+16->17;
+17[label="Node Type: EXPRESSION 17
+
+EXPRESSION:
+user.referer = referer
+
+IRs:
+REF_32(address) -> user.referer
+REF_32(address) (->user) := referer(address)"];
+17->18;
+18[label="Node Type: EXPRESSION 18
+
+EXPRESSION:
+user.joinTime = block.timestamp
+
+IRs:
+REF_33(uint256) -> user.joinTime
+REF_33(uint256) (->user) := block.timestamp(uint256)"];
+18->19;
+19[label="Node Type: EXPRESSION 19
+
+EXPRESSION:
+globalData.totalCount ++
+
+IRs:
+REF_34(uint256) -> globalData.totalCount
+TMP_58(uint256) := REF_34(uint256)
+REF_34(-> globalData) = REF_34 (c)+ 1"];
+19->20;
+20[label="Node Type: END_IF 20
+"];
+20->21;
+21[label="Node Type: NEW VARIABLE 21
+
+EXPRESSION:
+payUSDT = number * partUSDT
+
+IRs:
+TMP_59(uint256) = number (c)* partUSDT
+payUSDT(uint256) := TMP_59(uint256)"];
+21->22;
+22[label="Node Type: EXPRESSION 22
+
+EXPRESSION:
+USDT.transferFrom(msg.sender,address(this),payUSDT)
+
+IRs:
+TMP_60 = CONVERT this to address
+TMP_61(bool) = HIGH_LEVEL_CALL, dest:USDT(IERC20), function:transferFrom, arguments:['msg.sender', 'TMP_60', 'payUSDT']  "];
+22->23;
+23[label="Node Type: IF 23
+
+EXPRESSION:
+USDT.allowance(address(this),address(swapV3Router)) < payUSDT
+
+IRs:
+TMP_62 = CONVERT this to address
+TMP_63 = CONVERT swapV3Router to address
+TMP_64(uint256) = HIGH_LEVEL_CALL, dest:USDT(IERC20), function:allowance, arguments:['TMP_62', 'TMP_63']  
+TMP_65(bool) = TMP_64 < payUSDT
+CONDITION TMP_65"];
+23->24[label="True"];
+23->25[label="False"];
+24[label="Node Type: EXPRESSION 24
+
+EXPRESSION:
+USDT.approve(address(swapV3Router),type()(uint256).max)
+
+IRs:
+TMP_66 = CONVERT swapV3Router to address
+TMP_68(uint256) := 115792089237316195423570985008687907853269984665640564039457584007913129639935(uint256)
+TMP_69(bool) = HIGH_LEVEL_CALL, dest:USDT(IERC20), function:approve, arguments:['TMP_66', 'TMP_68']  "];
+24->25;
+25[label="Node Type: END_IF 25
+"];
+25->26;
+26[label="Node Type: NEW VARIABLE 26
+
+EXPRESSION:
+params = IUniswapV3.ExactInputParams({path:abi.encodePacked(address(USDT),uint24(500),address(BNB),uint24(2500),address(DDDD)),recipient:address(this),deadline:block.timestamp + 300,amountIn:payUSDT,amountOutMinimum:0})
+
+IRs:
+TMP_70 = CONVERT USDT to address
+TMP_71 = CONVERT 500 to uint24
+TMP_72 = CONVERT BNB to address
+TMP_73 = CONVERT 2500 to uint24
+TMP_74 = CONVERT DDDD to address
+TMP_75(bytes) = SOLIDITY_CALL abi.encodePacked()(TMP_70,TMP_71,TMP_72,TMP_73,TMP_74)
+TMP_76 = CONVERT this to address
+TMP_77(uint256) = block.timestamp (c)+ 300
+TMP_78(IUniswapV3.ExactInputParams) = new ExactInputParams(TMP_75,TMP_76,TMP_77,payUSDT,0)
+params(IUniswapV3.ExactInputParams) := TMP_78(IUniswapV3.ExactInputParams)"];
+26->27;
+27[label="Node Type: NEW VARIABLE 27
+
+EXPRESSION:
+fullDDDD = swapV3Router.exactInput(params)
+
+IRs:
+TMP_79(uint256) = HIGH_LEVEL_CALL, dest:swapV3Router(IUniswapV3), function:exactInput, arguments:['params']  
+fullDDDD(uint256) := TMP_79(uint256)"];
+27->28;
+28[label="Node Type: EXPRESSION 28
+
+EXPRESSION:
+user.buyedDDDD += fullDDDD
+
+IRs:
+REF_41(uint256) -> user.buyedDDDD
+REF_41(-> user) = REF_41 (c)+ fullDDDD"];
+28->29;
+29[label="Node Type: EXPRESSION 29
+
+EXPRESSION:
+user.investUSDT += payUSDT
+
+IRs:
+REF_42(uint256) -> user.investUSDT
+REF_42(-> user) = REF_42 (c)+ payUSDT"];
+29->30;
+30[label="Node Type: EXPRESSION 30
+
+EXPRESSION:
+user.remainingUSDT += payUSDT * 2
+
+IRs:
+REF_43(uint256) -> user.remainingUSDT
+TMP_80(uint256) = payUSDT (c)* 2
+REF_43(-> user) = REF_43 (c)+ TMP_80"];
+30->31;
+31[label="Node Type: EXPRESSION 31
+
+EXPRESSION:
+user.lastClaimTime = block.timestamp + getFixedDay()
+
+IRs:
+REF_44(uint256) -> user.lastClaimTime
+TMP_81(uint256) = INTERNAL_CALL, ABCCApp.getFixedDay()()
+TMP_82(uint256) = block.timestamp (c)+ TMP_81
+REF_44(uint256) (->user) := TMP_82(uint256)"];
+31->32;
+32[label="Node Type: IF 32
+
+EXPRESSION:
+user.referer != address(0)
+
+IRs:
+REF_45(address) -> user.referer
+TMP_83 = CONVERT 0 to address
+TMP_84(bool) = REF_45 != TMP_83
+CONDITION TMP_84"];
+32->33[label="True"];
+32->34[label="False"];
+33[label="Node Type: EXPRESSION 33
+
+EXPRESSION:
+users[user.referer].directPerf += payUSDT
+
+IRs:
+REF_46(address) -> user.referer
+REF_47(ABCCApp.User) -> users[REF_46]
+REF_48(uint256) -> REF_47.directPerf
+REF_48(-> users) = REF_48 (c)+ payUSDT"];
+33->34;
+34[label="Node Type: END_IF 34
+"];
+34->35;
+35[label="Node Type: EXPRESSION 35
+
+EXPRESSION:
+globalData.totalBuyDDDD += fullDDDD
+
+IRs:
+REF_49(uint256) -> globalData.totalBuyDDDD
+REF_49(-> globalData) = REF_49 (c)+ fullDDDD"];
+35->36;
+36[label="Node Type: IF 36
+
+EXPRESSION:
+payUSDT > 1000000000000000000000
+
+IRs:
+TMP_85(bool) = payUSDT > 1000000000000000000000
+CONDITION TMP_85"];
+36->37[label="True"];
+36->38[label="False"];
+37[label="Node Type: EXPRESSION 37
+
+EXPRESSION:
+user.dailyUSDT = user.remainingUSDT * 6 / 1000
+
+IRs:
+REF_50(uint256) -> user.dailyUSDT
+REF_51(uint256) -> user.remainingUSDT
+TMP_86(uint256) = REF_51 (c)* 6
+TMP_87(uint256) = TMP_86 (c)/ 1000
+REF_50(uint256) (->user) := TMP_87(uint256)"];
+37->39;
+38[label="Node Type: EXPRESSION 38
+
+EXPRESSION:
+user.dailyUSDT = user.remainingUSDT * 5 / 1000
+
+IRs:
+REF_52(uint256) -> user.dailyUSDT
+REF_53(uint256) -> user.remainingUSDT
+TMP_88(uint256) = REF_53 (c)* 5
+TMP_89(uint256) = TMP_88 (c)/ 1000
+REF_52(uint256) (->user) := TMP_89(uint256)"];
+38->39;
+39[label="Node Type: END_IF 39
+"];
+39->40;
+40[label="Node Type: EXPRESSION 40
+
+EXPRESSION:
+OnDeposit(msg.sender,payUSDT)
+
+IRs:
+Emit OnDeposit(msg.sender,payUSDT)"];
+}

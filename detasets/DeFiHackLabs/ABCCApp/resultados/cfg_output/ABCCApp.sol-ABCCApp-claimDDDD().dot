@@ -1,0 +1,261 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+user = users[msg.sender]
+
+IRs:
+REF_54(ABCCApp.User) -> users[msg.sender]
+user(ABCCApp.User) := REF_54(ABCCApp.User)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+"];
+2->3;
+3[label="Node Type: NEW VARIABLE 3
+"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+(totalUSDT,staticUSDT,None) = getCanClaimUSDT(msg.sender)
+
+IRs:
+TUPLE_2(uint256,uint256,uint256) = INTERNAL_CALL, ABCCApp.getCanClaimUSDT(address)(msg.sender)
+totalUSDT(uint256)= UNPACK TUPLE_2 index: 0 
+staticUSDT(uint256)= UNPACK TUPLE_2 index: 1 "];
+4->5;
+5[label="Node Type: EXPRESSION 5
+
+EXPRESSION:
+require(bool,string)(totalUSDT > 0,E0)
+
+IRs:
+TMP_91(bool) = totalUSDT > 0
+TMP_92(None) = SOLIDITY_CALL require(bool,string)(TMP_91,E0)"];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+user.remainingUSDT -= staticUSDT
+
+IRs:
+REF_55(uint256) -> user.remainingUSDT
+REF_55(-> user) = REF_55 (c)- staticUSDT"];
+6->7;
+7[label="Node Type: EXPRESSION 7
+
+EXPRESSION:
+user.dynamicUSDT = 0
+
+IRs:
+REF_56(uint256) -> user.dynamicUSDT
+REF_56(uint256) (->user) := 0(uint256)"];
+7->8;
+8[label="Node Type: EXPRESSION 8
+
+EXPRESSION:
+user.staticUSDT = 0
+
+IRs:
+REF_57(uint256) -> user.staticUSDT
+REF_57(uint256) (->user) := 0(uint256)"];
+8->9;
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+user.claimedUSDT += totalUSDT
+
+IRs:
+REF_58(uint256) -> user.claimedUSDT
+REF_58(-> user) = REF_58 (c)+ totalUSDT"];
+9->10;
+10[label="Node Type: IF 10
+
+EXPRESSION:
+user.remainingUSDT == 0 && user.referer != address(0)
+
+IRs:
+REF_59(uint256) -> user.remainingUSDT
+TMP_93(bool) = REF_59 == 0
+REF_60(address) -> user.referer
+TMP_94 = CONVERT 0 to address
+TMP_95(bool) = REF_60 != TMP_94
+TMP_96(bool) = TMP_93 && TMP_95
+CONDITION TMP_96"];
+10->28[label="True"];
+10->12[label="False"];
+12[label="Node Type: END_IF 12
+"];
+12->13;
+13[label="Node Type: NEW VARIABLE 13
+
+EXPRESSION:
+ddddPrice = getDDDDValueInUSDT(1 * 10 ** 18)
+
+IRs:
+TMP_97(uint256) = 10 (c)** 18
+TMP_98(uint256) = 1 (c)* TMP_97
+TMP_99(uint256) = INTERNAL_CALL, ABCCApp.getDDDDValueInUSDT(uint256)(TMP_98)
+ddddPrice(uint256) := TMP_99(uint256)"];
+13->14;
+14[label="Node Type: NEW VARIABLE 14
+
+EXPRESSION:
+ddddAmount = totalUSDT * 1e18 / ddddPrice
+
+IRs:
+TMP_100(uint256) = totalUSDT (c)* 1000000000000000000
+TMP_101(uint256) = TMP_100 (c)/ ddddPrice
+ddddAmount(uint256) := TMP_101(uint256)"];
+14->15;
+15[label="Node Type: IF 15
+
+EXPRESSION:
+claimFee > 0
+
+IRs:
+TMP_102(bool) = claimFee > 0
+CONDITION TMP_102"];
+15->16[label="True"];
+15->19[label="False"];
+16[label="Node Type: NEW VARIABLE 16
+
+EXPRESSION:
+fee = ddddAmount * claimFee / 100
+
+IRs:
+TMP_103(uint256) = ddddAmount (c)* claimFee
+TMP_104(uint256) = TMP_103 (c)/ 100
+fee(uint256) := TMP_104(uint256)"];
+16->17;
+17[label="Node Type: EXPRESSION 17
+
+EXPRESSION:
+DDDD.transfer(vaultAddr,fee)
+
+IRs:
+TMP_105(bool) = HIGH_LEVEL_CALL, dest:DDDD(IERC20), function:transfer, arguments:['vaultAddr', 'fee']  "];
+17->18;
+18[label="Node Type: EXPRESSION 18
+
+EXPRESSION:
+ddddAmount -= fee
+
+IRs:
+ddddAmount(uint256) = ddddAmount (c)- fee"];
+18->19;
+19[label="Node Type: END_IF 19
+"];
+19->20;
+20[label="Node Type: EXPRESSION 20
+
+EXPRESSION:
+DDDD.transfer(msg.sender,ddddAmount)
+
+IRs:
+TMP_106(bool) = HIGH_LEVEL_CALL, dest:DDDD(IERC20), function:transfer, arguments:['msg.sender', 'ddddAmount']  "];
+20->21;
+21[label="Node Type: EXPRESSION 21
+
+EXPRESSION:
+user.claimedDDDD += ddddAmount
+
+IRs:
+REF_63(uint256) -> user.claimedDDDD
+REF_63(-> user) = REF_63 (c)+ ddddAmount"];
+21->22;
+22[label="Node Type: EXPRESSION 22
+
+EXPRESSION:
+user.lastClaimTime = block.timestamp + getFixedDay()
+
+IRs:
+REF_64(uint256) -> user.lastClaimTime
+TMP_107(uint256) = INTERNAL_CALL, ABCCApp.getFixedDay()()
+TMP_108(uint256) = block.timestamp (c)+ TMP_107
+REF_64(uint256) (->user) := TMP_108(uint256)"];
+22->23;
+23[label="Node Type: EXPRESSION 23
+
+EXPRESSION:
+globalData.claimedDDDD += ddddAmount
+
+IRs:
+REF_65(uint256) -> globalData.claimedDDDD
+REF_65(-> globalData) = REF_65 (c)+ ddddAmount"];
+23->24;
+24[label="Node Type: IF 24
+
+EXPRESSION:
+staticUSDT > 0
+
+IRs:
+TMP_109(bool) = staticUSDT > 0
+CONDITION TMP_109"];
+24->25[label="True"];
+24->26[label="False"];
+25[label="Node Type: EXPRESSION 25
+
+EXPRESSION:
+processReferers(msg.sender,user.referer,staticUSDT)
+
+IRs:
+REF_66(address) -> user.referer
+INTERNAL_CALL, ABCCApp.processReferers(address,address,uint256)(msg.sender,REF_66,staticUSDT)"];
+25->26;
+26[label="Node Type: END_IF 26
+"];
+26->27;
+27[label="Node Type: EXPRESSION 27
+
+EXPRESSION:
+OnClaimed(msg.sender,ddddAmount)
+
+IRs:
+Emit OnClaimed(msg.sender,ddddAmount)"];
+28[label="Node Type: IF 28
+
+EXPRESSION:
+users[user.referer].activeCount > 1
+
+IRs:
+REF_67(address) -> user.referer
+REF_68(ABCCApp.User) -> users[REF_67]
+REF_69(uint256) -> REF_68.activeCount
+TMP_112(bool) = REF_69 > 1
+CONDITION TMP_112"];
+28->29[label="True"];
+28->30[label="False"];
+29[label="Node Type: EXPRESSION 29
+
+EXPRESSION:
+users[user.referer].activeCount = users[user.referer].activeCount - 1
+
+IRs:
+REF_70(address) -> user.referer
+REF_71(ABCCApp.User) -> users[REF_70]
+REF_72(uint256) -> REF_71.activeCount
+REF_73(address) -> user.referer
+REF_74(ABCCApp.User) -> users[REF_73]
+REF_75(uint256) -> REF_74.activeCount
+TMP_113(uint256) = REF_75 (c)- 1
+REF_72(uint256) (->users) := TMP_113(uint256)"];
+29->31;
+30[label="Node Type: EXPRESSION 30
+
+EXPRESSION:
+users[user.referer].activeCount = 0
+
+IRs:
+REF_76(address) -> user.referer
+REF_77(ABCCApp.User) -> users[REF_76]
+REF_78(uint256) -> REF_77.activeCount
+REF_78(uint256) (->users) := 0(uint256)"];
+30->31;
+31[label="Node Type: END_IF 31
+"];
+31->12;
+}

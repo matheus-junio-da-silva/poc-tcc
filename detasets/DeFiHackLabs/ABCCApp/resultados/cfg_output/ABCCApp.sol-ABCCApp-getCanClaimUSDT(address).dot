@@ -1,0 +1,124 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+user = users[target]
+
+IRs:
+REF_13(ABCCApp.User) -> users[target]
+user(ABCCApp.User) := REF_13(ABCCApp.User)"];
+1->2;
+2[label="Node Type: IF 2
+
+EXPRESSION:
+user.remainingUSDT == 0
+
+IRs:
+REF_14(uint256) -> user.remainingUSDT
+TMP_30(bool) = REF_14 == 0
+CONDITION TMP_30"];
+2->3[label="True"];
+2->4[label="False"];
+3[label="Node Type: RETURN 3
+
+EXPRESSION:
+(user.dynamicUSDT,0,user.dynamicUSDT)
+
+IRs:
+REF_15(uint256) -> user.dynamicUSDT
+REF_16(uint256) -> user.dynamicUSDT
+RETURN REF_15,0,REF_16"];
+4[label="Node Type: END_IF 4
+"];
+4->5;
+5[label="Node Type: NEW VARIABLE 5
+
+EXPRESSION:
+diffSecond = block.timestamp + getFixedDay() - user.lastClaimTime
+
+IRs:
+TMP_31(uint256) = INTERNAL_CALL, ABCCApp.getFixedDay()()
+TMP_32(uint256) = block.timestamp (c)+ TMP_31
+REF_17(uint256) -> user.lastClaimTime
+TMP_33(uint256) = TMP_32 (c)- REF_17
+diffSecond(uint256) := TMP_33(uint256)"];
+5->6;
+6[label="Node Type: NEW VARIABLE 6
+
+EXPRESSION:
+diffDay = diffSecond / DAY
+
+IRs:
+TMP_34(uint256) = diffSecond (c)/ DAY
+diffDay(uint256) := TMP_34(uint256)"];
+6->7;
+7[label="Node Type: EXPRESSION 7
+
+EXPRESSION:
+staticUSDT = diffDay * user.dailyUSDT
+
+IRs:
+REF_18(uint256) -> user.dailyUSDT
+TMP_35(uint256) = diffDay (c)* REF_18
+staticUSDT(uint256) := TMP_35(uint256)"];
+7->11;
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+dynamicUSDT = user.dynamicUSDT
+
+IRs:
+REF_19(uint256) -> user.dynamicUSDT
+dynamicUSDT(uint256) := REF_19(uint256)"];
+9->10;
+10[label="Node Type: EXPRESSION 10
+
+EXPRESSION:
+totalUSDT = staticUSDT + dynamicUSDT
+
+IRs:
+TMP_36(uint256) = staticUSDT (c)+ dynamicUSDT
+totalUSDT(uint256) := TMP_36(uint256)"];
+10->15;
+11[label="Node Type: IF 11
+
+EXPRESSION:
+staticUSDT > user.remainingUSDT
+
+IRs:
+REF_20(uint256) -> user.remainingUSDT
+TMP_37(bool) = staticUSDT > REF_20
+CONDITION TMP_37"];
+11->12[label="True"];
+11->13[label="False"];
+12[label="Node Type: EXPRESSION 12
+
+EXPRESSION:
+staticUSDT = user.remainingUSDT
+
+IRs:
+REF_21(uint256) -> user.remainingUSDT
+staticUSDT(uint256) := REF_21(uint256)"];
+12->14;
+13[label="Node Type: EXPRESSION 13
+
+EXPRESSION:
+staticUSDT = staticUSDT
+
+IRs:
+staticUSDT(uint256) := staticUSDT(uint256)"];
+13->14;
+14[label="Node Type: END_IF 14
+"];
+14->9;
+15[label="Node Type: RETURN 15
+
+EXPRESSION:
+(totalUSDT,staticUSDT,dynamicUSDT)
+
+IRs:
+RETURN totalUSDT,staticUSDT,dynamicUSDT"];
+}

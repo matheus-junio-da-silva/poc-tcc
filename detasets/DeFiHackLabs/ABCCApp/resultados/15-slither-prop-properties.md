@@ -1,0 +1,4 @@
+# slither-prop properties
+```
+ABCCApp is not ERC20 compliant. Consider checking the contract with slither-check-erc
+```

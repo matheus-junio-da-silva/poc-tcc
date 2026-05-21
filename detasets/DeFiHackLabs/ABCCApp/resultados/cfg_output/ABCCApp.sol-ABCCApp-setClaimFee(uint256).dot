@@ -1,0 +1,29 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->3;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(target < 100,E0)
+
+IRs:
+TMP_200(bool) = target < 100
+TMP_201(None) = SOLIDITY_CALL require(bool,string)(TMP_200,E0)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+claimFee = target
+
+IRs:
+claimFee(uint256) := target(uint256)"];
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+onlyOwner()
+
+IRs:
+MODIFIER_CALL, Ownable.onlyOwner()()"];
+3->1;
+}

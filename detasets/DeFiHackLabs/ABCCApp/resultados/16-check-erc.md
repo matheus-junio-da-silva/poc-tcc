@@ -1,0 +1,22 @@
+# slither-check-erc
+```
+# Check ABCCApp
+
+## Check functions
+[ ] totalSupply() is missing 
+[ ] balanceOf(address) is missing 
+[ ] transfer(address,uint256) is missing 
+[ ] transferFrom(address,address,uint256) is missing 
+[ ] approve(address,uint256) is missing 
+[ ] allowance(address,address) is missing 
+[ ] name() is missing (optional)
+[ ] symbol() is missing (optional)
+[ ] decimals() is missing (optional)
+
+## Check events
+[ ] Transfer(address,address,uint256) is missing
+[ ] Approval(address,address,uint256) is missing
+
+
+	[ ] ABCCApp is not protected for the ERC20 approval race condition
+```

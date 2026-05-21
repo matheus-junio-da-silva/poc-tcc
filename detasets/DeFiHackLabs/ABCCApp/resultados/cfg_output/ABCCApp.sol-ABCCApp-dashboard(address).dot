@@ -1,0 +1,90 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+data.currUser = users[target]
+
+IRs:
+REF_1(ABCCApp.User) -> data.currUser
+REF_2(ABCCApp.User) -> users[target]
+REF_1(ABCCApp.User) (->data) := REF_2(ABCCApp.User)"];
+1->2;
+2[label="Node Type: IF 2
+
+EXPRESSION:
+target != address(0)
+
+IRs:
+TMP_21 = CONVERT 0 to address
+TMP_22(bool) = target != TMP_21
+CONDITION TMP_22"];
+2->3[label="True"];
+2->9[label="False"];
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+data.usdtBalance = USDT.balanceOf(target)
+
+IRs:
+REF_3(uint256) -> data.usdtBalance
+TMP_23(uint256) = HIGH_LEVEL_CALL, dest:USDT(IERC20), function:balanceOf, arguments:['target']  
+REF_3(uint256) (->data) := TMP_23(uint256)"];
+3->4;
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+data.ddddBalance = DDDD.balanceOf(target)
+
+IRs:
+REF_5(uint256) -> data.ddddBalance
+TMP_24(uint256) = HIGH_LEVEL_CALL, dest:DDDD(IERC20), function:balanceOf, arguments:['target']  
+REF_5(uint256) (->data) := TMP_24(uint256)"];
+4->5;
+5[label="Node Type: NEW VARIABLE 5
+"];
+5->6;
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+(None,staticUSDT,None) = getCanClaimUSDT(target)
+
+IRs:
+TUPLE_0(uint256,uint256,uint256) = INTERNAL_CALL, ABCCApp.getCanClaimUSDT(address)(target)
+staticUSDT(uint256)= UNPACK TUPLE_0 index: 1 "];
+6->7;
+7[label="Node Type: EXPRESSION 7
+
+EXPRESSION:
+data.powerBalance = data.currUser.remainingUSDT - staticUSDT
+
+IRs:
+REF_7(uint256) -> data.powerBalance
+REF_8(ABCCApp.User) -> data.currUser
+REF_9(uint256) -> REF_8.remainingUSDT
+TMP_25(uint256) = REF_9 (c)- staticUSDT
+REF_7(uint256) (->data) := TMP_25(uint256)"];
+7->8;
+8[label="Node Type: EXPRESSION 8
+
+EXPRESSION:
+data.currUser.staticUSDT = staticUSDT
+
+IRs:
+REF_10(ABCCApp.User) -> data.currUser
+REF_11(uint256) -> REF_10.staticUSDT
+REF_11(uint256) (->data) := staticUSDT(uint256)"];
+8->9;
+9[label="Node Type: END_IF 9
+"];
+9->10;
+10[label="Node Type: RETURN 10
+
+EXPRESSION:
+data
+
+IRs:
+RETURN data"];
+}

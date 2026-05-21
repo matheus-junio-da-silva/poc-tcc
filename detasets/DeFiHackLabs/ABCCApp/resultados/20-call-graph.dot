@@ -1,0 +1,112 @@
+strict digraph {
+rankdir="LR"
+node [shape=box]
+subgraph cluster_1992_Ownable {
+label = "Ownable"
+"1992_transferOwnership" [label="transferOwnership"]
+"1992_owner" [label="owner"]
+"1992__checkOwner" [label="_checkOwner"]
+"1992_constructor" [label="constructor"]
+"1992_renounceOwnership" [label="renounceOwnership"]
+"1992__transferOwnership" [label="_transferOwnership"]
+"1992_constructor" -> "1992__transferOwnership"
+"1992_renounceOwnership" -> "1992__transferOwnership"
+"1992_transferOwnership" -> "1992__transferOwnership"
+"1992__checkOwner" -> "1992__msgSender"
+"1992_renounceOwnership" -> "1992_onlyOwner"
+"1992__checkOwner" -> "1992_owner"
+"1992_transferOwnership" -> "1992_onlyOwner"
+}subgraph cluster_75_IUniswapV3 {
+label = "IUniswapV3"
+"75_token0" [label="token0"]
+"75_exactInput" [label="exactInput"]
+"75_slot0" [label="slot0"]
+"75_exactInputSingle" [label="exactInputSingle"]
+"75_token1" [label="token1"]
+}subgraph cluster_2100_Context {
+label = "Context"
+"2100__msgData" [label="_msgData"]
+"2100__contextSuffixLength" [label="_contextSuffixLength"]
+"2100__msgSender" [label="_msgSender"]
+}subgraph cluster_1844_ABCCApp {
+label = "ABCCApp"
+"1844_getCanClaimUSDT" [label="getCanClaimUSDT"]
+"1844_setClaimFee" [label="setClaimFee"]
+"1844_setVaultAddr" [label="setVaultAddr"]
+"1844_dashboard" [label="dashboard"]
+"1844_setUserRemainingUSDT" [label="setUserRemainingUSDT"]
+"1844_processReferers" [label="processReferers"]
+"1844_setOperator" [label="setOperator"]
+"1844_getDDDDValueInUSDT" [label="getDDDDValueInUSDT"]
+"1844_getUserDirects" [label="getUserDirects"]
+"1844_getFixedDay" [label="getFixedDay"]
+"1844_addFixedDay" [label="addFixedDay"]
+"1844_getIncomeRecords" [label="getIncomeRecords"]
+"1844_setSettlePrice" [label="setSettlePrice"]
+"1844_emergencyFixed" [label="emergencyFixed"]
+"1844_getTokenPriceInBNB" [label="getTokenPriceInBNB"]
+"1844_constructor" [label="constructor"]
+"1844_claimDDDD" [label="claimDDDD"]
+"1844_setPartUSDT" [label="setPartUSDT"]
+"1844_getBNBPriceInUSDT" [label="getBNBPriceInUSDT"]
+"1844_setLevelRate" [label="setLevelRate"]
+"1844_deposit" [label="deposit"]
+"1844_setEnable" [label="setEnable"]
+"1844_dashboard" -> "1844_getCanClaimUSDT"
+"1844_setOperator" -> "1844_onlyOwner"
+"1844_setEnable" -> "1844_onlyOwner"
+"1844_setLevelRate" -> "1844_onlyOwner"
+"1844_deposit" -> "1844_getFixedDay"
+"1844_setUserRemainingUSDT" -> "1844_onlyOwner"
+"1844_emergencyFixed" -> "1844_onlyOwner"
+"1844_claimDDDD" -> "1844_getCanClaimUSDT"
+"1844_getCanClaimUSDT" -> "1844_getFixedDay"
+"1844_claimDDDD" -> "1844_processReferers"
+"1844_setPartUSDT" -> "1844_onlyOwner"
+"1844_setSettlePrice" -> "1844_getDDDDValueInUSDT"
+"1844_claimDDDD" -> "1844_getFixedDay"
+"1844_setVaultAddr" -> "1844_onlyOwner"
+"1844_setClaimFee" -> "1844_onlyOwner"
+"1844_setSettlePrice" -> "1844_getFixedDay"
+"1844_claimDDDD" -> "1844_getDDDDValueInUSDT"
+"1844_constructor" -> "1844_constructor"
+"1844_getDDDDValueInUSDT" -> "1844_getBNBPriceInUSDT"
+"1844_deposit" -> "1844_getCanClaimUSDT"
+"1844_setSettlePrice" -> "1844_onlyOwner"
+"1844_getDDDDValueInUSDT" -> "1844_getTokenPriceInBNB"
+}subgraph cluster_2070_IERC20 {
+label = "IERC20"
+"2070_totalSupply" [label="totalSupply"]
+"2070_transferFrom" [label="transferFrom"]
+"2070_balanceOf" [label="balanceOf"]
+"2070_allowance" [label="allowance"]
+"2070_approve" [label="approve"]
+"2070_transfer" [label="transfer"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"abi.encodePacked()" 
+"revert OwnableInvalidOwner(address)" 
+"require(bool,string)" 
+"revert OwnableUnauthorizedAccount(address)" 
+"1844_setClaimFee" -> "require(bool,string)"
+"1844_setUserRemainingUSDT" -> "require(bool,string)"
+"1992_constructor" -> "revert OwnableInvalidOwner(address)"
+"1844_setLevelRate" -> "require(bool,string)"
+"1844_deposit" -> "require(bool,string)"
+"1844_claimDDDD" -> "require(bool,string)"
+"1992__checkOwner" -> "revert OwnableUnauthorizedAccount(address)"
+"1844_deposit" -> "abi.encodePacked()"
+"1992_transferOwnership" -> "revert OwnableInvalidOwner(address)"
+}"1844_claimDDDD" -> "2070_transfer"
+"1844_getBNBPriceInUSDT" -> "75_token0"
+"1844_deposit" -> "2070_allowance"
+"1844_dashboard" -> "2070_balanceOf"
+"1844_deposit" -> "75_exactInput"
+"1844_getTokenPriceInBNB" -> "75_token0"
+"1844_getTokenPriceInBNB" -> "75_slot0"
+"1844_getBNBPriceInUSDT" -> "75_slot0"
+"1844_deposit" -> "2070_approve"
+"1844_deposit" -> "2070_transferFrom"
+"1844_emergencyFixed" -> "2070_transfer"
+"1844_emergencyFixed" -> "2070_balanceOf"
+}

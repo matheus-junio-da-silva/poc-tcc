@@ -1,0 +1,117 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->14;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(users[target].joinTime > 0,E0)
+
+IRs:
+REF_128(ABCCApp.User) -> users[target]
+REF_129(uint256) -> REF_128.joinTime
+TMP_203(bool) = REF_129 > 0
+TMP_204(None) = SOLIDITY_CALL require(bool,string)(TMP_203,E0)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+
+EXPRESSION:
+old = users[target].remainingUSDT
+
+IRs:
+REF_130(ABCCApp.User) -> users[target]
+REF_131(uint256) -> REF_130.remainingUSDT
+old(uint256) := REF_131(uint256)"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+users[target].remainingUSDT = value
+
+IRs:
+REF_132(ABCCApp.User) -> users[target]
+REF_133(uint256) -> REF_132.remainingUSDT
+REF_133(uint256) (->users) := value(uint256)"];
+3->4;
+4[label="Node Type: IF 4
+
+EXPRESSION:
+old > 0
+
+IRs:
+TMP_205(bool) = old > 0
+CONDITION TMP_205"];
+4->5[label="True"];
+4->8[label="False"];
+5[label="Node Type: IF 5
+
+EXPRESSION:
+value == 0
+
+IRs:
+TMP_206(bool) = value == 0
+CONDITION TMP_206"];
+5->6[label="True"];
+5->7[label="False"];
+6[label="Node Type: EXPRESSION 6
+
+EXPRESSION:
+users[target].activeCount --
+
+IRs:
+REF_134(ABCCApp.User) -> users[target]
+REF_135(uint256) -> REF_134.activeCount
+TMP_207(uint256) := REF_135(uint256)
+REF_135(-> users) = REF_135 (c)- 1"];
+6->7;
+7[label="Node Type: END_IF 7
+"];
+7->13;
+8[label="Node Type: IF 8
+
+EXPRESSION:
+old == 0
+
+IRs:
+TMP_208(bool) = old == 0
+CONDITION TMP_208"];
+8->9[label="True"];
+8->12[label="False"];
+9[label="Node Type: IF 9
+
+EXPRESSION:
+value > 0
+
+IRs:
+TMP_209(bool) = value > 0
+CONDITION TMP_209"];
+9->10[label="True"];
+9->11[label="False"];
+10[label="Node Type: EXPRESSION 10
+
+EXPRESSION:
+users[target].activeCount ++
+
+IRs:
+REF_136(ABCCApp.User) -> users[target]
+REF_137(uint256) -> REF_136.activeCount
+TMP_210(uint256) := REF_137(uint256)
+REF_137(-> users) = REF_137 (c)+ 1"];
+10->11;
+11[label="Node Type: END_IF 11
+"];
+11->12;
+12[label="Node Type: END_IF 12
+"];
+12->13;
+13[label="Node Type: END_IF 13
+"];
+14[label="Node Type: EXPRESSION 14
+
+EXPRESSION:
+onlyOwner()
+
+IRs:
+MODIFIER_CALL, Ownable.onlyOwner()()"];
+14->1;
+}

@@ -1,0 +1,89 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+bnbUsdtPool = IUniswapV3(bnbUSDTPool)
+
+IRs:
+TMP_240 = CONVERT bnbUSDTPool to IUniswapV3
+bnbUsdtPool(IUniswapV3) := TMP_240(IUniswapV3)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+(sqrtPriceX96,None,None,None,None,None,None) = bnbUsdtPool.slot0()
+
+IRs:
+TUPLE_4(uint160,int24,uint16,uint16,uint16,uint32,bool) = HIGH_LEVEL_CALL, dest:bnbUsdtPool(IUniswapV3), function:slot0, arguments:[]  
+sqrtPriceX96(uint160)= UNPACK TUPLE_4 index: 0 "];
+3->4;
+4[label="Node Type: NEW VARIABLE 4
+
+EXPRESSION:
+isBNBToken0 = bnbUsdtPool.token0() == address(BNB)
+
+IRs:
+TMP_241(address) = HIGH_LEVEL_CALL, dest:bnbUsdtPool(IUniswapV3), function:token0, arguments:[]  
+TMP_242 = CONVERT BNB to address
+TMP_243(bool) = TMP_241 == TMP_242
+isBNBToken0(bool) := TMP_243(bool)"];
+4->5;
+5[label="Node Type: NEW VARIABLE 5
+"];
+5->6;
+6[label="Node Type: IF 6
+
+EXPRESSION:
+isBNBToken0
+
+IRs:
+CONDITION isBNBToken0"];
+6->7[label="True"];
+6->8[label="False"];
+7[label="Node Type: EXPRESSION 7
+
+EXPRESSION:
+price = (uint256(sqrtPriceX96) * uint256(sqrtPriceX96) * 10 ** 18) / Q96 / Q96
+
+IRs:
+TMP_244 = CONVERT sqrtPriceX96 to uint256
+TMP_245 = CONVERT sqrtPriceX96 to uint256
+TMP_246(uint256) = TMP_244 (c)* TMP_245
+TMP_247(uint256) = 10 (c)** 18
+TMP_248(uint256) = TMP_246 (c)* TMP_247
+TMP_249(uint256) = TMP_248 (c)/ Q96
+TMP_250(uint256) = TMP_249 (c)/ Q96
+price(uint256) := TMP_250(uint256)"];
+7->9;
+8[label="Node Type: EXPRESSION 8
+
+EXPRESSION:
+price = (Q96 * Q96 * 10 ** 18) / uint256(sqrtPriceX96) / uint256(sqrtPriceX96)
+
+IRs:
+TMP_251(uint256) = Q96 (c)* Q96
+TMP_252(uint256) = 10 (c)** 18
+TMP_253(uint256) = TMP_251 (c)* TMP_252
+TMP_254 = CONVERT sqrtPriceX96 to uint256
+TMP_255(uint256) = TMP_253 (c)/ TMP_254
+TMP_256 = CONVERT sqrtPriceX96 to uint256
+TMP_257(uint256) = TMP_255 (c)/ TMP_256
+price(uint256) := TMP_257(uint256)"];
+8->9;
+9[label="Node Type: END_IF 9
+"];
+9->10;
+10[label="Node Type: RETURN 10
+
+EXPRESSION:
+price
+
+IRs:
+RETURN price"];
+}

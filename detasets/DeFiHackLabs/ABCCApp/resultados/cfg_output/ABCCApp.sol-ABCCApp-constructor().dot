@@ -1,0 +1,21 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->2;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+isOperators[msg.sender] = true
+
+IRs:
+REF_0(bool) -> isOperators[msg.sender]
+REF_0(bool) (->isOperators) := True(bool)"];
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+Ownable(msg.sender)
+
+IRs:
+INTERNAL_CALL, Ownable.constructor(address)(msg.sender)"];
+2->1;
+}

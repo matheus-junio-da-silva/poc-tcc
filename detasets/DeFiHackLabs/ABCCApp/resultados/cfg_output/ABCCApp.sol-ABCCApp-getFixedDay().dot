@@ -1,0 +1,13 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: RETURN 1
+
+EXPRESSION:
+fixedDay * DAY
+
+IRs:
+TMP_212(uint256) = fixedDay (c)* DAY
+RETURN TMP_212"];
+}

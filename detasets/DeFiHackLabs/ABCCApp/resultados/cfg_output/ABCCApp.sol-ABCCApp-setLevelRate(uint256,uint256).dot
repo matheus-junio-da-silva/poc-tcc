@@ -1,0 +1,40 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->4;
+1[label="Node Type: EXPRESSION 1
+
+EXPRESSION:
+require(bool,string)(index < REFERER_RATES.length,E0)
+
+IRs:
+REF_126 -> LENGTH REFERER_RATES
+TMP_195(bool) = index < REF_126
+TMP_196(None) = SOLIDITY_CALL require(bool,string)(TMP_195,E0)"];
+1->2;
+2[label="Node Type: EXPRESSION 2
+
+EXPRESSION:
+require(bool,string)(value < 100,E1)
+
+IRs:
+TMP_197(bool) = value < 100
+TMP_198(None) = SOLIDITY_CALL require(bool,string)(TMP_197,E1)"];
+2->3;
+3[label="Node Type: EXPRESSION 3
+
+EXPRESSION:
+REFERER_RATES[index] = value
+
+IRs:
+REF_127(uint256) -> REFERER_RATES[index]
+REF_127(uint256) (->REFERER_RATES) := value(uint256)"];
+4[label="Node Type: EXPRESSION 4
+
+EXPRESSION:
+onlyOwner()
+
+IRs:
+MODIFIER_CALL, Ownable.onlyOwner()()"];
+4->1;
+}

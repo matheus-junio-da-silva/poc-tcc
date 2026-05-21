@@ -1,0 +1,44 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+tokenPriceInBNB = getTokenPriceInBNB()
+
+IRs:
+TMP_214(uint256) = INTERNAL_CALL, ABCCApp.getTokenPriceInBNB()()
+tokenPriceInBNB(uint256) := TMP_214(uint256)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+
+EXPRESSION:
+bnbPriceInUSDT = getBNBPriceInUSDT()
+
+IRs:
+TMP_215(uint256) = INTERNAL_CALL, ABCCApp.getBNBPriceInUSDT()()
+bnbPriceInUSDT(uint256) := TMP_215(uint256)"];
+2->3;
+3[label="Node Type: NEW VARIABLE 3
+
+EXPRESSION:
+valueInUSDT = (amount * tokenPriceInBNB * bnbPriceInUSDT) / (10 ** 18 * 10 ** 18)
+
+IRs:
+TMP_216(uint256) = amount (c)* tokenPriceInBNB
+TMP_217(uint256) = TMP_216 (c)* bnbPriceInUSDT
+TMP_218(uint256) = 10 (c)** 18
+TMP_219(uint256) = 10 (c)** 18
+TMP_220(uint256) = TMP_218 (c)* TMP_219
+TMP_221(uint256) = TMP_217 (c)/ TMP_220
+valueInUSDT(uint256) := TMP_221(uint256)"];
+3->4;
+4[label="Node Type: RETURN 4
+
+EXPRESSION:
+valueInUSDT
+
+IRs:
+RETURN valueInUSDT"];
+}

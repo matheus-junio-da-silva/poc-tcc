@@ -1,0 +1,242 @@
+digraph{
+0[label="Node Type: ENTRY_POINT 0
+"];
+0->1;
+1[label="Node Type: NEW VARIABLE 1
+
+EXPRESSION:
+keepUSDT = 0
+
+IRs:
+keepUSDT(uint256) := 0(uint256)"];
+1->2;
+2[label="Node Type: NEW VARIABLE 2
+
+EXPRESSION:
+depth = 0
+
+IRs:
+depth(uint8) := 0(uint256)"];
+2->3;
+3[label="Node Type: BEGIN_LOOP 3
+"];
+3->4;
+4[label="Node Type: IF_LOOP 4
+
+EXPRESSION:
+current != address(this) && current != address(0) && depth < 10
+
+IRs:
+TMP_114 = CONVERT this to address
+TMP_115(bool) = current != TMP_114
+TMP_116 = CONVERT 0 to address
+TMP_117(bool) = current != TMP_116
+TMP_118(bool) = TMP_115 && TMP_117
+TMP_119(bool) = depth < 10
+TMP_120(bool) = TMP_118 && TMP_119
+CONDITION TMP_120"];
+4->5[label="True"];
+4->20[label="False"];
+5[label="Node Type: NEW VARIABLE 5
+
+EXPRESSION:
+user = users[current]
+
+IRs:
+REF_79(ABCCApp.User) -> users[current]
+user(ABCCApp.User) := REF_79(ABCCApp.User)"];
+5->6;
+6[label="Node Type: NEW VARIABLE 6
+
+EXPRESSION:
+incomeUSDT = amountUSDT * REFERER_RATES[depth] / 100
+
+IRs:
+REF_80(uint256) -> REFERER_RATES[depth]
+TMP_121(uint256) = amountUSDT (c)* REF_80
+TMP_122(uint256) = TMP_121 (c)/ 100
+incomeUSDT(uint256) := TMP_122(uint256)"];
+6->7;
+7[label="Node Type: IF 7
+
+EXPRESSION:
+user.remainingUSDT > 0 && user.activeCount > depth
+
+IRs:
+REF_81(uint256) -> user.remainingUSDT
+TMP_123(bool) = REF_81 > 0
+REF_82(uint256) -> user.activeCount
+TMP_124(bool) = REF_82 > depth
+TMP_125(bool) = TMP_123 && TMP_124
+CONDITION TMP_125"];
+7->22[label="True"];
+7->16[label="False"];
+9[label="Node Type: EXPRESSION 9
+
+EXPRESSION:
+user.dynamicUSDT += canUSDT
+
+IRs:
+REF_83(uint256) -> user.dynamicUSDT
+REF_83(-> user) = REF_83 (c)+ canUSDT"];
+9->10;
+10[label="Node Type: EXPRESSION 10
+
+EXPRESSION:
+user.remainingUSDT -= canUSDT
+
+IRs:
+REF_84(uint256) -> user.remainingUSDT
+REF_84(-> user) = REF_84 (c)- canUSDT"];
+10->11;
+11[label="Node Type: IF 11
+
+EXPRESSION:
+user.remainingUSDT == 0
+
+IRs:
+REF_85(uint256) -> user.remainingUSDT
+TMP_126(bool) = REF_85 == 0
+CONDITION TMP_126"];
+11->26[label="True"];
+11->13[label="False"];
+13[label="Node Type: END_IF 13
+"];
+13->14;
+14[label="Node Type: EXPRESSION 14
+
+EXPRESSION:
+userIncomeRecords[current].push(IncomeRecord({depth:depth,timestamp:block.timestamp,fromUser:sender,amount:canUSDT}))
+
+IRs:
+REF_86(ABCCApp.IncomeRecord[]) -> userIncomeRecords[current]
+TMP_127(ABCCApp.IncomeRecord) = new IncomeRecord(depth,block.timestamp,sender,canUSDT)
+REF_88 -> LENGTH REF_86
+TMP_129(uint256) := REF_88(uint256)
+TMP_130(uint256) = TMP_129 (c)+ 1
+REF_88(uint256) (->userIncomeRecords) := TMP_130(uint256)
+REF_89(ABCCApp.IncomeRecord) -> REF_86[TMP_129]
+REF_89(ABCCApp.IncomeRecord) (->userIncomeRecords) := TMP_127(ABCCApp.IncomeRecord)"];
+14->15;
+15[label="Node Type: EXPRESSION 15
+
+EXPRESSION:
+incomeUSDT -= canUSDT
+
+IRs:
+incomeUSDT(uint256) = incomeUSDT (c)- canUSDT"];
+15->16;
+16[label="Node Type: END_IF 16
+"];
+16->17;
+17[label="Node Type: EXPRESSION 17
+
+EXPRESSION:
+keepUSDT += incomeUSDT
+
+IRs:
+keepUSDT(uint256) = keepUSDT (c)+ incomeUSDT"];
+17->18;
+18[label="Node Type: EXPRESSION 18
+
+EXPRESSION:
+current = user.referer
+
+IRs:
+REF_90(address) -> user.referer
+current(address) := REF_90(address)"];
+18->19;
+19[label="Node Type: EXPRESSION 19
+
+EXPRESSION:
+depth ++
+
+IRs:
+TMP_131(uint8) := depth(uint8)
+depth(uint8) = depth (c)+ 1"];
+19->4;
+20[label="Node Type: END_LOOP 20
+"];
+20->21;
+21[label="Node Type: EXPRESSION 21
+
+EXPRESSION:
+globalData.retainUSDT += keepUSDT
+
+IRs:
+REF_91(uint256) -> globalData.retainUSDT
+REF_91(-> globalData) = REF_91 (c)+ keepUSDT"];
+22[label="Node Type: IF 22
+
+EXPRESSION:
+user.remainingUSDT >= incomeUSDT
+
+IRs:
+REF_92(uint256) -> user.remainingUSDT
+TMP_132(bool) = REF_92 >= incomeUSDT
+CONDITION TMP_132"];
+22->23[label="True"];
+22->24[label="False"];
+23[label="Node Type: EXPRESSION 23
+
+EXPRESSION:
+canUSDT = incomeUSDT
+
+IRs:
+canUSDT(uint256) := incomeUSDT(uint256)"];
+23->25;
+24[label="Node Type: EXPRESSION 24
+
+EXPRESSION:
+canUSDT = user.remainingUSDT
+
+IRs:
+REF_93(uint256) -> user.remainingUSDT
+canUSDT(uint256) := REF_93(uint256)"];
+24->25;
+25[label="Node Type: END_IF 25
+"];
+25->9;
+26[label="Node Type: IF 26
+
+EXPRESSION:
+users[user.referer].activeCount > 1
+
+IRs:
+REF_94(address) -> user.referer
+REF_95(ABCCApp.User) -> users[REF_94]
+REF_96(uint256) -> REF_95.activeCount
+TMP_133(bool) = REF_96 > 1
+CONDITION TMP_133"];
+26->27[label="True"];
+26->28[label="False"];
+27[label="Node Type: EXPRESSION 27
+
+EXPRESSION:
+users[user.referer].activeCount = users[user.referer].activeCount - 1
+
+IRs:
+REF_97(address) -> user.referer
+REF_98(ABCCApp.User) -> users[REF_97]
+REF_99(uint256) -> REF_98.activeCount
+REF_100(address) -> user.referer
+REF_101(ABCCApp.User) -> users[REF_100]
+REF_102(uint256) -> REF_101.activeCount
+TMP_134(uint256) = REF_102 (c)- 1
+REF_99(uint256) (->users) := TMP_134(uint256)"];
+27->29;
+28[label="Node Type: EXPRESSION 28
+
+EXPRESSION:
+users[user.referer].activeCount = 0
+
+IRs:
+REF_103(address) -> user.referer
+REF_104(ABCCApp.User) -> users[REF_103]
+REF_105(uint256) -> REF_104.activeCount
+REF_105(uint256) (->users) := 0(uint256)"];
+28->29;
+29[label="Node Type: END_IF 29
+"];
+29->13;
+}
