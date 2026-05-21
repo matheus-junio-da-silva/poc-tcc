@@ -86,7 +86,6 @@ htmlcov/
 contracts/artifacts/
 contracts/cache/
 node_modules/
-.hardhat/
 
 # Build outputs
 dist/
