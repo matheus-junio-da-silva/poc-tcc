@@ -1,8 +1,0 @@
-{
-    "importFilesToOrigRelpaths": {},
-    "primary_contract": "ABCCApp",
-    "specfile": "spec/AccessControlSpec.spec",
-    "specfileOrigRelpath": "spec/AccessControlSpec.spec",
-    "specfilesToImportDecls": {},
-    "type": "spec"
-}

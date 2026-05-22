@@ -1,8 +1,0 @@
-{
-    "importFilesToOrigRelpaths": {},
-    "primary_contract": "ABCCApp",
-    "specfile": "/home/mat/poc1novo/poc-tcc/certora_tests/DeFiHackLabs/ABCCApp/spec/AccessControlSpec.spec",
-    "specfileOrigRelpath": "spec/AccessControlSpec.spec",
-    "specfilesToImportDecls": {},
-    "type": "spec"
-}
