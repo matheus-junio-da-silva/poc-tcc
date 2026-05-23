@@ -37,6 +37,12 @@ log_warn()  { echo -e "  ${YELLOW}⚠${NC}  $1"; }
 log_err()   { echo -e "  ${RED}✗${NC} $1" >&2; }
 log_info()  { echo -e "  ${CYAN}ℹ${NC}  $1"; }
 
+on_error() {
+    log_err "Falha na instalacao (linha $1). Verifique o log acima e tente novamente."
+}
+
+trap 'on_error $LINENO' ERR
+
 SUDO=""
 if [ "${EUID:-$(id -u)}" -ne 0 ]; then
     if command -v sudo &>/dev/null; then
@@ -114,7 +120,7 @@ backup_copy() {
 
 REINSTALL="${REINSTALL:-}"
 if [ -z "$REINSTALL" ]; then
-    read -r -p "Deseja fazer backup e reinstalar (remove _bmad, .opencode, certora_venv, slither_output)? [y/N] " REINSTALL
+    read -r -p "Deseja fazer backup e reinstalar (remove _bmad, _bmad-output, .opencode, certora_venv, slither_output)? [y/N] " REINSTALL
 fi
 
 if [[ "${REINSTALL,,}" == "y" || "${REINSTALL,,}" == "yes" ]]; then
@@ -128,6 +134,7 @@ if [[ "${REINSTALL,,}" == "y" || "${REINSTALL,,}" == "yes" ]]; then
 
     backup_move "$PROJECT_DIR/_bmad"
     backup_move "$PROJECT_DIR/_bmad-output"
+    backup_move "$PROJECT_DIR/.opencode"
     backup_move "$PROJECT_DIR/certora_venv"
     backup_move "$PROJECT_DIR/slither_output"
     log_ok "Backup concluido"
@@ -141,8 +148,10 @@ fi
 log_step "0.6 Garantindo .env e .env.example"
 
 ENV_FILE="$PROJECT_DIR/.env"
+ENV_EXAMPLE="$PROJECT_DIR/.env.example"
 
 if [ ! -f "$ENV_EXAMPLE" ]; then
+    cat > "$ENV_EXAMPLE" << 'ENV_EOF'
 # ─────────────────────────────────────────────────────────────
 # Variaveis de ambiente — poc-tcc (BMad + OpenCode + Certora)
 # NUNCA commite o arquivo .env
@@ -154,11 +163,18 @@ CERTORA_MODE=cloud
 CERTORAKEY=sua-chave-certora-aqui
 
 # GitHub Token — opcional, evita rate limit durante instalacao do BMad
+# Obter em: https://github.com/settings/tokens
+GITHUB_TOKEN=
 
-# Opcionais — outros providers no OpenCode (exemplos)
+# ─────────────────────────────────────────────────────────────
+# Opcionais — apenas se precisar de outros providers no OpenCode
+# ─────────────────────────────────────────────────────────────
 # OPENAI_API_KEY=
+# GOOGLE_AI_API_KEY=
+ENV_EOF
     log_ok ".env.example criado"
 else
+    log_ok ".env.example ja existe"
 fi
 
 if [ ! -f "$ENV_FILE" ]; then
@@ -167,20 +183,30 @@ if [ ! -f "$ENV_FILE" ]; then
 else
     log_ok ".env ja existe"
 fi
+
 set_env_var() {
     local key="$1"
     local value="$2"
+    local file="${3:-$ENV_FILE}"
+
+    if [ ! -f "$file" ]; then
+        touch "$file"
+    fi
+
     if grep -q "^${key}=" "$file"; then
         sed -i "s|^${key}=.*|${key}=${value}|" "$file"
+    else
         echo "${key}=${value}" >> "$file"
     fi
 }
 
 remove_env_var() {
     local key="$1"
-    local file="$ENV_FILE"
-    if grep -q "^${key}=" "$file"; then
+    local file="${2:-$ENV_FILE}"
+
+    if [ -f "$file" ] && grep -q "^${key}=" "$file"; then
         sed -i "/^${key}=/d" "$file"
+    fi
 }
 
 # =============================================================================
@@ -324,7 +350,7 @@ cd "$PROJECT_DIR"
 
 if [ -d "$PROJECT_DIR/_bmad/bmm" ] && [ -d "$PROJECT_DIR/_bmad/core" ]; then
     log_ok "BMad já instalado (_bmad/bmm e _bmad/core presentes)"
-    log_info "Versão: $(grep 'version:' _bmad/_config/manifest.yaml | head -1 | awk '{print $2}')"
+    log_info "Versão: $(grep 'version:' _bmad/_config/manifest.yaml 2>/dev/null | head -1 | awk '{print $2}' || true)"
 else
     log_info "Instalando BMad via expect (responde automaticamente ao instalador interativo)..."
     log_warn "Este processo pode levar 1-2 minutos — aguarde..."
@@ -1235,9 +1261,9 @@ check() {
     fi
 }
 
-check "Node.js 20+"               "node --version | grep -E 'v2[0-9]'"  "$(node --version 2>/dev/null)"
+check "Node.js 20+"               "node --version | grep -E 'v2[0-9]'"  "$(node --version 2>/dev/null || true)"
 check "OpenCode"                  "[ -f '$OPENCODE_BIN' ]"              "$($OPENCODE_BIN --version 2>/dev/null || echo '')"
-check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}')"
+check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}' || true)"
 check "BMad _bmad/core/"         "[ -d '$PROJECT_DIR/_bmad/core' ]"
 check "Skill BMad OpenCode"       "[ -f '$PROJECT_DIR/.opencode/skills/BMAD/bmad-skills.md' ]"
 check "Agentes OpenCode (>=8)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -ge 8 ]"
