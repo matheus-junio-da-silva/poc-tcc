@@ -55,7 +55,8 @@ Leia com atenção o histórico de requisições do usuário acima e avalie se a
 1. **Aderência aos Documentos Fornecidos:** A solução final implementou os conceitos exigidos nos documentos fornecidos pelo usuário (como o ReAct, MARS, Reflexion, e as diretrizes do arquivo `como_construir_agentes_llm.md`)?
 2. **Manutenção da Ideia Original (Projeto/TAO):** A solução manteve-se fiel ao objetivo geral do projeto e não se desviou da arquitetura multi-agente para detecção de vulnerabilidades com foco em Access Control (e futuramente expansível)?
 3. **Gerenciamento do Contexto do Slither:** A preocupação do usuário com a licença do Slither (usar via execução de script CLI em vez de importar no código para evitar contaminação de licença AGPL) foi respeitada? O contexto dos *printers* foi filtrado e fornecido adequadamente ao agente?
-4. **Quantidade e Qualidade dos Agentes:** O número de agentes (5 agentes: context builder, property generator, runner, interpreter, feedback reporter) faz sentido técnico de acordo com as boas práticas (diluição de responsabilidades versus risco de alucinação)?
+4. **Quantidade e Qualidade dos Agentes:** O número de agentes (4 agentes: context builder, property generator, runner, interpreter) faz sentido tecnico de acordo com as boas praticas (diluicao de responsabilidades versus risco de alucinacao)?
+	- Feedback e gerado por cada agente apos sua propria etapa (nao ha agente dedicado).
 5. **Qualidade Técnica:** Os *prompts* e as configurações dos agentes finais são bem estruturados, evitam ambiguidades e entregam resultados focados?
 
 ### Formato da Sua Resposta:

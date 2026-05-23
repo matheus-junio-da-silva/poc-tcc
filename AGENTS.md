@@ -12,6 +12,8 @@ Ou pode chamar o orquestrador primário diretamente:
 
 ## Agentes do Pipeline
 
+> Cada agente gera seu proprio relatorio de feedback logo apos concluir sua tarefa, em `_bmad-output/feedback-logs/`.
+
 ### 1. Slither Context Builder (`@slither-context-builder`)
 **Papel:** Orquestrador inicial. Executa o Slither e gera o `context.json`.
 **Uso:** Invoque-o passando o caminho do contrato `.sol` a ser analisado.
@@ -28,6 +30,6 @@ Ou pode chamar o orquestrador primário diretamente:
 **Papel:** Intérprete. Lê os contraexemplos do Certora Prover e identifica Falsos Positivos vs Vulnerabilidades Reais.
 **Uso:** Invocado automaticamente após a conclusão do certoraRun.
 
-### 5. Feedback Reporter (`@feedback-reporter`)
-**Papel:** Auto-melhoria (MARS). Gera um relatório iterativo para o engenheiro humano contendo um log crítico de falhas, ambiguidades e "conhecimentos não explicitados" que os agentes aprenderam durante a execução.
-**Uso:** Invocado no final do pipeline de auditoria.
+### Feedback (embutido em cada agente)
+**Papel:** Cada agente registra feedback estruturado (Reflexion + MARS) imediatamente apos concluir sua propria etapa.
+**Uso:** Nao existe agente dedicado de feedback no pipeline.

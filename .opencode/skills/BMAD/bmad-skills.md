@@ -31,8 +31,10 @@ All BMad skills are available. Use the skill name to invoke them.
 - Custom agents: `.opencode/agents/`
 
 ## Certora Pipeline Agents
-- `@certora-orchestrator` — Pipeline completo de verificação formal
-- `@certora-analyzer` — Analisa contratos Solidity
-- `@certora-specifier` — Escreve specs CVL
+- `@slither-context-builder` — Orquestra Slither e gera `context.json`
+- `@certora-property-generator` — Gera specs CVL e `.conf`
 - `@certora-runner` — Executa certoraRun
-- `@certora-reporter` — Gera relatório de vulnerabilidades
+- `@certora-interpreter` — Interpreta resultados e gera relatorio
+
+## Feedback
+Cada agente gera seu proprio relatorio de feedback logo apos concluir sua etapa, em `_bmad-output/feedback-logs/`.
