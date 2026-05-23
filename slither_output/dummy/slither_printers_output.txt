@@ -1,0 +1,82 @@
+'solc --version' running
+'solc /tmp/dummy.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/tmp' running
+
+Contract Dummy
++---------------+-------------------------+---------------------------------------------------------+
+| Function      | State variables written | Conditions on msg.sender                                |
++---------------+-------------------------+---------------------------------------------------------+
+| constructor   | ['owner']               | []                                                      |
+| deposit       | ['balance']             | []                                                      |
+| withdraw      | ['balance']             | []                                                      |
+| withdrawOwner | ['balance']             | ['require(bool,string)(msg.sender == owner,Not owner)'] |
++---------------+-------------------------+---------------------------------------------------------+
+
+
+Contract Dummy
+Contract vars: ['owner', 'balance']
+Inheritance:: []
+ 
++-----------------+------------+---------------+---------------------------+-------------+----------------------------------------+-------------------------------------------+-----------------------+
+| Function        | Visibility | Modifiers     | Read                      | Write       | Internal Calls                         | External Calls                            | Cyclomatic Complexity |
++-----------------+------------+---------------+---------------------------+-------------+----------------------------------------+-------------------------------------------+-----------------------+
+| constructor()   | public     | []            | ['msg.sender']            | ['owner']   | []                                     | []                                        | 1                     |
+| deposit()       | public     | []            | ['balance', 'msg.value']  | ['balance'] | []                                     | []                                        | 1                     |
+| withdraw()      | public     | []            | ['balance', 'msg.sender'] | ['balance'] | []                                     | ['address(msg.sender).transfer(balance)'] | 1                     |
+| withdrawOwner() | public     | ['onlyOwner'] | ['balance', 'owner']      | ['balance'] | ['MODIFIER_CALL, Dummy.onlyOwner()()'] | ['address(owner).transfer(balance)']      | 1                     |
++-----------------+------------+---------------+---------------------------+-------------+----------------------------------------+-------------------------------------------+-----------------------+
+
++-------------+------------+-------------------------+-------+-----------------------------------------------------------------------+----------------+-----------------------+
+| Modifiers   | Visibility | Read                    | Write | Internal Calls                                                        | External Calls | Cyclomatic Complexity |
++-------------+------------+-------------------------+-------+-----------------------------------------------------------------------+----------------+-----------------------+
+| onlyOwner() | internal   | ['msg.sender', 'owner'] | []    | ['TMP_6(None) = SOLIDITY_CALL require(bool,string)(TMP_5,Not owner)'] | []             | 1                     |
++-------------+------------+-------------------------+-------+-----------------------------------------------------------------------+----------------+-----------------------+
+
+
+Contract Dummy
++---------------+---------------+
+| Function      | Modifiers     |
++---------------+---------------+
+| constructor   | []            |
+| deposit       | []            |
+| withdraw      | []            |
+| withdrawOwner | ['onlyOwner'] |
++---------------+---------------+
+
+Contract Dummy
++---------------+-----------------------------------------------------+
+| Function      | require or assert                                   |
++---------------+-----------------------------------------------------+
+| constructor   |                                                     |
+| deposit       |                                                     |
+| withdraw      |                                                     |
+| withdrawOwner | require(bool,string)(msg.sender == owner,Not owner) |
++---------------+-----------------------------------------------------+
+
+Compiled with solc
+Total number of contracts in source files: 1
+Source lines of code (SLOC) in source files: 23
+Number of  assembly lines: 0
+Number of optimization issues: 1
+Number of informational issues: 3
+Number of low issues: 0
+Number of medium issues: 0
+Number of high issues: 0
+
+
++-------+-------------+------+------------+--------------+-------------+
+| Name  | # functions | ERCS | ERC20 info | Complex code | Features    |
++-------+-------------+------+------------+--------------+-------------+
+| Dummy | 4           |      |            | No           | Receive ETH |
+|       |             |      |            |              | Send ETH    |
++-------+-------------+------+------------+--------------+-------------+
+Inheritance
+Child_Contract -> Immediate_Base_Contracts [Not_Immediate_Base_Contracts]
++ Dummy
+
+
+Base_Contract -> Immediate_Child_Contracts
+ [Not_Immediate_Child_Contracts]
+
++ Dummy
+
+/tmp/dummy.sol analyzed (1 contracts)

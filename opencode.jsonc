@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "rules": [
+    "./_bmad/core/bmad-help/SKILL.md",
+    "./_bmad/_config/skill-manifest.csv",
+    "./AGENTS.md"
+  ],
+  "commands": {
+    "audit:access-control": {
+      "template": "Execute o pipeline completo de auditoria de Access Control usando o Slither Context Builder:\n@slither-context-builder → @certora-property-generator → @certora-runner → @certora-interpreter → @feedback-reporter",
+      "description": "Pipeline completo de auditoria formal de Access Control (Slither + Certora)"
+    }
+  }
+}
