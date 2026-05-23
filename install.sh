@@ -1261,6 +1261,8 @@ check() {
     fi
 }
 
+VENV_BIN="$PROJECT_DIR/certora_venv/bin"
+
 check "Node.js 20+"               "node --version | grep -E 'v2[0-9]'"  "$(node --version 2>/dev/null || true)"
 check "OpenCode"                  "[ -f '$OPENCODE_BIN' ]"              "$($OPENCODE_BIN --version 2>/dev/null || echo '')"
 check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}' || true)"
@@ -1269,6 +1271,10 @@ check "Skill BMad OpenCode"       "[ -f '$PROJECT_DIR/.opencode/skills/BMAD/bmad
 check "Agentes OpenCode (>=8)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -ge 8 ]"
 check "opencode.json/jsonc"      "[ -f '$PROJECT_DIR/opencode.json' ] || [ -f '$PROJECT_DIR/opencode.jsonc' ]"
 check "Template feedback BMad"   "[ -f '$PROJECT_DIR/_bmad/templates/feedback-template.md' ]"
+check "Certora CLI (venv)"       "[ -x '$VENV_BIN/certoraRun' ]"        "$("$VENV_BIN/certoraRun" --version 2>/dev/null || true)"
+check "Slither (venv)"           "[ -x '$VENV_BIN/slither' ]"           "$("$VENV_BIN/slither" --version 2>/dev/null || true)"
+check "solc-select (venv)"       "[ -x '$VENV_BIN/solc-select' ]"       "$("$VENV_BIN/solc-select" --version 2>/dev/null || true)"
+check "solc"                     "command -v solc"                     "$(solc --version 2>/dev/null | head -1 || true)"
 
 # Certora
 if [ "${CERTORA_MODE:-cloud}" = "local" ]; then
