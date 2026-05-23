@@ -53,6 +53,13 @@ if [ "${EUID:-$(id -u)}" -ne 0 ]; then
     fi
 fi
 
+if [ -n "$SUDO" ]; then
+    if ! $SUDO -v; then
+        log_err "sudo falhou. Verifique sua senha e tente novamente."
+        exit 1
+    fi
+fi
+
 run_as_user() {
     if [ "${EUID:-$(id -u)}" -eq 0 ] && [ -n "${CURRENT_USER:-}" ] && [ "$CURRENT_USER" != "root" ]; then
         if command -v sudo &>/dev/null; then
@@ -95,57 +102,9 @@ else
 fi
 
 # =============================================================================
-# PASSO 0.5 — Backup e reinstalacao (opcional)
+# PASSO 0.5 — Garantir .env e .env.example
 # =============================================================================
-log_step "0.5 Backup e reinstalacao (opcional)"
-
-backup_dir=""
-backup_move() {
-    local target="$1"
-    if [ -e "$target" ]; then
-        mkdir -p "$backup_dir"
-        mv "$target" "$backup_dir/" 
-        log_ok "Backup: $(basename "$target")"
-    fi
-}
-
-backup_copy() {
-    local target="$1"
-    if [ -f "$target" ]; then
-        mkdir -p "$backup_dir"
-        cp -a "$target" "$backup_dir/" 
-        log_ok "Backup (arquivo): $(basename "$target")"
-    fi
-}
-
-REINSTALL="${REINSTALL:-}"
-if [ -z "$REINSTALL" ]; then
-    read -r -p "Deseja fazer backup e reinstalar (remove _bmad, _bmad-output, .opencode, certora_venv, slither_output)? [y/N] " REINSTALL
-fi
-
-if [[ "${REINSTALL,,}" == "y" || "${REINSTALL,,}" == "yes" ]]; then
-    backup_dir="$PROJECT_DIR/_backups/install-$(date +%Y%m%d-%H%M%S)"
-    log_info "Backup em: $backup_dir"
-
-    backup_copy "$PROJECT_DIR/.env"
-    backup_copy "$PROJECT_DIR/.env.example"
-    backup_copy "$PROJECT_DIR/opencode.json"
-    backup_copy "$PROJECT_DIR/opencode.jsonc"
-
-    backup_move "$PROJECT_DIR/_bmad"
-    backup_move "$PROJECT_DIR/_bmad-output"
-    backup_move "$PROJECT_DIR/.opencode"
-    backup_move "$PROJECT_DIR/certora_venv"
-    backup_move "$PROJECT_DIR/slither_output"
-    log_ok "Backup concluido"
-else
-    log_info "Reinstalacao completa ignorada"
-fi
-
-# =============================================================================
-# PASSO 0.6 — Garantir .env e .env.example
-# =============================================================================
-log_step "0.6 Garantindo .env e .env.example"
+log_step "0.5 Garantindo .env e .env.example"
 
 ENV_FILE="$PROJECT_DIR/.env"
 ENV_EXAMPLE="$PROJECT_DIR/.env.example"
@@ -1261,8 +1220,6 @@ check() {
     fi
 }
 
-VENV_BIN="$PROJECT_DIR/certora_venv/bin"
-
 check "Node.js 20+"               "node --version | grep -E 'v2[0-9]'"  "$(node --version 2>/dev/null || true)"
 check "OpenCode"                  "[ -f '$OPENCODE_BIN' ]"              "$($OPENCODE_BIN --version 2>/dev/null || echo '')"
 check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}' || true)"
@@ -1271,10 +1228,8 @@ check "Skill BMad OpenCode"       "[ -f '$PROJECT_DIR/.opencode/skills/BMAD/bmad
 check "Agentes OpenCode (>=8)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -ge 8 ]"
 check "opencode.json/jsonc"      "[ -f '$PROJECT_DIR/opencode.json' ] || [ -f '$PROJECT_DIR/opencode.jsonc' ]"
 check "Template feedback BMad"   "[ -f '$PROJECT_DIR/_bmad/templates/feedback-template.md' ]"
-check "Certora CLI (venv)"       "[ -x '$VENV_BIN/certoraRun' ]"        "$("$VENV_BIN/certoraRun" --version 2>/dev/null || true)"
-check "Slither (venv)"           "[ -x '$VENV_BIN/slither' ]"           "$("$VENV_BIN/slither" --version 2>/dev/null || true)"
-check "solc-select (venv)"       "[ -x '$VENV_BIN/solc-select' ]"       "$("$VENV_BIN/solc-select" --version 2>/dev/null || true)"
-check "solc"                     "command -v solc"                     "$(solc --version 2>/dev/null | head -1 || true)"
+check "Certora CLI"              "[ -x '$PROJECT_DIR/certora_venv/bin/certoraRun' ]" "$($PROJECT_DIR/certora_venv/bin/certoraRun --version 2>/dev/null || true)"
+check "Slither"                  "[ -x '$PROJECT_DIR/certora_venv/bin/slither' ]" "$($PROJECT_DIR/certora_venv/bin/slither --version 2>/dev/null || true)"
 
 # Certora
 if [ "${CERTORA_MODE:-cloud}" = "local" ]; then
