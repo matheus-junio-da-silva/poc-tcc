@@ -1,7 +1,6 @@
 ---
 description: Orquestra a execucao do Slither e a extracao do contexto para o pipeline de Access Control.
 mode: primary
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   bash:

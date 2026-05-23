@@ -1,7 +1,6 @@
 ---
 description: Gera propriedades CVL de Access Control usando codigo Solidity e contexto do Slither.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   bash:

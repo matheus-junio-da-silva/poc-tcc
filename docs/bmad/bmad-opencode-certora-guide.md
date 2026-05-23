@@ -129,23 +129,16 @@ opencode --version
 
 ### 3.5 Configurar um provider de AI
 
-Ao abrir o OpenCode pela primeira vez, você precisa conectar um provider. Para usar Claude (recomendado com BMad):
+Ao abrir o OpenCode pela primeira vez, voce precisa conectar um provider. Recomendado: OpenCode Zen ou GitHub Copilot.
 
 ```bash
 opencode
 # Dentro do TUI, execute:
 /connect
-# Selecione "Anthropic" e insira sua ANTHROPIC_API_KEY
+# Escolha "OpenCode Zen" ou "GitHub Copilot"
 ```
 
-Alternativamente, configure via variável de ambiente:
-
-```bash
-export ANTHROPIC_API_KEY="sua-chave-aqui"
-# Para tornar permanente:
-echo 'export ANTHROPIC_API_KEY="sua-chave-aqui"' >> ~/.bashrc
-source ~/.bashrc
-```
+Se quiser usar outro provider, siga o fluxo do `/connect` e depois escolha um modelo com `/models`.
 
 ### 3.6 Inicializar um projeto no OpenCode
 
@@ -267,7 +260,7 @@ O BMad cria/modifica o `opencode.json` na raiz do projeto. Estrutura típica:
   ],
   "agent": {
     "build": {
-      "model": "anthropic/claude-sonnet-4-20250514",
+      "model": "{env:OPENCODE_MODEL}",
       "permission": {
         "bash": "ask",
         "edit": "ask"
@@ -276,6 +269,8 @@ O BMad cria/modifica o `opencode.json` na raiz do projeto. Estrutura típica:
   }
 }
 ```
+
+Defina `OPENCODE_MODEL` no ambiente ou remova o campo `model` para usar o modelo padrao do provider.
 
 ---
 
@@ -380,7 +375,6 @@ Crie `.opencode/agents/certora-orchestrator.md`:
 ---
 description: Orchestrates vulnerability detection in Solidity smart contracts using Certora Prover. Delegates to specialized subagents for analysis, spec writing, execution, and reporting.
 mode: primary
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   bash:
@@ -427,7 +421,6 @@ Crie `.opencode/agents/certora-analyzer.md`:
 ---
 description: Analyzes Solidity smart contract source code to identify structure, functions, state variables, and potential vulnerability entry points for formal verification.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   read: allow
@@ -467,7 +460,6 @@ Crie `.opencode/agents/certora-specifier.md`:
 ---
 description: Writes CVL (Certora Verification Language) specification files to formally verify security properties in Solidity contracts.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.05
 permission:
   read: allow
@@ -528,7 +520,6 @@ Crie `.opencode/agents/certora-runner.md`:
 ---
 description: Executes certoraRun commands against Solidity contracts and captures verification results.
 mode: subagent
-model: anthropic/claude-haiku-4-20250514
 temperature: 0.0
 permission:
   bash:
@@ -572,7 +563,6 @@ Crie `.opencode/agents/certora-reporter.md`:
 ---
 description: Interprets Certora Prover results and generates a human-readable vulnerability report with severity classifications and remediation suggestions.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.2
 permission:
   read: allow
@@ -879,8 +869,9 @@ echo '*.key' >> .gitignore
 
 # Use um arquivo .env local (não comitado):
 cat > .env << 'EOF'
+CERTORA_MODE=cloud
 CERTORAKEY=sua-chave-certora
-ANTHROPIC_API_KEY=sua-chave-anthropic
+GITHUB_TOKEN=
 EOF
 
 # Carregue no .bashrc ou use dotenv:

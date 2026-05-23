@@ -1,7 +1,6 @@
 ---
 description: Executa certoraRun e trata erros de compilacao CVL com iteracao controlada.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   bash:

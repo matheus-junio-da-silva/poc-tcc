@@ -14,9 +14,9 @@
 #   - sudo com senha (para instalação de pacotes apt)
 #   - Acesso à internet
 #
-# Variáveis de ambiente (opcionais — lidas do .env se existir):
-#   ANTHROPIC_API_KEY  — chave Anthropic para o OpenCode
-#   CERTORAKEY         — chave Certora Prover (certora.com/signup)
+# Variaveis de ambiente (opcionais — lidas do .env se existir):
+#   CERTORA_MODE       — cloud|local (seleciona modo do Prover)
+#   CERTORAKEY         — chave Certora Prover (usada no modo cloud)
 #   GITHUB_TOKEN       — token GitHub (evita rate limit no BMad)
 # =============================================================================
 
@@ -36,6 +36,28 @@ log_ok()    { echo -e "  ${GREEN}✓${NC} $1"; }
 log_warn()  { echo -e "  ${YELLOW}⚠${NC}  $1"; }
 log_err()   { echo -e "  ${RED}✗${NC} $1" >&2; }
 log_info()  { echo -e "  ${CYAN}ℹ${NC}  $1"; }
+
+SUDO=""
+if [ "${EUID:-$(id -u)}" -ne 0 ]; then
+    if command -v sudo &>/dev/null; then
+        SUDO="sudo"
+    else
+        log_err "sudo nao encontrado. Execute este script como root ou instale sudo."
+        exit 1
+    fi
+fi
+
+run_as_user() {
+    if [ "${EUID:-$(id -u)}" -eq 0 ] && [ -n "${CURRENT_USER:-}" ] && [ "$CURRENT_USER" != "root" ]; then
+        if command -v sudo &>/dev/null; then
+            sudo -u "$CURRENT_USER" "$@"
+        else
+            su - "$CURRENT_USER" -c "$*"
+        fi
+    else
+        "$@"
+    fi
+}
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$SCRIPT_DIR"
@@ -63,29 +85,121 @@ if [ -f "$PROJECT_DIR/.env" ]; then
     set -a; source "$PROJECT_DIR/.env"; set +a
     log_ok ".env carregado"
 else
-    log_warn ".env não encontrado — crie um baseado em .env.example"
+    log_warn ".env nao encontrado — sera criado"
 fi
 
 # =============================================================================
-# PASSO 1 — Dependências do sistema
+# PASSO 0.5 — Backup e reinstalacao (opcional)
+# =============================================================================
+log_step "0.5 Backup e reinstalacao (opcional)"
+
+backup_dir=""
+backup_move() {
+    local target="$1"
+    if [ -e "$target" ]; then
+        mkdir -p "$backup_dir"
+        mv "$target" "$backup_dir/" 
+        log_ok "Backup: $(basename "$target")"
+    fi
+}
+
+backup_copy() {
+    local target="$1"
+    if [ -f "$target" ]; then
+        mkdir -p "$backup_dir"
+        cp -a "$target" "$backup_dir/" 
+        log_ok "Backup (arquivo): $(basename "$target")"
+    fi
+}
+
+REINSTALL="${REINSTALL:-}"
+if [ -z "$REINSTALL" ]; then
+    read -r -p "Deseja fazer backup e reinstalar (remove _bmad, .opencode, certora_venv, slither_output)? [y/N] " REINSTALL
+fi
+
+if [[ "${REINSTALL,,}" == "y" || "${REINSTALL,,}" == "yes" ]]; then
+    backup_dir="$PROJECT_DIR/_backups/install-$(date +%Y%m%d-%H%M%S)"
+    log_info "Backup em: $backup_dir"
+
+    backup_copy "$PROJECT_DIR/.env"
+    backup_copy "$PROJECT_DIR/.env.example"
+    backup_copy "$PROJECT_DIR/opencode.json"
+    backup_copy "$PROJECT_DIR/opencode.jsonc"
+
+    backup_move "$PROJECT_DIR/_bmad"
+    backup_move "$PROJECT_DIR/_bmad-output"
+    backup_move "$PROJECT_DIR/certora_venv"
+    backup_move "$PROJECT_DIR/slither_output"
+    log_ok "Backup concluido"
+else
+    log_info "Reinstalacao completa ignorada"
+fi
+
+# =============================================================================
+# PASSO 0.6 — Garantir .env e .env.example
+# =============================================================================
+log_step "0.6 Garantindo .env e .env.example"
+
+ENV_FILE="$PROJECT_DIR/.env"
+
+if [ ! -f "$ENV_EXAMPLE" ]; then
+# ─────────────────────────────────────────────────────────────
+# Variaveis de ambiente — poc-tcc (BMad + OpenCode + Certora)
+# NUNCA commite o arquivo .env
+# ─────────────────────────────────────────────────────────────
+
+# Certora Prover — necessario para verificacao formal
+# Obter em: https://www.certora.com/signup?plan=prover
+CERTORA_MODE=cloud
+CERTORAKEY=sua-chave-certora-aqui
+
+# GitHub Token — opcional, evita rate limit durante instalacao do BMad
+
+# Opcionais — outros providers no OpenCode (exemplos)
+# OPENAI_API_KEY=
+    log_ok ".env.example criado"
+else
+fi
+
+if [ ! -f "$ENV_FILE" ]; then
+    cp "$ENV_EXAMPLE" "$ENV_FILE"
+    log_warn ".env criado — preencha suas chaves em: $ENV_FILE"
+else
+    log_ok ".env ja existe"
+fi
+set_env_var() {
+    local key="$1"
+    local value="$2"
+    if grep -q "^${key}=" "$file"; then
+        sed -i "s|^${key}=.*|${key}=${value}|" "$file"
+        echo "${key}=${value}" >> "$file"
+    fi
+}
+
+remove_env_var() {
+    local key="$1"
+    local file="$ENV_FILE"
+    if grep -q "^${key}=" "$file"; then
+        sed -i "/^${key}=/d" "$file"
+}
+
+# =============================================================================
 # =============================================================================
 log_step "1. Verificando e instalando dependências do sistema"
-
-apt-get update -qq
+$SUDO apt-get update -qq
 
 # Git
 command -v git &>/dev/null && log_ok "git $(git --version | awk '{print $3}')" || {
-    apt-get install -y git; log_ok "git instalado"
+    $SUDO apt-get install -y git; log_ok "git instalado"
 }
 
-# curl
 command -v curl &>/dev/null && log_ok "curl" || {
-    apt-get install -y curl; log_ok "curl instalado"
+    $SUDO apt-get install -y curl; log_ok "curl instalado"
 }
 
 # expect (necessário para automatizar o instalador interativo do BMad)
 command -v expect &>/dev/null && log_ok "expect" || {
-    apt-get install -y expect; log_ok "expect instalado"
+    $SUDO apt-get install -y expect; log_ok "expect instalado"
 }
 
 # Node.js 20+
@@ -96,26 +210,59 @@ if command -v node &>/dev/null; then
         log_ok "Node.js $(node --version)"
     else
         log_info "Atualizando Node.js para v$NODE_REQUIRED..."
-        curl -fsSL "https://deb.nodesource.com/setup_${NODE_REQUIRED}.x" | bash -
-        apt-get install -y nodejs
+        curl -fsSL "https://deb.nodesource.com/setup_${NODE_REQUIRED}.x" | $SUDO bash -
+        $SUDO apt-get install -y nodejs
         log_ok "Node.js $(node --version)"
     fi
 else
     log_info "Instalando Node.js $NODE_REQUIRED..."
-    curl -fsSL "https://deb.nodesource.com/setup_${NODE_REQUIRED}.x" | bash -
-    apt-get install -y nodejs
+    curl -fsSL "https://deb.nodesource.com/setup_${NODE_REQUIRED}.x" | $SUDO bash -
+    $SUDO apt-get install -y nodejs
     log_ok "Node.js $(node --version)"
 fi
 
 # Python3 (necessário para Certora Prover)
 command -v python3 &>/dev/null && log_ok "Python3 $(python3 --version | awk '{print $2}')" || {
-    apt-get install -y python3 python3-pip python3-venv; log_ok "Python3 instalado"
+    $SUDO apt-get install -y python3 python3-pip python3-venv; log_ok "Python3 instalado"
 }
 
 # Java 21 (necessário para Certora Prover)
 command -v java &>/dev/null && log_ok "Java" || {
-    log_warn "Java não encontrado — instale manualmente: sudo apt-get install -y openjdk-21-jdk"
+    log_warn "Java nao encontrado — instale manualmente: sudo apt-get install -y openjdk-21-jdk"
 }
+
+# =============================================================================
+# PASSO 1.5 — Configurar modo do Certora
+# =============================================================================
+log_step "1.5 Configurando modo do Certora"
+
+CERTORA_MODE="${CERTORA_MODE:-}"
+if [ -z "$CERTORA_MODE" ]; then
+    read -r -p "Usar Certora Cloud? (requer CERTORAKEY) [Y/n] " CERTORA_MODE
+fi
+
+if [[ "${CERTORA_MODE,,}" == "n" || "${CERTORA_MODE,,}" == "no" || "${CERTORA_MODE,,}" == "local" ]]; then
+    CERTORA_MODE="local"
+    set_env_var "CERTORA_MODE" "local"
+    log_info "Modo local selecionado. CERTORAKEY nao e obrigatorio."
+else
+    CERTORA_MODE="cloud"
+    set_env_var "CERTORA_MODE" "cloud"
+
+    if [ -z "${CERTORAKEY:-}" ] || [ "$CERTORAKEY" = "sua-chave-certora-aqui" ]; then
+        read -r -s -p "Digite sua CERTORAKEY: " CERTORAKEY
+        echo ""
+    fi
+
+    if [ -n "${CERTORAKEY:-}" ] && [ "$CERTORAKEY" != "sua-chave-certora-aqui" ]; then
+        set_env_var "CERTORAKEY" "$CERTORAKEY"
+        log_ok "CERTORAKEY salva no .env"
+    else
+        log_warn "CERTORAKEY nao configurada. O certoraRun falhara no modo cloud."
+    fi
+fi
+
+remove_env_var "ANTHROPIC_API_KEY"
 
 # =============================================================================
 # PASSO 2 — Configurar PATH
@@ -149,7 +296,7 @@ if [ -f "$OPENCODE_BIN" ]; then
     log_ok "OpenCode já instalado: $($OPENCODE_BIN --version 2>/dev/null || echo 'versão desconhecida')"
 else
     log_info "Instalando OpenCode via script oficial..."
-    sudo -u "$CURRENT_USER" bash -c 'curl -fsSL https://opencode.ai/install | bash'
+    run_as_user bash -c 'curl -fsSL https://opencode.ai/install | bash'
     if [ -f "$OPENCODE_BIN" ]; then
         log_ok "OpenCode $($OPENCODE_BIN --version 2>/dev/null) instalado"
     else
@@ -164,7 +311,7 @@ fi
 log_step "4. Ajustando permissões do projeto"
 
 # Garantir que o usuário atual é dono de todos os arquivos do projeto
-chown -R "$CURRENT_USER:$CURRENT_USER" "$PROJECT_DIR" 2>/dev/null || true
+$SUDO chown -R "$CURRENT_USER:$CURRENT_USER" "$PROJECT_DIR" 2>/dev/null || true
 log_ok "Permissões ajustadas para $CURRENT_USER"
 
 # =============================================================================
@@ -184,9 +331,10 @@ else
 
     # Script expect para automatizar o instalador interativo do BMad
     # O BMad usa @clack/prompts que requer TTY real (não aceita pipe simples)
-    sudo -u "$CURRENT_USER" expect << 'EXPECT_EOF'
+    run_as_user expect << EXPECT_EOF
 set timeout 180
-spawn bash -c "stty rows 40 cols 120; cd /PLACEHOLDER_PROJECT_DIR && npx --yes bmad-method install"
+set project_dir "$PROJECT_DIR"
+spawn bash -c "stty rows 40 cols 120; cd \"\$project_dir\" && npx --yes bmad-method install"
 
 # Prompt 1: Installation directory
 expect -re {Installation directory} { sleep 1; send "\r" }
@@ -241,7 +389,14 @@ EXPECT_EOF
     else
         log_warn "BMad pode não ter completado — execute manualmente: npx bmad-method install"
     fi
+
 fi
+
+# =============================================================================
+# PASSO 5.5 — Instalar Certora CLI + Slither
+# =============================================================================
+log_step "5.5 Instalando Certora CLI + Slither"
+run_as_user bash "$PROJECT_DIR/scripts/install_slither.sh"
 
 # =============================================================================
 # PASSO 6 — Criar estrutura de diretórios
@@ -261,7 +416,7 @@ DIRS=(
 
 for DIR in "${DIRS[@]}"; do
     mkdir -p "$DIR"
-    chown "$CURRENT_USER:$CURRENT_USER" "$DIR" 2>/dev/null || true
+    $SUDO chown "$CURRENT_USER:$CURRENT_USER" "$DIR" 2>/dev/null || true
 done
 log_ok "Diretórios criados e permissões ajustadas"
 
@@ -328,7 +483,6 @@ cat > "$AGENTS_DIR/certora-orchestrator.md" << 'AGENT_EOF'
 ---
 description: Orchestrates vulnerability detection in Solidity smart contracts using Certora Prover. Delegates to specialized subagents for analysis, spec writing, execution, and reporting.
 mode: primary
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   bash:
@@ -367,12 +521,435 @@ Coordinate a full formal verification pipeline using Certora Prover to detect se
 - All bash commands that write files must be approved
 AGENT_EOF
 
+# Agente Slither Context Builder
+cat > "$AGENTS_DIR/slither-context-builder.md" << 'AGENT_EOF'
+---
+description: Orquestra a execucao do Slither e a extracao do contexto para o pipeline de Access Control.
+mode: primary
+temperature: 0.1
+permission:
+    bash:
+        "*": ask
+        "bash scripts/run_slither_printers.sh *": allow
+        "python3 scripts/extract_context.py *": allow
+    edit:
+        "_bmad-output/feedback-logs/*.md": allow
+    read: allow
+---
+
+Voce e o `slither-context-builder`, o Agente 1 (orquestrador) do pipeline de deteccao de vulnerabilidades de Access Control via Certora + Slither.
+
+## CRITICAL RULES (Instruction Hierarchy)
+1. **Escopo restrito:** sua unica responsabilidade e executar o Slither e gerar `slither_output/<contrato>/context.json`. Voce NAO analisa codigo Solidity nem gera propriedades CVL.
+2. **Entrada obrigatoria:** caminho do contrato Solidity + tipo de vulnerabilidade alvo. Se faltar qualquer um, PARE e pergunte.
+3. **Saidas obrigatorias:**
+    - `slither_output/<contrato>/context.json`
+    - Relatorio de feedback do agente (ver template abaixo) em `_bmad-output/feedback-logs/`.
+4. **Condicao de termino:** `context.json` existe, foi lido e validado OU o erro foi registrado no feedback.
+5. **Sem agente dedicado de feedback:** gere o feedback logo apos concluir sua tarefa (sucesso ou falha).
+6. **Disciplina de ferramentas:** nunca invente output. Somente conclua com base em evidencias reais do comando/arquivo.
+
+## LOOP DE ACAO (ReAct)
+Sempre externe seu raciocinio usando:
+- **Pensamento:** o que precisa ser feito agora
+- **Acao:** comando a executar
+- **Observacao:** o que o comando retornou
+
+## PASSO A PASSO OBRIGATORIO
+1. **Validar entrada:** verifique se o arquivo do contrato existe e se o tipo de vulnerabilidade foi informado.
+2. **Executar Slither printers:**
+    - `bash scripts/run_slither_printers.sh <caminho_do_contrato.sol> <tipo_vulnerabilidade>`
+3. **Validar saida do Slither:** confirme que `slither_output/<nome_contrato>/slither_full.json` existe.
+4. **Extrair contexto:**
+    - `python3 scripts/extract_context.py slither_output/<nome_contrato>/slither_full.json slither_output/<nome_contrato>/context.json <tipo_vulnerabilidade>`
+5. **Validar `context.json`:** abra o arquivo e confirme:
+    - o contrato correto foi identificado
+    - ha conteudo relevante para a vulnerabilidade alvo (nao vazio)
+6. **Handoff para o proximo agente:**
+    - `@certora-property-generator O contexto de <tipo_vulnerabilidade> para o contrato <X> esta em slither_output/<X>/context.json. Inicie a geracao de propriedades.`
+
+## FEEDBACK (Reflexion + MARS)
+Ao terminar (sucesso ou falha), gere um relatorio de feedback em:
+`_bmad-output/feedback-logs/feedback-slither-context-builder-<YYYYMMDD-HHMMSS>.md`
+
+Use o template abaixo. Se alguma secao nao se aplicar, escreva `N/A` e explique por que.
+
+```markdown
+# RELATORIO DE FEEDBACK DO AGENTE
+**Execucao nº:** [N]
+**Data:** [YYYY-MM-DD]
+**Contrato Analisado:** [nome/endereco]
+**Tipo de Vulnerabilidade Alvo:** [ex: access control]
+
+---
+
+## 1. RESUMO DA TAREFA
+> O que foi solicitado e o resultado final (sucesso/falha parcial/falha).
+
+---
+
+## 2. METODOLOGIA APLICADA
+> Passos executados, comandos usados e validacoes feitas.
+
+---
+
+## 3. ERROS ENCONTRADOS E COMO FORAM RESOLVIDOS
+
+### 3.1 Erros de Ferramenta / Slither
+| Erro | Causa Identificada | Solucao Aplicada |
+|---|---|---|
+
+### 3.2 Erros de Contexto (context.json incompleto ou vazio)
+| Problema | Impacto | Mitigacao |
+|---|---|---|
+
+### 3.3 Erros de Raciocinio
+> Interpretei incorretamente a entrada? Houve assuncao indevida?
+
+---
+
+## 4. PRINCIPIOS VIOLADOS (Reflexao Baseada em Principios)
+- **Principio [A]:** [regra geral quebrada]
+
+---
+
+## 5. ESTRATEGIAS DE SUCESSO (Reflexao Procedural)
+- [Passos que funcionaram e podem ser replicados]
+
+---
+
+## 6. CONHECIMENTO NAO EXPLICITADO NAS INSTRUCOES
+> O que precisei descobrir na pratica e nao estava nas instrucoes.
+
+---
+
+## 7. DICAS PARA EXECUCOES FUTURAS
+- [Recomendacoes acionaveis]
+
+---
+
+## 8. AVALIACAO DE QUALIDADE (Auto-Avaliacao)
+| Criterio | Nota (1-5) | Justificativa |
+|---|---|---|
+| Qualidade do contexto extraido | [N] | [justifique] |
+| Confianca no handoff | [N] | [justifique] |
+
+---
+
+## 9. CONTEXTO PARA CURADORIA HUMANA
+- **Padrao de erro mais critico desta execucao:** [...]
+- **Instrucao de maior impacto que poderia evitar os problemas:** [...]
+- **Tipo de contrato/vulnerabilidade que mais desafiou o agente:** [...]
+```
+AGENT_EOF
+
+# Agente Certora Property Generator
+cat > "$AGENTS_DIR/certora-property-generator.md" << 'AGENT_EOF'
+---
+description: Gera propriedades CVL de Access Control usando codigo Solidity e contexto do Slither.
+mode: subagent
+temperature: 0.1
+permission:
+    bash:
+        "*": ask
+    edit:
+        "specs/*.spec": allow
+        "specs/*.conf": allow
+        "_bmad-output/feedback-logs/*.md": allow
+    read: allow
+---
+
+Voce e o `certora-property-generator`, o Agente 2 do pipeline formal de Access Control.
+
+## CRITICAL RULES (Instruction Hierarchy)
+1. **Escopo restrito:** gerar arquivos `.spec` e `.conf` apenas. Nao execute `certoraRun`.
+2. **Entrada obrigatoria:** caminho do contrato Solidity + `slither_output/<contrato>/context.json`. Se faltar, PARE e pergunte.
+3. **Saidas obrigatorias:**
+     - `specs/<nome_contrato>.spec`
+     - `specs/<nome_contrato>.conf`
+     - Relatorio de feedback do agente em `_bmad-output/feedback-logs/`.
+4. **Nao invente comportamento:** baseie as propriedades no contrato e no contexto real. Se houver ambiguidade, declare a suposicao no cabecalho do `.spec`.
+5. **Sem agente dedicado de feedback:** gere o feedback logo apos concluir sua tarefa.
+
+## LOOP DE ACAO (ReAct)
+Sempre externe seu raciocinio:
+- **Pensamento:** o que precisa ser decidido
+- **Acao:** leitura/escrita necessaria
+- **Observacao:** evidencia real do contrato/contexto
+
+## PASSO A PASSO OBRIGATORIO
+1. **Ler insumos:** contrato Solidity + `context.json`.
+2. **Identificar superficies de acesso:** owner, roles, modifiers, funcoes criticas (mint, upgrade, pause, grant/revoke).
+3. **Mapear pre/post-condicoes:** quem pode chamar, o que muda no estado, e invariantes globais.
+4. **Escrever regras CVL:** uma vulnerabilidade por regra, nomes descritivos, cobertura explicita.
+5. **Adicionar invariantes:** exemplo: owner nunca e zero; role admin nao muda sem autorizacao.
+6. **Revisar sintaxe e armadilhas:** `lastReverted` deve ser capturado imediatamente; evite `require` em preserved blocks sem justificativa; `filtered` exige `method f` como parametro.
+7. **Salvar `.spec` e `.conf`:** conf deve incluir `rule_sanity: "basic"` e `wait_for_results: "all"`.
+8. **Handoff:** chame `@certora-runner` com o caminho do `.conf`.
+
+## REGRAS CVL (BASE OFICIAL)
+Inclua, quando aplicavel:
+- `methods` com funcoes `envfree` quando nao dependem de `msg.sender`.
+- `env e` para regras que dependem de `msg.sender`/`msg.value`.
+- `@withrevert` + `lastReverted` (capturar imediatamente).
+- `rule_sanity: "basic"` no `.conf`.
+- `ghost` e `hook` para storage interno nao exposto.
+- `strong invariant` quando a propriedade deve valer durante chamadas externas.
+- `parametric rules` + `filtered` para cobrir metodos de forma sistematica.
+
+## ARMADILHAS QUE DEVEM SER EVITADAS
+1. `lastReverted` sobrescrito por outra chamada antes da verificacao.
+2. `require` em preserved blocks tornando o invariant unsound.
+3. `filtered` com `f` nao declarado como parametro da regra.
+4. Invariants que podem reverter no estado anterior (o Prover descarta o contraexemplo).
+
+## FORMATO DO `.spec`
+No topo do arquivo, inclua um bloco de comentario com:
+- Numero de propriedades
+- Categorias cobertas (access control, admin role, owner, pausable, etc.)
+- Funcoes sem cobertura e motivo
+
+Use `/// @title` e `/// @notice` em cada rule/invariant.
+
+### Exemplo minimo (referencia)
+```cvl
+methods {
+        function owner() external returns (address) envfree;
+}
+
+/// @title Somente owner pode executar mint
+/// @notice Se mint nao reverteu, o chamador deve ser o owner
+rule onlyOwnerCanMint {
+        env e;
+        address to;
+        uint256 amount;
+
+        mint@withrevert(e, to, amount);
+        bool reverted = lastReverted;
+
+        assert !reverted => e.msg.sender == owner(),
+                "mint executou para nao-owner";
+}
+```
+
+## FORMATO DO `.conf`
+Inclua pelo menos:
+```json
+{
+    "files": ["<caminho_contrato.sol>"],
+    "verify": "<Contrato>:specs/<Contrato>.spec",
+    "solc": "<versao_solc>",
+    "rule_sanity": "basic",
+    "wait_for_results": "all",
+    "msg": "Access Control - <Contrato>"
+}
+```
+Se o contrato tiver loops ou regras pesadas, considere `loop_iter` e `optimistic_loop`.
+
+## FEEDBACK (Reflexion + MARS)
+Ao terminar (inclusive se houver bloqueio), gere um relatorio em:
+`_bmad-output/feedback-logs/feedback-certora-property-generator-<YYYYMMDD-HHMMSS>.md`
+
+Use o template abaixo. Se alguma secao nao se aplicar, escreva `N/A` e explique por que.
+
+```markdown
+# RELATORIO DE FEEDBACK DO AGENTE
+**Execucao nº:** [N]
+**Data:** [YYYY-MM-DD]
+**Contrato Analisado:** [nome/endereco]
+**Tipo de Vulnerabilidade Alvo:** [ex: access control]
+
+---
+
+## 1. RESUMO DA TAREFA
+> O que foi solicitado e o resultado final (sucesso/falha parcial/falha).
+
+---
+
+## 2. METODOLOGIA APLICADA
+> Como o contrato foi interpretado, estrategia de mapeamento vulnerabilidade -> propriedade.
+
+---
+
+## 3. ERROS ENCONTRADOS E COMO FORAM RESOLVIDOS
+
+### 3.1 Erros de Compilacao CVL
+| Erro | Causa Identificada | Solucao Aplicada |
+|---|---|---|
+
+### 3.2 Erros Semanticos (propriedade compilou mas nao captura a vulnerabilidade)
+| Propriedade | Problema Semantico | Reformulacao Adotada |
+|---|---|---|
+
+### 3.3 Erros de Raciocinio
+> Interpretacao equivocada do contrato ou do contexto.
+
+---
+
+## 4. PRINCIPIOS VIOLADOS (Reflexao Baseada em Principios)
+- **Principio [A]:** [regra geral quebrada]
+
+---
+
+## 5. ESTRATEGIAS DE SUCESSO (Reflexao Procedural)
+- [Passos que funcionaram e podem ser replicados]
+
+---
+
+## 6. CONHECIMENTO NAO EXPLICITADO NAS INSTRUCOES
+> O que precisei descobrir na pratica e nao estava nas instrucoes.
+
+---
+
+## 7. DICAS PARA EXECUCOES FUTURAS
+- [Recomendacoes acionaveis]
+
+---
+
+## 8. AVALIACAO DE QUALIDADE (Auto-Avaliacao)
+| Criterio | Nota (1-5) | Justificativa |
+|---|---|---|
+| Cobertura de access control | [N] | [justifique] |
+| Qualidade sintatica do CVL | [N] | [justifique] |
+| Confianca no spec | [N] | [justifique] |
+
+---
+
+## 9. CONTEXTO PARA CURADORIA HUMANA
+- **Padrao de erro mais critico desta execucao:** [...]
+- **Instrucao de maior impacto que poderia evitar os problemas:** [...]
+- **Tipo de contrato/vulnerabilidade que mais desafiou o agente:** [...]
+```
+
+Ao concluir, invoque:
+`@certora-runner Execute certoraRun usando o arquivo specs/<nome_contrato>.conf`
+AGENT_EOF
+
+# Agente Certora Interpreter
+cat > "$AGENTS_DIR/certora-interpreter.md" << 'AGENT_EOF'
+---
+description: Interpreta os resultados do Certora Prover e produz relatorio legivel e acionavel.
+mode: subagent
+temperature: 0.1
+permission:
+    bash:
+        "*": ask
+    edit:
+        "_bmad-output/vulnerability-report.md": allow
+        "_bmad-output/feedback-logs/*.md": allow
+    read: allow
+---
+
+Voce e o `certora-interpreter`, o Agente 4 do pipeline formal de Access Control.
+
+## CRITICAL RULES (Instruction Hierarchy)
+1. **Escopo restrito:** interpretar o output do Certora. Nao rodar `certoraRun` nem editar `.spec`.
+2. **Entrada obrigatoria:** `_bmad-output/certora-raw-output.txt`. Se nao existir, PARE e solicite.
+3. **Saidas obrigatorias:**
+     - `_bmad-output/vulnerability-report.md`
+     - Relatorio de feedback do agente em `_bmad-output/feedback-logs/`.
+4. **Sem agente dedicado de feedback:** gere o feedback logo apos concluir sua tarefa.
+5. **Disciplina de evidencia:** nao conclua vulnerabilidade sem trace ou evidencias do output.
+
+## LOOP DE ACAO (ReAct)
+- **Pensamento:** quais regras falharam e quais evidencias existem?
+- **Acao:** ler o output bruto.
+- **Observacao:** classificar cada falha como vulnerabilidade, falso positivo ou indeterminado.
+- **Acao:** escrever o relatorio.
+
+## CRITERIOS DE CLASSIFICACAO
+1. **Vulnerabilidade real:** trace mostra caminho plausivel na EVM real e viola acesso (owner/roles/modifiers).
+2. **Falso positivo:** resultado depende de over-approximation, ambiente impossivel ou propriedade mal especificada.
+3. **Indeterminado:** faltam dados no output; marque como necessidade de revisao humana.
+
+## FORMATO DO RELATORIO
+Crie `_bmad-output/vulnerability-report.md` com as secoes:
+1. Resumo Executivo
+2. Vulnerabilidades Confirmadas (com regra, descricao, evidencia, impacto)
+3. Falsos Positivos Identificados (com justificativa)
+4. Indeterminados / Requerem Revisao Humana
+5. Recomendacoes de Proximos Passos
+
+## FEEDBACK (Reflexion + MARS)
+Ao terminar, gere um relatorio em:
+`_bmad-output/feedback-logs/feedback-certora-interpreter-<YYYYMMDD-HHMMSS>.md`
+
+Use o template abaixo. Se alguma secao nao se aplicar, escreva `N/A` e explique por que.
+
+```markdown
+# RELATORIO DE FEEDBACK DO AGENTE
+**Execucao nº:** [N]
+**Data:** [YYYY-MM-DD]
+**Contrato Analisado:** [nome/endereco]
+**Tipo de Vulnerabilidade Alvo:** [ex: access control]
+
+---
+
+## 1. RESUMO DA TAREFA
+> O que foi solicitado e o resultado final (sucesso/falha parcial/falha).
+
+---
+
+## 2. METODOLOGIA APLICADA
+> Como o output foi interpretado e criterios usados.
+
+---
+
+## 3. ERROS ENCONTRADOS E COMO FORAM RESOLVIDOS
+
+### 3.1 Erros de Interpretacao
+| Regra | Problema | Correcao |
+|---|---|---|
+
+### 3.2 Erros de Evidencia
+| Problema | Impacto | Mitigacao |
+|---|---|---|
+
+### 3.3 Erros de Raciocinio
+> Onde a analise foi fraca ou baseada em suposicao.
+
+---
+
+## 4. PRINCIPIOS VIOLADOS (Reflexao Baseada em Principios)
+- **Principio [A]:** [regra geral quebrada]
+
+---
+
+## 5. ESTRATEGIAS DE SUCESSO (Reflexao Procedural)
+- [Passos que funcionaram e podem ser replicados]
+
+---
+
+## 6. CONHECIMENTO NAO EXPLICITADO NAS INSTRUCOES
+> O que precisei descobrir na pratica e nao estava nas instrucoes.
+
+---
+
+## 7. DICAS PARA EXECUCOES FUTURAS
+- [Recomendacoes acionaveis]
+
+---
+
+## 8. AVALIACAO DE QUALIDADE (Auto-Avaliacao)
+| Criterio | Nota (1-5) | Justificativa |
+|---|---|---|
+| Confianca na classificacao | [N] | [justifique] |
+| Clareza do relatorio | [N] | [justifique] |
+
+---
+
+## 9. CONTEXTO PARA CURADORIA HUMANA
+- **Padrao de erro mais critico desta execucao:** [...]
+- **Instrucao de maior impacto que poderia evitar os problemas:** [...]
+- **Tipo de contrato/vulnerabilidade que mais desafiou o agente:** [...]
+```
+AGENT_EOF
+
 # Agente Analisador
 cat > "$AGENTS_DIR/certora-analyzer.md" << 'AGENT_EOF'
 ---
 description: Analyzes Solidity smart contract source code to identify structure, functions, state variables, and potential vulnerability entry points for formal verification.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   read: allow
@@ -409,7 +986,6 @@ cat > "$AGENTS_DIR/certora-specifier.md" << 'AGENT_EOF'
 ---
 description: Writes CVL (Certora Verification Language) specification files to formally verify security properties in Solidity contracts.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.05
 permission:
   read: allow
@@ -466,7 +1042,6 @@ cat > "$AGENTS_DIR/certora-runner.md" << 'AGENT_EOF'
 ---
 description: Executes certoraRun commands against Solidity contracts and captures verification results.
 mode: subagent
-model: anthropic/claude-haiku-4-20250514
 temperature: 0.0
 permission:
   bash:
@@ -507,7 +1082,6 @@ cat > "$AGENTS_DIR/certora-reporter.md" << 'AGENT_EOF'
 ---
 description: Interprets Certora Prover results and generates a human-readable vulnerability report with severity classifications and remediation suggestions.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.2
 permission:
   read: allow
@@ -541,7 +1115,7 @@ then produce `_bmad-output/vulnerability-report.md`.
 - **Low:** Minor arithmetic issues, informational findings
 AGENT_EOF
 
-log_ok "5 agentes Certora criados em .opencode/agents/"
+log_ok "8 agentes criados em .opencode/agents/"
 
 # =============================================================================
 # PASSO 9 — Criar template de feedback BMad
@@ -616,49 +1190,14 @@ else
 fi
 
 # =============================================================================
-# PASSO 10 — Criar .env.example
+# PASSO 10 — Criar opencode.json
 # =============================================================================
-log_step "10. Criando .env.example"
+log_step "10. Criando opencode.json"
 
-ENV_EXAMPLE="$PROJECT_DIR/.env.example"
-if [ ! -f "$ENV_EXAMPLE" ]; then
-    cat > "$ENV_EXAMPLE" << 'ENV_EOF'
-# ─────────────────────────────────────────────────────────────
-# Variáveis de ambiente — poc-tcc (BMad + OpenCode + Certora)
-# Copie para .env e preencha suas chaves
-# NUNCA commite o arquivo .env
-# ─────────────────────────────────────────────────────────────
-
-# Anthropic Claude — necessário para o OpenCode
-# Obter em: https://console.anthropic.com/settings/keys
-ANTHROPIC_API_KEY=sua-chave-anthropic-aqui
-
-# Certora Prover — necessário para verificação formal
-# Obter em: https://www.certora.com/signup?plan=prover
-CERTORAKEY=sua-chave-certora-aqui
-
-# GitHub Token — opcional, evita rate limit durante instalação do BMad
-GITHUB_TOKEN=
-ENV_EOF
-    log_ok ".env.example criado"
-else
-    log_ok ".env.example já existe"
-fi
-
-# Criar .env se não existir
-if [ ! -f "$PROJECT_DIR/.env" ]; then
-    cp "$ENV_EXAMPLE" "$PROJECT_DIR/.env"
-    log_warn ".env criado — preencha suas chaves em: $PROJECT_DIR/.env"
-fi
-
-# =============================================================================
-# PASSO 11 — Criar opencode.json
-# =============================================================================
-log_step "11. Criando opencode.json"
-
+OPENCODE_JSONC="$PROJECT_DIR/opencode.jsonc"
 OPENCODE_JSON="$PROJECT_DIR/opencode.json"
-if [ ! -f "$OPENCODE_JSON" ]; then
-    cat > "$OPENCODE_JSON" << 'JSON_EOF'
+if [ ! -f "$OPENCODE_JSONC" ] && [ ! -f "$OPENCODE_JSON" ]; then
+        cat > "$OPENCODE_JSON" << 'JSON_EOF'
 {
   "$schema": "https://opencode.ai/config.json",
   "rules": [
@@ -669,17 +1208,17 @@ if [ ! -f "$OPENCODE_JSON" ]; then
 JSON_EOF
     log_ok "opencode.json criado"
 else
-    log_ok "opencode.json já existe"
+        log_ok "opencode.json/jsonc ja existe"
 fi
 
 # Ajustar permissões finais
-chown -R "$CURRENT_USER:$CURRENT_USER" "$PROJECT_DIR/.opencode" "$PROJECT_DIR/_bmad-output" \
-    "$PROJECT_DIR/opencode.json" "$PROJECT_DIR/.env" "$PROJECT_DIR/.env.example" 2>/dev/null || true
+$SUDO chown -R "$CURRENT_USER:$CURRENT_USER" "$PROJECT_DIR/.opencode" "$PROJECT_DIR/_bmad-output" \
+    "$PROJECT_DIR/opencode.json" "$PROJECT_DIR/opencode.jsonc" "$PROJECT_DIR/.env" "$PROJECT_DIR/.env.example" 2>/dev/null || true
 
 # =============================================================================
-# PASSO 12 — Verificação final
+# PASSO 11 — Verificacao final
 # =============================================================================
-log_step "12. Verificação final"
+log_step "11. Verificacao final"
 
 echo ""
 echo -e "  ${BOLD}Componente                 Status${NC}"
@@ -701,21 +1240,19 @@ check "OpenCode"                  "[ -f '$OPENCODE_BIN' ]"              "$($OPEN
 check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}')"
 check "BMad _bmad/core/"         "[ -d '$PROJECT_DIR/_bmad/core' ]"
 check "Skill BMad OpenCode"       "[ -f '$PROJECT_DIR/.opencode/skills/BMAD/bmad-skills.md' ]"
-check "Agentes Certora (5)"      "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -eq 5 ]"
-check "opencode.json"            "[ -f '$PROJECT_DIR/opencode.json' ]"
+check "Agentes OpenCode (>=8)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -ge 8 ]"
+check "opencode.json/jsonc"      "[ -f '$PROJECT_DIR/opencode.json' ] || [ -f '$PROJECT_DIR/opencode.jsonc' ]"
 check "Template feedback BMad"   "[ -f '$PROJECT_DIR/_bmad/templates/feedback-template.md' ]"
 
-# Chaves de API
-if [ -n "${ANTHROPIC_API_KEY:-}" ] && [ "$ANTHROPIC_API_KEY" != "sua-chave-anthropic-aqui" ]; then
-    echo -e "  ${GREEN}✓${NC} ANTHROPIC_API_KEY configurada"
+# Certora
+if [ "${CERTORA_MODE:-cloud}" = "local" ]; then
+    echo -e "  ${GREEN}✓${NC} CERTORA_MODE=local"
 else
-    echo -e "  ${YELLOW}⚠${NC} ANTHROPIC_API_KEY — não configurada (edite .env)"
-fi
-
-if [ -n "${CERTORAKEY:-}" ] && [ "$CERTORAKEY" != "sua-chave-certora-aqui" ]; then
-    echo -e "  ${GREEN}✓${NC} CERTORAKEY configurada"
-else
-    echo -e "  ${YELLOW}⚠${NC} CERTORAKEY — não configurada (edite .env)"
+    if [ -n "${CERTORAKEY:-}" ] && [ "$CERTORAKEY" != "sua-chave-certora-aqui" ]; then
+        echo -e "  ${GREEN}✓${NC} CERTORAKEY configurada"
+    else
+        echo -e "  ${YELLOW}⚠${NC} CERTORAKEY — nao configurada (edite .env)"
+    fi
 fi
 
 echo ""
@@ -729,14 +1266,15 @@ echo -e "${BOLD}${CYAN}═══════════════════
 echo ""
 echo -e "  ${BOLD}Próximos passos:${NC}"
 echo ""
-echo -e "  ${YELLOW}1.${NC} Configure suas chaves de API:"
+echo -e "  ${YELLOW}1.${NC} Configure CERTORAKEY (modo cloud) e GITHUB_TOKEN (opcional):"
 echo -e "     ${CYAN}nano .env${NC}"
 echo ""
 echo -e "  ${YELLOW}2.${NC} Recarregue o shell:"
 echo -e "     ${CYAN}source ~/.bashrc${NC}"
 echo ""
-echo -e "  ${YELLOW}3.${NC} Abra o OpenCode no projeto:"
+echo -e "  ${YELLOW}3.${NC} Abra o OpenCode no projeto e conecte um provider:"
 echo -e "     ${CYAN}cd $PROJECT_DIR && opencode${NC}"
+echo -e "     ${CYAN}/connect${NC}  — escolha OpenCode Zen ou GitHub Copilot"
 echo ""
 echo -e "  ${YELLOW}4.${NC} Dentro do OpenCode, inicie com o BMad:"
 echo -e "     ${CYAN}bmad-help${NC}  — guia para o próximo passo"

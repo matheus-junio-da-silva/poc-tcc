@@ -1,7 +1,6 @@
 ---
 description: Interpreta os resultados do Certora Prover e produz relatorio legivel e acionavel.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
 temperature: 0.1
 permission:
   bash:
