@@ -37,9 +37,7 @@ run_as_user() {
 
 log_step "3. Ajustando permissões do projeto e criando diretórios"
 
-if [ -n "$SUDO" ]; then
-    $SUDO chown -R "$CURRENT_USER:$CURRENT_USER" "$PROJECT_DIR" 2>/dev/null || true
-fi
+
 log_ok "Permissões ajustadas para $CURRENT_USER"
 
 DIRS=(

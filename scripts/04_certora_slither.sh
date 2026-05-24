@@ -34,17 +34,19 @@ if command -v slither &>/dev/null; then
     log_ok "slither $(slither --version 2>/dev/null)"
 else
     log_err "Falha na instalacao do slither"
+    exit 1
 fi
 
 if command -v certoraRun &>/dev/null; then
     log_ok "certoraRun disponivel"
 else
-    log_warn "certoraRun não disponível"
+    log_err "Falha na instalacao do certoraRun"
+    exit 1
 fi
 
 log_info "Instalando versão padrao do solc (0.8.20)..."
-solc-select install 0.8.20 >/dev/null || true
-solc-select use 0.8.20 >/dev/null || true
+solc-select install 0.8.20
+solc-select use 0.8.20
 
 log_ok "Slither e Certora CLI instalados no venv com sucesso."
 log_ok "Módulo 04_certora_slither.sh concluído."
