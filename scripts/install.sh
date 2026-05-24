@@ -21,7 +21,14 @@ find_repo_root() {
     return 1
 }
 
-if repo_root="$(find_repo_root)"; then
+repo_root=""
+if [ -z "${INSTALL_DIR:-}" ]; then
+    if r_root="$(find_repo_root)"; then
+        repo_root="$r_root"
+    fi
+fi
+
+if [ -n "$repo_root" ]; then
     echo "==> Usando repo em: $repo_root"
     exec bash "$repo_root/install.sh"
 fi
