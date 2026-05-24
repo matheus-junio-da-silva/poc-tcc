@@ -51,7 +51,7 @@ if [ -d "$INSTALL_DIR/.git" ]; then
     echo "==> Repo ja existe em: $INSTALL_DIR"
 else
     echo "==> Clonando repo em: $INSTALL_DIR"
-    git clone "$REPO_URL" "$INSTALL_DIR"
+    git clone --branch main "$REPO_URL" "$INSTALL_DIR"
 fi
 
 exec bash "$INSTALL_DIR/install.sh"
