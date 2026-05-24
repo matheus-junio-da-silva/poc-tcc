@@ -65,7 +65,7 @@ run_as_user() {
         if command -v sudo &>/dev/null; then
             sudo -u "$CURRENT_USER" "$@"
         else
-            su - "$CURRENT_USER" -c "$*"
+            su - "$CURRENT_USER" -c "$(printf "%q " "$@")"
         fi
     else
         "$@"
@@ -206,10 +206,11 @@ else
     log_ok "Node.js $(node --version)"
 fi
 
-# Python3 (necessário para Certora Prover)
-command -v python3 &>/dev/null && log_ok "Python3 $(python3 --version | awk '{print $2}')" || {
-    $SUDO apt-get install -y python3 python3-pip python3-venv; log_ok "Python3 instalado"
-}
+# Python3 e pacotes críticos para Virtualenvs
+command -v python3 &>/dev/null || $SUDO apt-get install -y python3
+dpkg -l | grep -qw python3-pip || $SUDO apt-get install -y python3-pip
+dpkg -l | grep -qw python3-venv || $SUDO apt-get install -y python3-venv
+log_ok "Python3 $(python3 --version | awk '{print $2}') com pip e venv instalados"
 
 # Java 21 (necessário para Certora Prover)
 command -v java &>/dev/null && log_ok "Java" || {
@@ -346,14 +347,11 @@ expect -re {Select official modules} { sleep 1; send "\r" }
 # Prompt 4: Community modules? Não
 expect -re {community modules} { sleep 1; send "\r" }
 
-# Prompt 5: Integrate with — selecionar OpenCode via busca
+# Prompt 5: Integrate with — selecionar OpenCode via busca flexível
 expect -re {Integrate with} {
-    sleep 1.5
-    send "Open"
-    sleep 1.5
-    send " "
-    sleep 0.5
-    send "\r"
+    sleep 1
+    send "OpenCode\r"
+    sleep 1
 }
 
 # Prompt 6: Nome do usuário
@@ -413,10 +411,9 @@ DIRS=(
 )
 
 for DIR in "${DIRS[@]}"; do
-    mkdir -p "$DIR"
-    $SUDO chown "$CURRENT_USER:$CURRENT_USER" "$DIR" 2>/dev/null || true
+    run_as_user mkdir -p "$DIR"
 done
-log_ok "Diretórios criados e permissões ajustadas"
+log_ok "Diretórios criados nativamente pelo usuário"
 
 # =============================================================================
 # PASSO 7 — Criar skill BMad para OpenCode
