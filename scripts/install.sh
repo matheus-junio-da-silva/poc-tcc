@@ -31,7 +31,13 @@ if ! command -v git &>/dev/null; then
     exit 1
 fi
 
-read -r -p "Diretorio de instalacao [$DEFAULT_DIR]: " INSTALL_DIR
+if [ -z "${INSTALL_DIR:-}" ]; then
+    if [ -t 0 ]; then
+        read -r -p "Diretorio de instalacao [$DEFAULT_DIR]: " INSTALL_DIR || true
+    elif [ -c /dev/tty ]; then
+        read -r -p "Diretorio de instalacao [$DEFAULT_DIR]: " INSTALL_DIR < /dev/tty || true
+    fi
+fi
 INSTALL_DIR="${INSTALL_DIR:-$DEFAULT_DIR}"
 
 if [ -d "$INSTALL_DIR/.git" ]; then
@@ -42,3 +48,4 @@ else
 fi
 
 exec bash "$INSTALL_DIR/install.sh"
+

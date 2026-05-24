@@ -223,7 +223,15 @@ log_step "1.5 Configurando modo do Certora"
 
 CERTORA_MODE="${CERTORA_MODE:-}"
 if [ -z "$CERTORA_MODE" ]; then
-    read -r -p "Usar Certora Cloud? (requer CERTORAKEY) [Y/n] " CERTORA_MODE
+    if [ -t 0 ]; then
+        read -r -p "Usar Certora Cloud? (requer CERTORAKEY) [Y/n] " CERTORA_MODE || true
+    elif [ -c /dev/tty ]; then
+        read -r -p "Usar Certora Cloud? (requer CERTORAKEY) [Y/n] " CERTORA_MODE < /dev/tty || true
+    fi
+fi
+
+if [ -z "$CERTORA_MODE" ]; then
+    CERTORA_MODE="cloud"
 fi
 
 if [[ "${CERTORA_MODE,,}" == "n" || "${CERTORA_MODE,,}" == "no" || "${CERTORA_MODE,,}" == "local" ]]; then
@@ -235,8 +243,13 @@ else
     set_env_var "CERTORA_MODE" "cloud"
 
     if [ -z "${CERTORAKEY:-}" ] || [ "$CERTORAKEY" = "sua-chave-certora-aqui" ]; then
-        read -r -s -p "Digite sua CERTORAKEY: " CERTORAKEY
-        echo ""
+        if [ -t 0 ]; then
+            read -r -s -p "Digite sua CERTORAKEY: " CERTORAKEY || true
+            echo ""
+        elif [ -c /dev/tty ]; then
+            read -r -s -p "Digite sua CERTORAKEY: " CERTORAKEY < /dev/tty || true
+            echo ""
+        fi
     fi
 
     if [ -n "${CERTORAKEY:-}" ] && [ "$CERTORAKEY" != "sua-chave-certora-aqui" ]; then
@@ -1209,18 +1222,29 @@ echo ""
 echo -e "  ${BOLD}Componente                 Status${NC}"
 echo -e "  ────────────────────────────────────────────────"
 
+FAILED_REQUIRED=0
+
 check() {
     local label="$1"
     local condition="$2"
     local detail="${3:-}"
+    local is_required="${4:-true}"
+    
     if eval "$condition" &>/dev/null; then
-        echo -e "  ${GREEN}✓${NC} ${label}${detail:+ ($detail)}"
+        echo -e "  ${GREEN}✓${NC} ${GREEN}${label}${NC}${detail:+ ($detail)}"
     else
-        echo -e "  ${YELLOW}⚠${NC} ${label} — não encontrado"
+        if [ "$is_required" = "true" ]; then
+            echo -e "  ${RED}✗${NC} ${RED}${label}${NC} — NÃO ENCONTRADO / FALHOU"
+            FAILED_REQUIRED=$((FAILED_REQUIRED + 1))
+        else
+            echo -e "  ${YELLOW}⚠${NC} ${YELLOW}${label}${NC} — não encontrado (opcional)"
+        fi
     fi
 }
 
 check "Node.js 20+"               "node --version | grep -E 'v2[0-9]'"  "$(node --version 2>/dev/null || true)"
+check "Python3"                   "python3 --version"                   "$(python3 --version 2>/dev/null | awk '{print $2}' || true)"
+check "Java (OpenJDK)"            "java -version"                       "$(java -version 2>&1 | head -n 1 | cut -d' ' -f 1-3 | tr -d '\"' || true)"
 check "OpenCode"                  "[ -f '$OPENCODE_BIN' ]"              "$($OPENCODE_BIN --version 2>/dev/null || echo '')"
 check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}' || true)"
 check "BMad _bmad/core/"         "[ -d '$PROJECT_DIR/_bmad/core' ]"
@@ -1233,12 +1257,12 @@ check "Slither"                  "[ -x '$PROJECT_DIR/certora_venv/bin/slither' ]
 
 # Certora
 if [ "${CERTORA_MODE:-cloud}" = "local" ]; then
-    echo -e "  ${GREEN}✓${NC} CERTORA_MODE=local"
+    echo -e "  ${GREEN}✓${NC} ${GREEN}CERTORA_MODE=local${NC}"
 else
     if [ -n "${CERTORAKEY:-}" ] && [ "$CERTORAKEY" != "sua-chave-certora-aqui" ]; then
-        echo -e "  ${GREEN}✓${NC} CERTORAKEY configurada"
+        echo -e "  ${GREEN}✓${NC} ${GREEN}CERTORAKEY configurada${NC}"
     else
-        echo -e "  ${YELLOW}⚠${NC} CERTORAKEY — nao configurada (edite .env)"
+        echo -e "  ${YELLOW}⚠${NC} ${YELLOW}CERTORAKEY${NC} — não configurada no .env (requerida para modo cloud)"
     fi
 fi
 
@@ -1247,9 +1271,15 @@ echo ""
 # =============================================================================
 # RESUMO FINAL
 # =============================================================================
-echo -e "${BOLD}${CYAN}═══════════════════════════════════════════════════════════${NC}"
-echo -e "${BOLD}${GREEN}  ✓ Instalação concluída!${NC}"
-echo -e "${BOLD}${CYAN}═══════════════════════════════════════════════════════════${NC}"
+if [ "$FAILED_REQUIRED" -eq 0 ]; then
+    echo -e "${BOLD}${CYAN}═══════════════════════════════════════════════════════════${NC}"
+    echo -e "${BOLD}${GREEN}  ✓ Instalação concluída com sucesso! Todos os testes passaram!${NC}"
+    echo -e "${BOLD}${CYAN}═══════════════════════════════════════════════════════════${NC}"
+else
+    echo -e "${BOLD}${RED}═══════════════════════════════════════════════════════════${NC}"
+    echo -e "${BOLD}${RED}  ✗ Instalação concluída com $FAILED_REQUIRED falha(s) nos componentes obrigatórios!${NC}"
+    echo -e "${BOLD}${RED}═══════════════════════════════════════════════════════════${NC}"
+fi
 echo ""
 echo -e "  ${BOLD}Próximos passos:${NC}"
 echo ""
