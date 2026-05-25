@@ -70,6 +70,7 @@ Thumbs.db
 *~
 .temp/
 temp/
+_tmp_tests
 
 # Testing
 .pytest_cache/
