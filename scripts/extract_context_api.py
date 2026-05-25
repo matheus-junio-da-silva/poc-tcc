@@ -4,6 +4,39 @@ import sys
 from slither.slither import Slither
 from slither.exceptions import SlitherError
 
+def is_env_free(func):
+    """
+    Checks if a function uses msg.sender, msg.value, block.number, block.timestamp, etc.
+    If it doesn't read these state variables, it is considered envfree.
+    """
+    env_vars = ["msg.sender", "msg.value", "msg.data", "msg.sig", 
+                "tx.origin", "tx.gasprice", 
+                "block.timestamp", "block.number", "block.coinbase", 
+                "block.difficulty", "block.gaslimit", "block.basefee"]
+    
+    # Check variables read directly in the function
+    reads = [v.name for v in func.solidity_variables_read]
+    for e in env_vars:
+        if e in reads:
+            return False
+            
+    # Check variables read in modifiers
+    for mod in func.modifiers:
+        if hasattr(mod, 'solidity_variables_read'):
+            mod_reads = [v.name for v in mod.solidity_variables_read]
+            for e in env_vars:
+                if e in mod_reads:
+                    return False
+            
+    # Also need to check if internal calls read env vars
+    for internal_call in func.internal_calls:
+        if hasattr(internal_call, 'solidity_variables_read'):
+            internal_reads = [v.name for v in internal_call.solidity_variables_read]
+            for e in env_vars:
+                if e in internal_reads:
+                    return False
+    return True
+
 def generate_markdown_context(slither_instance, target_contract=None):
     md_lines = []
     
@@ -20,8 +53,22 @@ def generate_markdown_context(slither_instance, target_contract=None):
         else:
             md_lines.append("**Inheritance:** None")
             
-        # Entry Points (Public / External functions that write to state)
-        md_lines.append("\n### Entry Points (State-Mutating Public/External Functions)")
+        # 1. Constants (Roles & Magic Numbers)
+        constants = [v for v in contract.state_variables if v.is_constant or v.is_immutable]
+        if constants:
+            md_lines.append("\n### Constants & Immutables (Roles/Config)")
+            for c in constants:
+                md_lines.append(f"- `{c.type} {c.visibility} {c.name}`")
+        
+        # 2. State Variables (Hooks Targets)
+        state_vars = [v for v in contract.state_variables if not v.is_constant and not v.is_immutable]
+        if state_vars:
+            md_lines.append("\n### State Variables (Storage/Hooks)")
+            for v in state_vars:
+                md_lines.append(f"- `{v.type} {v.visibility} {v.name}`")
+            
+        # 3. Public / External functions
+        md_lines.append("\n### Public/External Functions (Certora `methods` block)")
         
         has_entry = False
         for func in contract.functions:
@@ -29,38 +76,46 @@ def generate_markdown_context(slither_instance, target_contract=None):
             if func.is_constructor or func.visibility in ["internal", "private"]:
                 continue
                 
-            # Skip functions that don't write state variables
-            if not func.state_variables_written:
-                continue
-                
             has_entry = True
             
-            # Extract modifiers
+            # Signature & Returns
+            returns_str = ""
+            if func.returns:
+                ret_types = [str(r.type) for r in func.returns]
+                returns_str = f" returns ({', '.join(ret_types)})"
+                
+            sig = f"{func.name}({','.join([str(p.type) for p in func.parameters])}){returns_str}"
+            
+            # Env-Free check
+            env_free = is_env_free(func)
+            env_tag = "**[ENV-FREE]**" if env_free else "[REQUIRES-ENV]"
+            
+            # Modifiers
             modifiers = [m.name for m in func.modifiers]
             mods_str = ", ".join(modifiers) if modifiers else "None"
             
-            # Use native Slither protection check
+            # Protected
             is_protected = func.is_protected()
             
-            # Write variables
+            # Writes
             writes = [v.name for v in func.state_variables_written]
-            writes_str = ", ".join(writes) if writes else "None"
+            writes_str = ", ".join(writes) if writes else "None (View/Pure)"
             
             # Format
-            md_lines.append(f"- **`{func.name}`** (`{func.visibility}`)")
+            md_lines.append(f"- **`{sig}`** `{func.visibility}` {env_tag}")
             md_lines.append(f"  - Modifiers: {mods_str}")
             md_lines.append(f"  - Protected: **{'Yes' if is_protected else 'NO (Vulnerable?)'}**")
             md_lines.append(f"  - Writes State: {writes_str}")
         
         if not has_entry:
-            md_lines.append("- *No state-mutating public/external functions detected.*")
+            md_lines.append("- *No public/external functions detected.*")
             
         md_lines.append("\n---\n")
         
     return "\n".join(md_lines)
 
 def main():
-    parser = argparse.ArgumentParser(description="Extracts context from Solidity using Slither API.")
+    parser = argparse.ArgumentParser(description="Extracts Certora-optimized context using Slither API.")
     parser.add_argument("input", help="Solidity target path (file or directory)")
     parser.add_argument("--target-contract", help="Filter results to a specific contract name", default=None)
     
