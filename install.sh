@@ -10,7 +10,7 @@
 set -euo pipefail
 
 readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-readonly SCRIPTS_DIR="${PROJECT_ROOT}/scripts"
+readonly SCRIPTS_DIR="${PROJECT_ROOT}/scripts/install"
 readonly UTILS_DIR="${PROJECT_ROOT}/utils"
 readonly CURRENT_USER="${SUDO_USER:-$USER}"
 

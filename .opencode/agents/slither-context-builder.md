@@ -5,7 +5,7 @@ temperature: 0.1
 permission:
   bash:
     "*": ask
-    "python3 scripts/extract_context_api.py *": allow
+    "python3 scripts/extractors/slither_access_control.py *": allow
   edit:
     "_bmad-output/feedback-logs/*.md": allow
   read: allow
@@ -33,7 +33,7 @@ Sempre externe seu raciocinio usando:
 1. **Validar entrada:** verifique se o arquivo do contrato existe e se o tipo de vulnerabilidade foi informado.
 2. **Extrair contexto via Slither API:**
   - `mkdir -p slither_output/<nome_contrato>`
-  - `python3 scripts/extract_context_api.py <caminho_do_contrato.sol> > slither_output/<nome_contrato>/context.md`
+  - `python3 scripts/extractors/slither_access_control.py <caminho_do_contrato.sol> > slither_output/<nome_contrato>/context.md`
 3. **Validar `context.md`:** abra o arquivo e confirme:
   - o contrato correto foi identificado
   - ha conteudo relevante para a vulnerabilidade alvo (nao vazio)
