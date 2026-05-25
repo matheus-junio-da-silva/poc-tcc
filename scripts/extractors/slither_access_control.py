@@ -118,13 +118,53 @@ def main():
     parser = argparse.ArgumentParser(description="Extracts Certora-optimized context using Slither API.")
     parser.add_argument("input", help="Solidity target path (file or directory)")
     parser.add_argument("--target-contract", help="Filter results to a specific contract name", default=None)
+    parser.add_argument("--force-sandbox", action="store_true", help="Force recreate sandbox")
     
     args = parser.parse_args()
     
+    # Import sandbox_manager
+    import os
+    import subprocess
+    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+    sys.path.append(os.path.join(PROJECT_ROOT, 'scripts', 'utils'))
+    import sandbox_manager
+    
     try:
-        slither_instance = Slither(args.input)
+        # 1. Create or retrieve sandbox
+        sandbox_path = sandbox_manager.create_sandbox(args.input, force=args.force_sandbox)
+        
+        # 2. Update Python's PATH so Slither's subprocess uses the correct NVM Node version
+        cmd = f"source $HOME/.nvm/nvm.sh && cd {sandbox_path} && nvm use > /dev/null && dirname $(which node)"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, executable="/bin/bash")
+        if result.returncode == 0:
+            node_bin_path = result.stdout.strip()
+            # Explicitly prepend the NVM Node bin to the very beginning of the PATH
+            # This guarantees that Slither uses the NVM node and not a system-wide node.
+            os.environ["PATH"] = f"{node_bin_path}:{os.environ.get('PATH', '')}"
+            
+        # 3. Auto-detect real project root inside sandbox if nested
+        target_slither_path = sandbox_path
+        if os.path.isdir(sandbox_path) and not os.path.exists(os.path.join(sandbox_path, "contracts")):
+            # Look for a subdirectory that has contracts/
+            for item in os.listdir(sandbox_path):
+                subpath = os.path.join(sandbox_path, item)
+                if os.path.isdir(subpath) and os.path.exists(os.path.join(subpath, "contracts")):
+                    target_slither_path = subpath
+                    print(f"[Extractor] Auto-detected nested project root: {item}")
+                    break
+                    
+        # 4. Run Slither on the detected path
+        slither_instance = Slither(target_slither_path)
         md_context = generate_markdown_context(slither_instance, args.target_contract)
-        print(md_context)
+        
+        # 5. Save context inside sandbox
+        output_dir = os.path.join(sandbox_path, "slither_output")
+        os.makedirs(output_dir, exist_ok=True)
+        output_file = os.path.join(output_dir, "context.md")
+        with open(output_file, "w") as f:
+            f.write(md_context)
+            
+        print(f"Context extracted successfully. File saved at: {output_file}")
     except SlitherError as e:
         print(f"Slither Error: {e}", file=sys.stderr)
         sys.exit(1)

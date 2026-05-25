@@ -16,7 +16,7 @@ Ou pode chamar o orquestrador primário diretamente:
 
 ### 1. Slither Context Builder (`@slither-context-builder`)
 **Papel:** Orquestrador inicial. Executa o Slither e gera o `context.json`.
-**Uso:** Invoque-o passando o caminho do contrato `.sol` a ser analisado.
+**Uso:** Invoque-o passando o caminho do contrato `.sol` ou o diretorio do projeto a ser analisado.
 
 ### 2. Certora Property Generator (`@certora-property-generator`)
 **Papel:** Verificador Formal. Lê o código Solidity e o `context.json` do Slither para gerar propriedades formais (CVL) cobrindo Access Control.

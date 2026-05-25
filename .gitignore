@@ -50,6 +50,7 @@ output/
 *.log
 *.cache
 cvt_output/
+.certora_internal
 
 # Node modules
 node_modules/
@@ -71,6 +72,7 @@ Thumbs.db
 .temp/
 temp/
 _tmp_tests
+_sandboxes
 
 # Testing
 .pytest_cache/
