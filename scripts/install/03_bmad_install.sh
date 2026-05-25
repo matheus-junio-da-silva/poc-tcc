@@ -7,7 +7,7 @@
 set -euo pipefail
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-readonly PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+readonly PROJECT_DIR="$(dirname "$(dirname "$SCRIPT_DIR")")"
 readonly UTILS_DIR="${PROJECT_DIR}/utils"
 
 source "${UTILS_DIR}/logger.sh"

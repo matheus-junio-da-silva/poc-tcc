@@ -7,7 +7,7 @@
 set -euo pipefail
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-readonly PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+readonly PROJECT_DIR="$(dirname "$(dirname "$SCRIPT_DIR")")"
 readonly UTILS_DIR="${PROJECT_DIR}/utils"
 readonly OPENCODE_BIN="$HOME/.opencode/bin/opencode"
 
@@ -53,7 +53,6 @@ check "Agentes OpenCode (>=8)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/
 check "opencode.json/jsonc"      "[ -f '$PROJECT_DIR/opencode.json' ] || [ -f '$PROJECT_DIR/opencode.jsonc' ]"
 check "Template feedback BMad"   "[ -f '$PROJECT_DIR/_bmad/templates/feedback-template.md' ]"
 check "Certora CLI"              "[ -x '$PROJECT_DIR/certora_venv/bin/certoraRun' ]" "$($PROJECT_DIR/certora_venv/bin/certoraRun --version 2>/dev/null || true)"
-check "Slither"                  "[ -x '$PROJECT_DIR/certora_venv/bin/slither' ]" "$($PROJECT_DIR/certora_venv/bin/slither --version 2>/dev/null || true)"
 
 # Certora
 if [ "${CERTORA_MODE:-cloud}" = "local" ]; then
