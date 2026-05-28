@@ -7,8 +7,10 @@ Este arquivo é lido automaticamente pelo OpenCode no startup (via `opencode.jso
 Você pode invocar o pipeline completo através do comando:
 `/audit:access-control`
 
+Esse comando aciona o orquestrador `@certora-orchestrator`, que chama os estagios em sequencia.
+
 Ou pode chamar o orquestrador primário diretamente:
-`@slither-context-builder Inicie a auditoria de Access Control no contrato detasets/meu_contrato.sol`
+`@certora-orchestrator Inicie a auditoria de Access Control no contrato detasets/meu_contrato.sol`
 
 ## Agentes do Pipeline
 
@@ -17,6 +19,10 @@ Ou pode chamar o orquestrador primário diretamente:
 ### 1. Slither Context Builder (`@slither-context-builder`)
 **Papel:** Orquestrador inicial. Executa o Slither e gera o `context.json`.
 **Uso:** Invoque-o passando o caminho do contrato `.sol` ou o diretorio do projeto a ser analisado.
+
+### 1.1 Certora Orchestrator (`@certora-orchestrator`)
+**Papel:** Ponto unico de entrada do pipeline formal. Dispara os outros agentes em sequencia e valida os handoffs.
+**Uso:** Invoque-o com o contrato ou diretorio alvo para iniciar a cadeia completa.
 
 ### 2. Certora Property Generator (`@certora-property-generator`)
 **Papel:** Verificador Formal. Lê o código Solidity e o `context.json` do Slither para gerar propriedades formais (CVL) cobrindo Access Control.

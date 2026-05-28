@@ -31,6 +31,7 @@ All BMad skills are available. Use the skill name to invoke them.
 - Custom agents: `.opencode/agents/`
 
 ## Certora Pipeline Agents
+- `@certora-orchestrator` — Ponto unico de entrada do pipeline completo
 - `@slither-context-builder` — Orquestra Slither e gera `context.json`
 - `@certora-property-generator` — Gera specs CVL e `.conf`
 - `@certora-runner` — Executa certoraRun

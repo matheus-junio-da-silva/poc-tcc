@@ -7,7 +7,7 @@
   ],
   "command": {
     "audit:access-control": {
-      "template": "Execute o pipeline completo de auditoria de Access Control usando o Slither Context Builder:\n@slither-context-builder → @certora-property-generator → @certora-runner → @certora-interpreter",
+      "template": "Execute o pipeline completo de auditoria de Access Control usando o orquestrador dedicado:\n@certora-orchestrator",
       "description": "Pipeline completo de auditoria formal de Access Control (Slither + Certora)"
     }
   }
