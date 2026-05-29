@@ -1,0 +1,20 @@
+{
+    "5_a4116a21": {
+        "project_path": "/home/mat/poc1novo/poc-tcc/_tmp_tests/5",
+        "output_dir": "/home/mat/poc1novo/poc-tcc/_bmad-output/5",
+        "source_type": "local",
+        "framework": "hardhat",
+        "solc_version": "0.8.3",
+        "vuln_type": "access_control",
+        "prepared_at": "2026-05-29T16:17:12.746807"
+    },
+    "vader-protocol_38acf9be": {
+        "project_path": "/home/mat/poc1novo/poc-tcc/_tmp_tests/5/vader-protocol",
+        "output_dir": "/home/mat/poc1novo/poc-tcc/_bmad-output/vader-protocol",
+        "source_type": "local",
+        "framework": "hardhat",
+        "solc_version": "0.8.3",
+        "vuln_type": "access_control",
+        "prepared_at": "2026-05-29T16:19:13.644016"
+    }
+}

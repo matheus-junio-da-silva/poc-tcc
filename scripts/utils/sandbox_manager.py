@@ -12,7 +12,7 @@ from datetime import datetime
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SANDBOXES_DIR = os.path.join(PROJECT_ROOT, '_sandboxes')
 REGISTRY_FILE = os.path.join(SANDBOXES_DIR, 'registry.json')
-DEFAULT_NODE_VERSION = "20"
+DEFAULT_NODE_VERSION = "22"
 
 def get_registry():
     if not os.path.exists(REGISTRY_FILE):
@@ -43,8 +43,47 @@ def generate_sandbox_id(dataset_path):
     path_hash = hashlib.md5(abs_path.encode()).hexdigest()[:8]
     return f"{base_name}_{path_hash}"
 
-def extract_node_version(dataset_path):
-    pkg_path = os.path.join(dataset_path, 'package.json')
+def find_project_root(sandbox_path):
+    """
+    Detecta o diretório real do projeto Hardhat dentro do sandbox.
+    Projetos de datasets frequentemente têm estrutura nested:
+      sandbox_root/
+        subprojeto/
+          contracts/
+          package.json
+    """
+    # Se a raiz do sandbox já tem contracts/, é o projeto
+    if os.path.isdir(os.path.join(sandbox_path, 'contracts')):
+        return sandbox_path
+    # Senão, procurar subdiretório com contracts/
+    for item in os.listdir(sandbox_path):
+        subpath = os.path.join(sandbox_path, item)
+        if os.path.isdir(subpath) and os.path.exists(os.path.join(subpath, 'contracts')):
+            print(f"[Sandbox] Auto-detected nested project root: {item}")
+            return subpath
+    # Fallback: procurar subdiretório com package.json + hardhat
+    for item in os.listdir(sandbox_path):
+        subpath = os.path.join(sandbox_path, item)
+        pkg = os.path.join(subpath, 'package.json')
+        if os.path.isdir(subpath) and os.path.exists(pkg):
+            try:
+                with open(pkg, 'r') as f:
+                    data = json.load(f)
+                deps = {**data.get('dependencies', {}), **data.get('devDependencies', {})}
+                if 'hardhat' in deps:
+                    print(f"[Sandbox] Auto-detected nested project root (via hardhat dep): {item}")
+                    return subpath
+            except Exception:
+                pass
+    return sandbox_path
+
+def extract_node_version(project_root):
+    """
+    Detecta a versão de Node compatível. Verifica engines.node no package.json,
+    mas como a maioria dos projetos de dataset NÃO declara engines, usa Node 22
+    como default seguro (compatível com Hardhat moderno).
+    """
+    pkg_path = os.path.join(project_root, 'package.json')
     if os.path.exists(pkg_path):
         try:
             with open(pkg_path, 'r') as f:
@@ -54,7 +93,9 @@ def extract_node_version(dataset_path):
                 if node_req:
                     match = re.search(r'(\d+)', node_req)
                     if match:
-                        return match.group(1)
+                        version = match.group(1)
+                        # Garantir mínimo de Node 18 para compatibilidade
+                        return str(max(int(version), 18))
         except Exception:
             pass
     return DEFAULT_NODE_VERSION
@@ -93,22 +134,44 @@ def create_sandbox(dataset_path, force=False):
         shutil.copy2(dataset_path, sandbox_path)
     else:
         def ignore_patterns(path, names):
-            return [n for n in names if n in ('.git', 'node_modules', 'artifacts', 'cache')]
+            # Não excluir artifacts/cache — Slither precisa de artifacts/build-info
+            return [n for n in names if n in ('.git', 'node_modules')]
         shutil.copytree(dataset_path, sandbox_path, ignore=ignore_patterns)
     
-    node_version = extract_node_version(sandbox_path)
+    # Detectar o diretório real do projeto (pode ser nested)
+    project_root = find_project_root(sandbox_path)
+    print(f"[Sandbox] Project root: {project_root}")
+    
+    node_version = extract_node_version(project_root)
     print(f"[Sandbox] Detected/Selected Node Version: {node_version}")
     
     with open(os.path.join(sandbox_path, '.nvmrc'), 'w') as f:
         f.write(node_version)
         
-    pkg_json_path = os.path.join(sandbox_path, 'package.json')
+    # Instalar dependências no diretório correto do projeto
+    pkg_json_path = os.path.join(project_root, 'package.json')
     if os.path.exists(pkg_json_path):
-        nvm_cmd = "source $HOME/.nvm/nvm.sh && nvm install && nvm use && npm install"
+        nvm_cmd = (
+            f"source $HOME/.nvm/nvm.sh && "
+            f"nvm install {node_version} && nvm use {node_version} && "
+            f"npm install && "
+            f"npx hardhat compile"
+        )
     else:
-        nvm_cmd = "source $HOME/.nvm/nvm.sh && nvm install && nvm use"
+        nvm_cmd = f"source $HOME/.nvm/nvm.sh && nvm install {node_version} && nvm use {node_version}"
         
-    run_cmd(nvm_cmd, cwd=sandbox_path)
+    run_cmd(nvm_cmd, cwd=project_root)
+    
+    # Se o project_root é diferente do sandbox_root, também instalar na raiz se houver package.json
+    sandbox_pkg = os.path.join(sandbox_path, 'package.json')
+    if project_root != sandbox_path and os.path.exists(sandbox_pkg):
+        print(f"[Sandbox] Also installing dependencies at sandbox root...")
+        nvm_root_cmd = (
+            f"source $HOME/.nvm/nvm.sh && "
+            f"nvm use {node_version} && "
+            f"npm install"
+        )
+        run_cmd(nvm_root_cmd, cwd=sandbox_path)
     
     registry[sandbox_id] = {
         "original_path": dataset_path,

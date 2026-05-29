@@ -49,10 +49,11 @@ check "OpenCode"                  "[ -f '$OPENCODE_BIN' ]"              "$($OPEN
 check "BMad _bmad/bmm/"          "[ -d '$PROJECT_DIR/_bmad/bmm' ]"     "v$(grep -m1 'version:' $PROJECT_DIR/_bmad/_config/manifest.yaml 2>/dev/null | awk '{print $2}' || true)"
 check "BMad _bmad/core/"         "[ -d '$PROJECT_DIR/_bmad/core' ]"
 check "Skill BMad OpenCode"       "[ -f '$PROJECT_DIR/.opencode/skills/BMAD/bmad-skills.md' ]"
-check "Agentes OpenCode (>=8)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -ge 8 ]"
+check "Agentes OpenCode (>=6)"   "[ \$(ls $PROJECT_DIR/.opencode/agents/*.md 2>/dev/null | wc -l) -ge 6 ]"
 check "opencode.json/jsonc"      "[ -f '$PROJECT_DIR/opencode.json' ] || [ -f '$PROJECT_DIR/opencode.jsonc' ]"
 check "Template feedback BMad"   "[ -f '$PROJECT_DIR/_bmad/templates/feedback-template.md' ]"
 check "Certora CLI"              "[ -x '$PROJECT_DIR/certora_venv/bin/certoraRun' ]" "$($PROJECT_DIR/certora_venv/bin/certoraRun --version 2>/dev/null || true)"
+check "Foundry (forge)"           "command -v forge" "$(forge --version 2>/dev/null | head -1 || true)" false
 
 # Certora
 if [ "${CERTORA_MODE:-cloud}" = "local" ]; then

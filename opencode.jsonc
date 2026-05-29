@@ -8,7 +8,7 @@
   "command": {
     "audit:access-control": {
       "template": "Execute o pipeline completo de auditoria de Access Control usando o orquestrador dedicado:\n@certora-orchestrator",
-      "description": "Pipeline completo de auditoria formal de Access Control (Slither + Certora)"
+      "description": "Pipeline completo de auditoria formal de Access Control (Slither + Certora + PoC)"
     }
   }
 }
