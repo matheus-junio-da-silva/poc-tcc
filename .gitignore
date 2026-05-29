@@ -73,6 +73,7 @@ Thumbs.db
 temp/
 _tmp_tests
 _sandboxes
+_bmad-output
 
 # Testing
 .pytest_cache/

@@ -4,7 +4,7 @@ mode: subagent
 temperature: 0.1
 permission:
   bash:
-    "*": allow
+    "*": ask
     "certoraRun *": allow
   edit:
     "_bmad-output/*": allow
@@ -55,7 +55,7 @@ Use o template abaixo. Se alguma secao nao se aplicar, escreva `N/A` e explique 
 
 ```markdown
 # RELATORIO DE FEEDBACK DO AGENTE
-**Execucao no:** [N]
+**Execucao nº:** [N]
 **Data:** [YYYY-MM-DD]
 **Contrato Analisado:** [nome/endereco]
 **Tipo de Vulnerabilidade Alvo:** [ex: access control]

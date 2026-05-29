@@ -4,7 +4,7 @@ mode: subagent
 temperature: 0.1
 permission:
   bash:
-    "*": allow
+    "*": ask
     "forge *": allow
     "npx hardhat test *": allow
   edit:

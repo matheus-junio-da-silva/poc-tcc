@@ -4,7 +4,7 @@ mode: primary
 temperature: 0.1
 permission:
   bash:
-    "*": allow
+    "*": ask
     "python3 scripts/extractors/slither_access_control.py *": allow
   edit:
     "_bmad-output/feedback-logs/*.md": allow
@@ -52,7 +52,7 @@ Sempre externe seu raciocinio usando:
    - os contratos foram identificados
    - ha conteudo relevante para a vulnerabilidade alvo (nao vazio)
 4. **Handoff para o proximo agente:**
-   - OBRIGATORIO: Passe o caminho **exato e absoluto** do `context.md` E do `project_info.json` para o proximo agente.
+   - OBRIGATÓRIO: Passe o caminho **exato e absoluto** do `context.md` E do `project_info.json` para o proximo agente.
    - `@certora-property-generator O contexto de <tipo_vulnerabilidade> esta em <caminho_absoluto_context.md>. O project_info.json esta em <caminho_absoluto_project_info.json>. Inicie a geracao de propriedades.`
 
 ## FEEDBACK (Reflexion + MARS)
@@ -63,7 +63,7 @@ Use o template abaixo. Se alguma secao nao se aplicar, escreva `N/A` e explique 
 
 ```markdown
 # RELATORIO DE FEEDBACK DO AGENTE
-**Execucao no:** [N]
+**Execucao nº:** [N]
 **Data:** [YYYY-MM-DD]
 **Contrato Analisado:** [nome/endereco]
 **Tipo de Vulnerabilidade Alvo:** [ex: access control]

@@ -8,8 +8,8 @@
   "agent": {
     "build": {
       "permission": {
-        "bash": "allow",
-        "edit": "allow"
+        "bash": "ask",
+        "edit": "ask"
       }
     }
   },

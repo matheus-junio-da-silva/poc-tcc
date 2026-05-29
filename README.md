@@ -46,3 +46,21 @@ INSTALL_DIR=~/poc-tcc-novo \
 - `certora_venv/`
 - `slither_output/`
 - `specs/`
+
+## Alternar modo do OpenCode (assistido/autonomo)
+
+O projeto inclui um script para trocar entre o modo assistido (com prompts) e o modo autonomo (sem prompts).
+
+primeiro:
+```bash
+chmod +x scripts/toggle_opencode_mode.sh
+```
+depois
+```bash
+./scripts/toggle_opencode_mode.sh auto
+```
+ou
+```bash
+./scripts/toggle_opencode_mode.sh assist
+```
+Ele alterna o `opencode.jsonc` e a pasta `.opencode/agents` para as variantes assistidas ou autonomas.

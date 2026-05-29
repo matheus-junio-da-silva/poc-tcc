@@ -24,7 +24,7 @@ Se o caminho ou o alvo da auditoria nao estiverem presentes, pare e solicite ess
 ## PIPELINE COMPLETO (5 ESTAGIOS)
 
 ```
-[Input] -> Agente 1 -> Agente 2 -> Agente 3 -> Agente 4 -> Agente 5 -> [Relatorio Final]
+[Input] → Agente 1 → Agente 2 → Agente 3 → Agente 4 → Agente 5 → [Relatorio Final]
           Slither     CVL Gen     Runner     Interpret   PoC Gen
 ```
 
@@ -51,7 +51,7 @@ Se o caminho ou o alvo da auditoria nao estiverem presentes, pare e solicite ess
 - Se algum agente retornar erro ou faltar entrada obrigatoria, pare e reporte o bloqueio.
 - Nao substitua a saida de um agente por suposicao sua.
 - Use exatamente os caminhos produzidos pelos estagios anteriores.
-- Todos os outputs ficam centralizados em `_bmad-output/<projeto>/` - NAO use `_sandboxes/`.
+- Todos os outputs ficam centralizados em `_bmad-output/<projeto>/` — NAO use `_sandboxes/`.
 
 ## FORMATO DE EXECUCAO
 Ao receber uma tarefa, responda apenas com a proxima acao necessaria do pipeline ou com o bloqueio encontrado.
