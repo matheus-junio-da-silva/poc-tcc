@@ -39,12 +39,15 @@ pipeline-output/<projeto>/
 **Uso:** Invoque-o passando o caminho do projeto, URL do GitHub, ou diretorio a ser analisado.
 
 ### 1.1 Certora Orchestrator (`@certora-orchestrator`)
-**Papel:** Ponto unico de entrada do pipeline formal. Dispara os outros agentes em sequencia e valida os handoffs.
+**Papel:** Ponto unico de entrada e Roteador Inteligente (Router). Analisa o contexto do Slither, classifica as superfícies de ataque do contrato e dispara os especialistas relevantes em paralelo.
 **Uso:** Invoque-o com o caminho/URL alvo para iniciar a cadeia completa.
 
-### 2. Certora Property Generator (`@certora-property-generator`)
-**Papel:** Verificador Formal. Lê o código Solidity e o `context.md` do Slither para gerar propriedades formais (CVL) cobrindo Access Control.
-**Uso:** Invocado automaticamente pelo construtor de contexto.
+### 2. Pool de Agentes Especialistas (Property Generators)
+**Papel:** Agentes focados (MoE) que geram propriedades formais (CVL) estritas para uma única vulnerabilidade, evitando Prompt Bloat.
+- `@certora-gen-access-control`: Focado em controle de privilégios.
+- `@certora-gen-reentrancy`: Focado em padrões CEI e estado intermediário.
+- `@certora-gen-math-logic`: Focado em over/underflows e invariantes matemáticas.
+**Uso:** Invocados dinamicamente pelo `@certora-orchestrator` com base nos achados da análise estática.
 
 ### 3. Certora Runner (`@certora-runner`)
 **Papel:** Executor de Provas. Roda o `certoraRun` e avalia erros de sintaxe.

@@ -15,6 +15,18 @@
     "audit:access-control": {
       "template": "Execute o pipeline completo de auditoria de Access Control usando o orquestrador dedicado:\n@certora-orchestrator",
       "description": "Pipeline completo de auditoria formal de Access Control (Slither + Certora + PoC)"
+    },
+    "gen:access-control": {
+      "agent": "certora-gen-access-control",
+      "subtask": true,
+      "template": "Por favor, atue focadamente em Access Control baseado nos arquivos fornecidos.",
+      "description": "Gera spec de Access Control isoladamente"
+    },
+    "gen:reentrancy": {
+      "agent": "certora-gen-reentrancy",
+      "subtask": true,
+      "template": "Por favor, atue focadamente em vulnerabilidades de Reentrância baseado nos arquivos fornecidos.",
+      "description": "Gera spec de Reentrancia isoladamente"
     }
   }
 }
