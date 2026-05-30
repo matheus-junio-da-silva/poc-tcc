@@ -55,7 +55,6 @@ main() {
         "00_env_setup.sh"
         "01_os_deps.sh"
         "02_opencode_install.sh"
-        "03_bmad_install.sh"
         "04_certora.sh"
         "05_foundry.sh"
         "06_verify.sh"

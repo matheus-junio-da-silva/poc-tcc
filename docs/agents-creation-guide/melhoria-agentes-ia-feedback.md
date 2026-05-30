@@ -1,6 +1,6 @@
 # Melhoria de Agentes de IA: Revisão da Literatura e Estrutura Ótima de Feedback
 
-> **Contexto de aplicação:** Agentes BMAD + OpenCode para geração de especificações formais (propriedades Certora) voltadas à detecção de vulnerabilidades em contratos inteligentes Solidity.
+> **Contexto de aplicação:** Agentes OpenCode para geração de especificações formais (propriedades Certora) voltadas à detecção de vulnerabilidades em contratos inteligentes Solidity.
 
 ---
 
