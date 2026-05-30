@@ -27,7 +27,7 @@ from typing import Optional
 
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-OUTPUT_BASE_DIR = os.path.join(PROJECT_ROOT, '_bmad-output')
+OUTPUT_BASE_DIR = os.path.join(PROJECT_ROOT, 'pipeline-output')
 WORKSPACES_DIR = os.path.join(PROJECT_ROOT, '_workspaces')
 REGISTRY_FILE = os.path.join(OUTPUT_BASE_DIR, 'project_registry.json')
 VENV_DIR = os.path.join(PROJECT_ROOT, 'certora_venv')
@@ -47,7 +47,7 @@ class ProjectInfo:
     solc_version: str                      # ex: '0.8.3'
     solc_remaps: list = field(default_factory=list)  # ex: ['@openzeppelin/=node_modules/@openzeppelin/']
     contracts_dir: str = ''                # ex: '/path/to/contracts'
-    output_dir: str = ''                   # ex: '_bmad-output/vader-protocol/'
+    output_dir: str = ''                   # ex: 'pipeline-output/vader-protocol/'
     vuln_type: str = 'access_control'
     has_node_modules: bool = False
     hardhat_config: Optional[str] = None   # path do hardhat.config.js

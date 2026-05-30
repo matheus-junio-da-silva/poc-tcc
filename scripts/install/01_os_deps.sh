@@ -34,11 +34,6 @@ command -v curl &>/dev/null && log_ok "curl" || {
     $SUDO apt-get install -y curl; log_ok "curl instalado"
 }
 
-# expect (necessário para automatizar o instalador interativo do BMad)
-command -v expect &>/dev/null && log_ok "expect" || {
-    $SUDO apt-get install -y expect; log_ok "expect instalado"
-}
-
 # Node.js 20+
 NODE_REQUIRED=20
 if command -v node &>/dev/null; then

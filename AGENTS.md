@@ -17,9 +17,9 @@ Ou pode chamar o orquestrador primário diretamente:
 - **URL do GitHub:** `@certora-orchestrator Analise https://github.com/org/repo`
 
 ### Outputs
-Todos os resultados ficam centralizados em `_bmad-output/<nome_projeto>/`:
+Todos os resultados ficam centralizados em `pipeline-output/<nome_projeto>/`:
 ```
-_bmad-output/<projeto>/
+pipeline-output/<projeto>/
 ├── project_info.json           # Metadados do projeto
 ├── slither_output/context.md   # Contexto do Slither
 ├── specs/                      # Propriedades CVL (.spec + .conf)
@@ -32,7 +32,7 @@ _bmad-output/<projeto>/
 
 ## Agentes do Pipeline
 
-> Cada agente gera seu proprio relatorio de feedback logo apos concluir sua tarefa, em `_bmad-output/feedback-logs/`.
+> Cada agente gera seu proprio relatorio de feedback logo apos concluir sua tarefa, em `pipeline-output/feedback-logs/`.
 
 ### 1. Slither Context Builder (`@slither-context-builder`)
 **Papel:** Orquestrador inicial. Executa o Slither e gera o `context.md`.

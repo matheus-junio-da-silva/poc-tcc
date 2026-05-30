@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# install.sh — BMad Method + OpenCode + Agentes Certora
+# install.sh — OpenCode + Certora + Slither
 # Repositório: poc-tcc
 #
 # Uso:
@@ -41,7 +41,7 @@ trap 'on_error $LINENO' ERR
 main() {
     echo -e "${BOLD}${CYAN}"
     echo "╔══════════════════════════════════════════════════════════╗"
-    echo "║       BMad Method + OpenCode — Script de Instalação      ║"
+    echo "║        OpenCode + Certora — Script de Instalação         ║"
     echo "║           poc-tcc | WSL Ubuntu                           ║"
     echo "╚══════════════════════════════════════════════════════════╝"
     echo -e "${NC}"

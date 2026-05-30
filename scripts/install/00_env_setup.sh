@@ -24,7 +24,7 @@ log_step "0. Preparando ambiente e chaves (.env)"
 if [ ! -f "$ENV_EXAMPLE" ]; then
     cat > "$ENV_EXAMPLE" << 'ENV_EOF'
 # ─────────────────────────────────────────────────────────────
-# Variaveis de ambiente — poc-tcc (BMad + OpenCode + Certora)
+# Variaveis de ambiente — poc-tcc (OpenCode + Certora + Slither)
 # NUNCA commite o arquivo .env
 # ─────────────────────────────────────────────────────────────
 
@@ -33,7 +33,7 @@ if [ ! -f "$ENV_EXAMPLE" ]; then
 CERTORA_MODE=cloud
 CERTORAKEY=sua-chave-certora-aqui
 
-# GitHub Token — opcional, evita rate limit durante instalacao do BMad
+# GitHub Token — opcional, evita rate limit durante downloads do GitHub
 # Obter em: https://github.com/settings/tokens
 GITHUB_TOKEN=
 
